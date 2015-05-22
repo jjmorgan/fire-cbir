@@ -2,7 +2,7 @@
 FIRE-CBIR: Content-Based Image Retrieval
 ========================================
 
-<a name="a" id="a">&nbsp;</a>
+This fork implements an extension to FIRE-CBIR to support feature extraction of animated images and searching on GIF files. Class project for CS 246, UCLA Spring 2015. Below are the original notes, as well as a forward by fish2000.
 
 Acknowledgements
 ----------------
