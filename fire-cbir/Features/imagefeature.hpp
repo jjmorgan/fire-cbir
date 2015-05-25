@@ -43,12 +43,17 @@ typedef struct __HSVPixel {  double h,s,v; } HSVPixel;
 class ImageFeature : public VectorFeature {
 protected:
   /// the dimensions of the image, xsize=width, ysize=height, zsize=depth (color channels etc.)
-  uint xsize_, ysize_, zsize_;
+  uint xsize_, ysize_, zsize_, framecount_;
+  
+  /// current frame index
+  uint frameindex_;
 
-  /// the data itself, here the outer vector represents the layers,
-  /// the inner vector is the vector representation of one layer each.
+  /// pixel data for a still image / first frame of the image
   ::std::vector< ::std::vector<double> > data_;
-
+  
+  /// data for all frames of the images, here the outer vector represents the frame,
+  /// the middle vector is the layer, and the inner vector is pixel data for the frame's layer
+  ::std::vector< ::std::vector< ::std::vector<double> > > frames_data_;
 
 #ifdef HAVE_IMAGE_MAGICK
   /// convert the image to the data structure used by image
@@ -156,6 +161,9 @@ public:
   
   ///depth (number of (color) layers)
   virtual const uint zsize() const {  return zsize_;}
+  
+  ///frame count
+  virtual const uint framecount() const {  return framecount_;}
 
   /// get the idx-th pixel (const)
   virtual double operator[](uint idx) const {  return data_[idx%zsize_][idx/zsize_];}
@@ -166,17 +174,38 @@ public:
   virtual const ::std::vector<double> operator()(uint x, uint y) const;
 
   /// access pixel at position (x,y), layer c
-  virtual double& operator()(uint x, uint y, uint c) {  return data_[c][y*xsize_+x];}
+  virtual double& operator()(uint x, uint y, uint c) {  return frames_data_[frameindex_][c][y*xsize_+x];}
 
   /// access pixel at position (x,y), layer c (const)
-  virtual const double& operator()(uint x, uint y, uint c) const {  return data_[c][y*xsize_+x];}
+  virtual const double& operator()(uint x, uint y, uint c) const {  return frames_data_[frameindex_][c][y*xsize_+x];}
+  
+  /// access pixel at position (x,y), layer c, for frame
+  virtual double& operator()(uint f, uint x, uint y, uint c) {  return frames_data_[f][c][y*xsize_+x];}
+  
+  /// access pixel at position (x,y), layer c (const), for frame (const)
+  virtual const double& operator()(uint f, uint x, uint y, uint c) const {  return frames_data_[f][c][y*xsize_+x];}
 
   /// append the layers from the given ImageFeature to the current one
   virtual void append(const ImageFeature& img);
 
   /// return the corresponding layer as imagefeature
   virtual const ImageFeature layer(const uint i) const;
-
+  
+  /// set frame index
+  virtual bool setframe(const uint f) {
+	if (f < 0 || f > framecount_)
+	  return false;
+    frameindex_ = f;
+	return true;
+  }
+  
+  /// increment frame index
+  virtual bool nextframe() {
+    if (frameindex_ == framecount_ - 1)
+      return false;
+    frameindex_++;
+	return true;
+  }
 
   // return the value of pixel (x, y) as a HSV pixel
   HSVPixel hsvPixel(int x, int y);

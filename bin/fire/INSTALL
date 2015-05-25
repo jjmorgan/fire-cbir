@@ -1,0 +1,163 @@
+This document tries to give a short overview on how to make a running
+demo system using fire and a small database.
+
+You need several things.
+ - the FIRE archive (that you probably have, as you obviously can read
+   this text)
+ - an apache web server (maybe you already have one, anyway here in
+   this document it is described how to compile your own one.)
+ - to be able to use ALL features of fire you will need several libs. 
+   Some of them are publicly available, but not all:
+   
+   * KD-Tree library by Javi Cano: 
+     This library is released under GPL, but as far as I know there is
+     no public download site. You need it for
+     globallocalfeaturedistance, which is not one of the most
+     important features. Thus you can probably live without it. Anyway
+     if you want to use it, feel free to contact either me, or Javi
+     himself (http://www.iti.upv.es/~jcano/). I am pretty sure that he
+     will give it to you, don't forget to greet him from me :-)
+     But I propose to start without it. To do so, remove all lines
+     starting with KDTREE from the Makefile.
+
+
+   * interpolation library by Philipe Thevenaz
+     http://bigwww.epfl.ch/thevenaz/interpolation/
+
+     mkdir interpol
+     cd interpol
+     wget http://bigwww.epfl.ch/thevenaz/interpolation/interpol.tar
+     tar -xf interpol.tar
+     mv interpol/* .
+     
+     this library is needed for interpolation of images, some routines
+     in imagelib need them and the invariant feature extraction tools
+     need them. You probably want to use it.
+
+  * libfft
+    is available for most linux distributions.
+    This is necessary for Gabor features. As currently gabor features
+    are not yet very much tested, you probably won't need it.
+
+    Here I suggest to start without it, too. To do so, remove all
+    lines starting with FFT_ from the Makefile
+
+
+INSTALLING APACHE
+  go to the apache website and get the latest version of their HTTP server
+  currently this is 2.0.53.
+  In the following I assume that you want to install FIRE in the
+  directory $FIREDST
+
+  mkdir $FIREDST
+  cd $FIREDST
+  mkdir apache
+  tar -xzf (YOURDOWNLOADDIR)/httpd-2.0.53.tar.gz
+  cd httpd-2.0.53
+  ./configure --prefix $FIREDST/apache
+  make 
+  make install
+
+
+
+INSTALLING FIRE
+  mkdir $FIREDST/fire
+  cd $FIREDST/fire
+  tar -xvzf (YOURDOWNLOADDIR)/fire-v2.0.1.tar.gz
+
+  then get the libraries (kdtree?, interpol?, fft?) you need and put
+  them to places consistent with those you configure in the Makefile
+
+  Once you have done so, you can enter
+
+  make fire 
+ 
+  which compiles the fire binary only or
+
+  make all
+
+  which will compile the fire binary and all feature extraction tools.
+
+  This should run rather smoothly although some people report that
+  they have to tweak the code slightly if they are using a different
+  flavor of unix than linux. 
+
+
+SETTING UP THE WEBINTERFACE:
+  Copy fire.py from the cgi directory in the fire sources to fire.cgi
+  to the cgi-bin directory of your apache installation.
+
+  Copy deuteriumconfig.py from the cgi directory in the fire sources to config.py
+  in cgi-bin directory of your apache installation and change the
+  pathes to the appropriate places. if your webserver and your fire
+  server are the same computer (as I assume) change
+  fireServer="deuterium" to fireServer="localhost". This one is the
+  most crucial setting, all the others should not influence the
+  functionality of fire.
+
+  Copy img.py from the cgi directory in the fire sources to the
+  cgi-bin directory of your apache server
+
+  Furthermore you should copy the imagefiles postive.png,
+  negative.png, neutral.png to places that can be accessed via the the
+  web and change config.py accordingly.
+
+  After this you should be able to access your fire webinterface and
+  it should say something like "fire server not available" as you have
+  not yet started one.
+ 
+
+SETTING UP A DATABASE:
+  To setup a database for FIRE you need several things:
+
+  let's say you have a directory database were you have some images
+  (something between 100 and 1000 should be enough for a start).
+
+  Then you have to extract features from these images. To make it easy I
+  will explain this for color histograms.
+
+  go to the directory where you have your images (assuming all images
+  are jpg, although fire can read lots of different formats as it uses
+  the routines from imagemagick) and call
+
+  extractcolorhistogram --color --images *.jpg
+
+  this then extracts color histograms for all your images.
+
+  then you make a filelist which you can load using fire. this has to be
+  of the following form:
+
+  ------
+  FIRE_filelist
+  path <pathtoyourimages>
+  suffix color.histo.gz
+  file image1.jpg
+  file image2.jpg
+  file
+  ...
+  ..
+  ..
+  -----
+
+  When you have done this, you can use fire to read this database:
+
+  fire -f <pathtoyourfilelist> -d 0 jsd -r 10
+
+  to start a fire loading this filelist, set distance 0 to jsd (which
+  automatically sets the weight for distance 0 to 1.0, and to make fire
+  return
+  the 10 best matches for every query.
+
+  Having done so, you should be able to contact fire e.g. by the
+  webinterface
+  or for easier testing you can use telnet.
+
+  ---
+  # telnet localhost 12960   # to connect to fire
+
+  and you can use e.g. the command "info" to get some information about
+  the state of fire or use help to get a list of all available commands.
+
+  With "bye" you can disconnect from fire, with quit you can end the
+  server.
+

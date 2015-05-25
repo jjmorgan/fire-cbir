@@ -61,17 +61,19 @@ typedef unsigned int uint;
 
 ///simple debug-output macro
 
+#define SHOWALL 0
+
 #define DBGI(level,instruction) \
  if(DEBUG_LEVEL>=level && CheckRuntimeDebugLevel(level)) instruction
 #ifdef _SUNPRO_CC
 #define DBG(level) \
- if(DEBUG_LEVEL>=level && CheckRuntimeDebugLevel(level)) ::std::cout << "(" << ((int)(level)) << ") [" << __FILE__<<":"<<__LINE__<<"] "
+ if((DEBUG_LEVEL>=level && CheckRuntimeDebugLevel(level)) || SHOWALL) ::std::cout << "(" << ((int)(level)) << ") [" << __FILE__<<":"<<__LINE__<<"] "
 #else
 #define DBG(level) \
- if(DEBUG_LEVEL>=level && CheckRuntimeDebugLevel(level)) ::std::cout << "(" << ((int)(level)) << ") [" << __FILE__<<":"<<__LINE__<<":"<<__FUNCTION__<<"] "
+ if((DEBUG_LEVEL>=level && CheckRuntimeDebugLevel(level)) || SHOWALL) ::std::cout << "(" << ((int)(level)) << ") [" << __FILE__<<":"<<__LINE__<<":"<<__FUNCTION__<<"] "
 #endif
 #define BLINK(level) \
- if(DEBUG_LEVEL>=level && CheckRuntimeDebugLevel(level)) ::std::cout 
+ if((DEBUG_LEVEL>=level && CheckRuntimeDebugLevel(level)) || SHOWALL) ::std::cout 
 
 ///even simpler error-message macro
 #ifdef _SUNPRO_CC

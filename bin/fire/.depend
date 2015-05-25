@@ -1,0 +1,1579 @@
+objects/powerpc/Lapack.o: Lapack.cpp Lapack.hh
+objects/powerpc/basefeature.o: basefeature.cpp gzstream.hpp basefeature.hpp diag.hpp
+objects/powerpc/calcsalientpoints.o: calcsalientpoints.cpp salientpoints.hpp \
+  imagefeature.hpp vectorfeature.hpp basefeature.hpp diag.hpp \
+  /sw/include/Magick++.h /sw/include/Magick++/Image.h \
+  /sw/include/Magick++/Include.h /sw/include/magick/magick_config.h \
+  /sw/include/magick/api.h /sw/include/magick/ImageMagick.h \
+  /sw/include/magick/semaphore.h /sw/include/magick/animate.h \
+  /sw/include/magick/annotate.h /sw/include/magick/draw.h \
+  /sw/include/magick/type.h /sw/include/magick/attribute.h \
+  /sw/include/magick/blob.h /sw/include/magick/image.h \
+  /sw/include/magick/color.h /sw/include/magick/exception.h \
+  /sw/include/magick/stream.h /sw/include/magick/cache.h \
+  /sw/include/magick/cache_view.h /sw/include/magick/coder.h \
+  /sw/include/magick/client.h /sw/include/magick/colorspace.h \
+  /sw/include/magick/compare.h /sw/include/magick/composite.h \
+  /sw/include/magick/compress.h /sw/include/magick/configure.h \
+  /sw/include/magick/hashmap.h /sw/include/magick/constitute.h \
+  /sw/include/magick/convert.h /sw/include/magick/decorate.h \
+  /sw/include/magick/delegate.h /sw/include/magick/deprecate.h \
+  /sw/include/magick/pixel.h /sw/include/magick/display.h \
+  /sw/include/magick/effect.h /sw/include/magick/enhance.h \
+  /sw/include/magick/fx.h /sw/include/magick/gem.h \
+  /sw/include/magick/geometry.h /sw/include/magick/identify.h \
+  /sw/include/magick/import.h /sw/include/magick/list.h \
+  /sw/include/magick/locale_.h /sw/include/magick/log.h \
+  /sw/include/magick/magic.h /sw/include/magick/magick.h \
+  /sw/include/magick/memory_.h /sw/include/magick/module.h \
+  /sw/include/magick/mogrify.h /sw/include/magick/monitor.h \
+  /sw/include/magick/montage.h /sw/include/magick/option.h \
+  /sw/include/magick/paint.h /sw/include/magick/profile.h \
+  /sw/include/magick/string_.h /sw/include/magick/quantize.h \
+  /sw/include/magick/registry.h /sw/include/magick/random.h \
+  /sw/include/magick/resize.h /sw/include/magick/resource_.h \
+  /sw/include/magick/segment.h /sw/include/magick/shear.h \
+  /sw/include/magick/signature.h /sw/include/magick/timer.h \
+  /sw/include/magick/token.h /sw/include/magick/transform.h \
+  /sw/include/magick/utility.h /sw/include/magick/version.h \
+  /sw/include/wand/magick_wand.h /sw/include/wand/drawing_wand.h \
+  /sw/include/wand/pixel_wand.h /sw/include/wand/pixel_iterator.h \
+  /sw/include/Magick++/Blob.h /sw/include/Magick++/Color.h \
+  /sw/include/Magick++/Drawable.h /sw/include/Magick++/Geometry.h \
+  /sw/include/Magick++/Exception.h /sw/include/Magick++/TypeMetric.h \
+  /sw/include/Magick++/Pixels.h /sw/include/Magick++/STL.h \
+  /sw/include/Magick++/CoderInfo.h /sw/include/Magick++/Montage.h \
+  point.hpp
+objects/powerpc/colorhsv.o: colorhsv.cpp colorhsv.hpp
+objects/powerpc/colororgray.o: colororgray.cpp diag.hpp imagefeature.hpp \
+  vectorfeature.hpp basefeature.hpp /sw/include/Magick++.h \
+  /sw/include/Magick++/Image.h /sw/include/Magick++/Include.h \
+  /sw/include/magick/magick_config.h /sw/include/magick/api.h \
+  /sw/include/magick/ImageMagick.h /sw/include/magick/semaphore.h \
+  /sw/include/magick/animate.h /sw/include/magick/annotate.h \
+  /sw/include/magick/draw.h /sw/include/magick/type.h \
+  /sw/include/magick/attribute.h /sw/include/magick/blob.h \
+  /sw/include/magick/image.h /sw/include/magick/color.h \
+  /sw/include/magick/exception.h /sw/include/magick/stream.h \
+  /sw/include/magick/cache.h /sw/include/magick/cache_view.h \
+  /sw/include/magick/coder.h /sw/include/magick/client.h \
+  /sw/include/magick/colorspace.h /sw/include/magick/compare.h \
+  /sw/include/magick/composite.h /sw/include/magick/compress.h \
+  /sw/include/magick/configure.h /sw/include/magick/hashmap.h \
+  /sw/include/magick/constitute.h /sw/include/magick/convert.h \
+  /sw/include/magick/decorate.h /sw/include/magick/delegate.h \
+  /sw/include/magick/deprecate.h /sw/include/magick/pixel.h \
+  /sw/include/magick/display.h /sw/include/magick/effect.h \
+  /sw/include/magick/enhance.h /sw/include/magick/fx.h \
+  /sw/include/magick/gem.h /sw/include/magick/geometry.h \
+  /sw/include/magick/identify.h /sw/include/magick/import.h \
+  /sw/include/magick/list.h /sw/include/magick/locale_.h \
+  /sw/include/magick/log.h /sw/include/magick/magic.h \
+  /sw/include/magick/magick.h /sw/include/magick/memory_.h \
+  /sw/include/magick/module.h /sw/include/magick/mogrify.h \
+  /sw/include/magick/monitor.h /sw/include/magick/montage.h \
+  /sw/include/magick/option.h /sw/include/magick/paint.h \
+  /sw/include/magick/profile.h /sw/include/magick/string_.h \
+  /sw/include/magick/quantize.h /sw/include/magick/registry.h \
+  /sw/include/magick/random.h /sw/include/magick/resize.h \
+  /sw/include/magick/resource_.h /sw/include/magick/segment.h \
+  /sw/include/magick/shear.h /sw/include/magick/signature.h \
+  /sw/include/magick/timer.h /sw/include/magick/token.h \
+  /sw/include/magick/transform.h /sw/include/magick/utility.h \
+  /sw/include/magick/version.h /sw/include/wand/magick_wand.h \
+  /sw/include/wand/drawing_wand.h /sw/include/wand/pixel_wand.h \
+  /sw/include/wand/pixel_iterator.h /sw/include/Magick++/Blob.h \
+  /sw/include/Magick++/Color.h /sw/include/Magick++/Drawable.h \
+  /sw/include/Magick++/Geometry.h /sw/include/Magick++/Exception.h \
+  /sw/include/Magick++/TypeMetric.h /sw/include/Magick++/Pixels.h \
+  /sw/include/Magick++/STL.h /sw/include/Magick++/CoderInfo.h \
+  /sw/include/Magick++/Montage.h getpot.hpp
+objects/powerpc/createlfkdtree.o: createlfkdtree.cpp localfeatures.hpp \
+  vectorvectorfeature.hpp basefeature.hpp diag.hpp getpot.hpp \
+  gzstream.hpp
+objects/powerpc/createsparsehisto.o: createsparsehisto.cpp sparsehistogramfeature.hpp \
+  basefeature.hpp diag.hpp createsparsehisto.hpp imagefeature.hpp \
+  vectorfeature.hpp /sw/include/Magick++.h /sw/include/Magick++/Image.h \
+  /sw/include/Magick++/Include.h /sw/include/magick/magick_config.h \
+  /sw/include/magick/api.h /sw/include/magick/ImageMagick.h \
+  /sw/include/magick/semaphore.h /sw/include/magick/animate.h \
+  /sw/include/magick/annotate.h /sw/include/magick/draw.h \
+  /sw/include/magick/type.h /sw/include/magick/attribute.h \
+  /sw/include/magick/blob.h /sw/include/magick/image.h \
+  /sw/include/magick/color.h /sw/include/magick/exception.h \
+  /sw/include/magick/stream.h /sw/include/magick/cache.h \
+  /sw/include/magick/cache_view.h /sw/include/magick/coder.h \
+  /sw/include/magick/client.h /sw/include/magick/colorspace.h \
+  /sw/include/magick/compare.h /sw/include/magick/composite.h \
+  /sw/include/magick/compress.h /sw/include/magick/configure.h \
+  /sw/include/magick/hashmap.h /sw/include/magick/constitute.h \
+  /sw/include/magick/convert.h /sw/include/magick/decorate.h \
+  /sw/include/magick/delegate.h /sw/include/magick/deprecate.h \
+  /sw/include/magick/pixel.h /sw/include/magick/display.h \
+  /sw/include/magick/effect.h /sw/include/magick/enhance.h \
+  /sw/include/magick/fx.h /sw/include/magick/gem.h \
+  /sw/include/magick/geometry.h /sw/include/magick/identify.h \
+  /sw/include/magick/import.h /sw/include/magick/list.h \
+  /sw/include/magick/locale_.h /sw/include/magick/log.h \
+  /sw/include/magick/magic.h /sw/include/magick/magick.h \
+  /sw/include/magick/memory_.h /sw/include/magick/module.h \
+  /sw/include/magick/mogrify.h /sw/include/magick/monitor.h \
+  /sw/include/magick/montage.h /sw/include/magick/option.h \
+  /sw/include/magick/paint.h /sw/include/magick/profile.h \
+  /sw/include/magick/string_.h /sw/include/magick/quantize.h \
+  /sw/include/magick/registry.h /sw/include/magick/random.h \
+  /sw/include/magick/resize.h /sw/include/magick/resource_.h \
+  /sw/include/magick/segment.h /sw/include/magick/shear.h \
+  /sw/include/magick/signature.h /sw/include/magick/timer.h \
+  /sw/include/magick/token.h /sw/include/magick/transform.h \
+  /sw/include/magick/utility.h /sw/include/magick/version.h \
+  /sw/include/wand/magick_wand.h /sw/include/wand/drawing_wand.h \
+  /sw/include/wand/pixel_wand.h /sw/include/wand/pixel_iterator.h \
+  /sw/include/Magick++/Blob.h /sw/include/Magick++/Color.h \
+  /sw/include/Magick++/Drawable.h /sw/include/Magick++/Geometry.h \
+  /sw/include/Magick++/Exception.h /sw/include/Magick++/TypeMetric.h \
+  /sw/include/Magick++/Pixels.h /sw/include/Magick++/STL.h \
+  /sw/include/Magick++/CoderInfo.h /sw/include/Magick++/Montage.h \
+  getpot.hpp jflib.hpp
+objects/powerpc/database.o: database.cpp database.hpp imagecontainer.hpp diag.hpp \
+  basefeature.hpp featureloader.hpp gzstream.hpp imagefeature.hpp \
+  vectorfeature.hpp /sw/include/Magick++.h /sw/include/Magick++/Image.h \
+  /sw/include/Magick++/Include.h /sw/include/magick/magick_config.h \
+  /sw/include/magick/api.h /sw/include/magick/ImageMagick.h \
+  /sw/include/magick/semaphore.h /sw/include/magick/animate.h \
+  /sw/include/magick/annotate.h /sw/include/magick/draw.h \
+  /sw/include/magick/type.h /sw/include/magick/attribute.h \
+  /sw/include/magick/blob.h /sw/include/magick/image.h \
+  /sw/include/magick/color.h /sw/include/magick/exception.h \
+  /sw/include/magick/stream.h /sw/include/magick/cache.h \
+  /sw/include/magick/cache_view.h /sw/include/magick/coder.h \
+  /sw/include/magick/client.h /sw/include/magick/colorspace.h \
+  /sw/include/magick/compare.h /sw/include/magick/composite.h \
+  /sw/include/magick/compress.h /sw/include/magick/configure.h \
+  /sw/include/magick/hashmap.h /sw/include/magick/constitute.h \
+  /sw/include/magick/convert.h /sw/include/magick/decorate.h \
+  /sw/include/magick/delegate.h /sw/include/magick/deprecate.h \
+  /sw/include/magick/pixel.h /sw/include/magick/display.h \
+  /sw/include/magick/effect.h /sw/include/magick/enhance.h \
+  /sw/include/magick/fx.h /sw/include/magick/gem.h \
+  /sw/include/magick/geometry.h /sw/include/magick/identify.h \
+  /sw/include/magick/import.h /sw/include/magick/list.h \
+  /sw/include/magick/locale_.h /sw/include/magick/log.h \
+  /sw/include/magick/magic.h /sw/include/magick/magick.h \
+  /sw/include/magick/memory_.h /sw/include/magick/module.h \
+  /sw/include/magick/mogrify.h /sw/include/magick/monitor.h \
+  /sw/include/magick/montage.h /sw/include/magick/option.h \
+  /sw/include/magick/paint.h /sw/include/magick/profile.h \
+  /sw/include/magick/string_.h /sw/include/magick/quantize.h \
+  /sw/include/magick/registry.h /sw/include/magick/random.h \
+  /sw/include/magick/resize.h /sw/include/magick/resource_.h \
+  /sw/include/magick/segment.h /sw/include/magick/shear.h \
+  /sw/include/magick/signature.h /sw/include/magick/timer.h \
+  /sw/include/magick/token.h /sw/include/magick/transform.h \
+  /sw/include/magick/utility.h /sw/include/magick/version.h \
+  /sw/include/wand/magick_wand.h /sw/include/wand/drawing_wand.h \
+  /sw/include/wand/pixel_wand.h /sw/include/wand/pixel_iterator.h \
+  /sw/include/Magick++/Blob.h /sw/include/Magick++/Color.h \
+  /sw/include/Magick++/Drawable.h /sw/include/Magick++/Geometry.h \
+  /sw/include/Magick++/Exception.h /sw/include/Magick++/TypeMetric.h \
+  /sw/include/Magick++/Pixels.h /sw/include/Magick++/STL.h \
+  /sw/include/Magick++/CoderInfo.h /sw/include/Magick++/Montage.h \
+  localfeatures.hpp vectorvectorfeature.hpp binaryfeature.hpp \
+  metafeature.hpp textfeature.hpp largefeaturefile.hpp mpeg7feature.hpp \
+  histogramfeature.hpp sparsehistogramfeature.hpp \
+  histogrampairfeature.hpp distancefilefeature.hpp facefeature.hpp
+objects/powerpc/db2lff.o: db2lff.cpp vectorfeature.hpp basefeature.hpp diag.hpp \
+  getpot.hpp database.hpp imagecontainer.hpp featureloader.hpp \
+  largefeaturefile.hpp gzstream.hpp jflib.hpp
+objects/powerpc/diag.o: diag.cpp diag.hpp
+objects/powerpc/dist_globallocalfeaturedistance.o: dist_globallocalfeaturedistance.cpp \
+  dist_globallocalfeaturedistance.hpp vectorfeature.hpp basefeature.hpp \
+  diag.hpp vectorvectorfeature.hpp basedistance.hpp localfeatures.hpp
+objects/powerpc/dist_idm.o: dist_idm.cpp dist_idm.hpp vectorfeature.hpp basefeature.hpp \
+  diag.hpp basedistance.hpp imagefeature.hpp /sw/include/Magick++.h \
+  /sw/include/Magick++/Image.h /sw/include/Magick++/Include.h \
+  /sw/include/magick/magick_config.h /sw/include/magick/api.h \
+  /sw/include/magick/ImageMagick.h /sw/include/magick/semaphore.h \
+  /sw/include/magick/animate.h /sw/include/magick/annotate.h \
+  /sw/include/magick/draw.h /sw/include/magick/type.h \
+  /sw/include/magick/attribute.h /sw/include/magick/blob.h \
+  /sw/include/magick/image.h /sw/include/magick/color.h \
+  /sw/include/magick/exception.h /sw/include/magick/stream.h \
+  /sw/include/magick/cache.h /sw/include/magick/cache_view.h \
+  /sw/include/magick/coder.h /sw/include/magick/client.h \
+  /sw/include/magick/colorspace.h /sw/include/magick/compare.h \
+  /sw/include/magick/composite.h /sw/include/magick/compress.h \
+  /sw/include/magick/configure.h /sw/include/magick/hashmap.h \
+  /sw/include/magick/constitute.h /sw/include/magick/convert.h \
+  /sw/include/magick/decorate.h /sw/include/magick/delegate.h \
+  /sw/include/magick/deprecate.h /sw/include/magick/pixel.h \
+  /sw/include/magick/display.h /sw/include/magick/effect.h \
+  /sw/include/magick/enhance.h /sw/include/magick/fx.h \
+  /sw/include/magick/gem.h /sw/include/magick/geometry.h \
+  /sw/include/magick/identify.h /sw/include/magick/import.h \
+  /sw/include/magick/list.h /sw/include/magick/locale_.h \
+  /sw/include/magick/log.h /sw/include/magick/magic.h \
+  /sw/include/magick/magick.h /sw/include/magick/memory_.h \
+  /sw/include/magick/module.h /sw/include/magick/mogrify.h \
+  /sw/include/magick/monitor.h /sw/include/magick/montage.h \
+  /sw/include/magick/option.h /sw/include/magick/paint.h \
+  /sw/include/magick/profile.h /sw/include/magick/string_.h \
+  /sw/include/magick/quantize.h /sw/include/magick/registry.h \
+  /sw/include/magick/random.h /sw/include/magick/resize.h \
+  /sw/include/magick/resource_.h /sw/include/magick/segment.h \
+  /sw/include/magick/shear.h /sw/include/magick/signature.h \
+  /sw/include/magick/timer.h /sw/include/magick/token.h \
+  /sw/include/magick/transform.h /sw/include/magick/utility.h \
+  /sw/include/magick/version.h /sw/include/wand/magick_wand.h \
+  /sw/include/wand/drawing_wand.h /sw/include/wand/pixel_wand.h \
+  /sw/include/wand/pixel_iterator.h /sw/include/Magick++/Blob.h \
+  /sw/include/Magick++/Color.h /sw/include/Magick++/Drawable.h \
+  /sw/include/Magick++/Geometry.h /sw/include/Magick++/Exception.h \
+  /sw/include/Magick++/TypeMetric.h /sw/include/Magick++/Pixels.h \
+  /sw/include/Magick++/STL.h /sw/include/Magick++/CoderInfo.h \
+  /sw/include/Magick++/Montage.h imagelib.hpp affinetransformation.hpp \
+  dist_euclidean.hpp
+objects/powerpc/dist_mpeg7.o: dist_mpeg7.cpp dist_mpeg7.hpp vectorfeature.hpp \
+  basefeature.hpp diag.hpp basedistance.hpp mpeg7feature.hpp pstream.hpp
+objects/powerpc/dist_textfeature.o: dist_textfeature.cpp dist_textfeature.hpp \
+  basedistance.hpp basefeature.hpp diag.hpp textfeature.hpp net.hpp
+objects/powerpc/distancemaker.o: distancemaker.cpp distancemaker.hpp diag.hpp \
+  basedistance.hpp basefeature.hpp dist_euclidean.hpp vectorfeature.hpp \
+  dist_crosscorrelation.hpp imagefeature.hpp /sw/include/Magick++.h \
+  /sw/include/Magick++/Image.h /sw/include/Magick++/Include.h \
+  /sw/include/magick/magick_config.h /sw/include/magick/api.h \
+  /sw/include/magick/ImageMagick.h /sw/include/magick/semaphore.h \
+  /sw/include/magick/animate.h /sw/include/magick/annotate.h \
+  /sw/include/magick/draw.h /sw/include/magick/type.h \
+  /sw/include/magick/attribute.h /sw/include/magick/blob.h \
+  /sw/include/magick/image.h /sw/include/magick/color.h \
+  /sw/include/magick/exception.h /sw/include/magick/stream.h \
+  /sw/include/magick/cache.h /sw/include/magick/cache_view.h \
+  /sw/include/magick/coder.h /sw/include/magick/client.h \
+  /sw/include/magick/colorspace.h /sw/include/magick/compare.h \
+  /sw/include/magick/composite.h /sw/include/magick/compress.h \
+  /sw/include/magick/configure.h /sw/include/magick/hashmap.h \
+  /sw/include/magick/constitute.h /sw/include/magick/convert.h \
+  /sw/include/magick/decorate.h /sw/include/magick/delegate.h \
+  /sw/include/magick/deprecate.h /sw/include/magick/pixel.h \
+  /sw/include/magick/display.h /sw/include/magick/effect.h \
+  /sw/include/magick/enhance.h /sw/include/magick/fx.h \
+  /sw/include/magick/gem.h /sw/include/magick/geometry.h \
+  /sw/include/magick/identify.h /sw/include/magick/import.h \
+  /sw/include/magick/list.h /sw/include/magick/locale_.h \
+  /sw/include/magick/log.h /sw/include/magick/magic.h \
+  /sw/include/magick/magick.h /sw/include/magick/memory_.h \
+  /sw/include/magick/module.h /sw/include/magick/mogrify.h \
+  /sw/include/magick/monitor.h /sw/include/magick/montage.h \
+  /sw/include/magick/option.h /sw/include/magick/paint.h \
+  /sw/include/magick/profile.h /sw/include/magick/string_.h \
+  /sw/include/magick/quantize.h /sw/include/magick/registry.h \
+  /sw/include/magick/random.h /sw/include/magick/resize.h \
+  /sw/include/magick/resource_.h /sw/include/magick/segment.h \
+  /sw/include/magick/shear.h /sw/include/magick/signature.h \
+  /sw/include/magick/timer.h /sw/include/magick/token.h \
+  /sw/include/magick/transform.h /sw/include/magick/utility.h \
+  /sw/include/magick/version.h /sw/include/wand/magick_wand.h \
+  /sw/include/wand/drawing_wand.h /sw/include/wand/pixel_wand.h \
+  /sw/include/wand/pixel_iterator.h /sw/include/Magick++/Blob.h \
+  /sw/include/Magick++/Color.h /sw/include/Magick++/Drawable.h \
+  /sw/include/Magick++/Geometry.h /sw/include/Magick++/Exception.h \
+  /sw/include/Magick++/TypeMetric.h /sw/include/Magick++/Pixels.h \
+  /sw/include/Magick++/STL.h /sw/include/Magick++/CoderInfo.h \
+  /sw/include/Magick++/Montage.h dist_l1.hpp dist_jsd.hpp \
+  sparsehistogramfeature.hpp dist_kld.hpp dist_chisquare.hpp \
+  dist_histogramintersection.hpp dist_reldev.hpp dist_relbindev.hpp \
+  dist_oneminusfidelity.hpp dist_sqrtoneminusfidelity.hpp \
+  dist_logtwominusfidelity.hpp dist_arccosfidelity.hpp \
+  dist_oneminusfidelitysquare.hpp dist_idm.hpp dist_binaryfeature.hpp \
+  binaryfeature.hpp dist_globallocalfeaturedistance.hpp \
+  vectorvectorfeature.hpp dist_metafeature.hpp metafeature.hpp \
+  dist_textfeature.hpp dist_mpeg7.hpp dist_histogrampair.hpp \
+  histogrampairfeature.hpp histogramfeature.hpp dist_distfile.hpp \
+  basescoring.hpp imagecomparator.hpp imagecontainer.hpp \
+  distancefilefeature.hpp getscoring.hpp dist_lfhungarian.hpp \
+  localfeatures.hpp hungarian.h dist_facefeature.hpp facefeature.hpp
+objects/powerpc/extractaspectratio.o: extractaspectratio.cpp getpot.hpp gzstream.hpp \
+  diag.hpp imagefeature.hpp vectorfeature.hpp basefeature.hpp \
+  /sw/include/Magick++.h /sw/include/Magick++/Image.h \
+  /sw/include/Magick++/Include.h /sw/include/magick/magick_config.h \
+  /sw/include/magick/api.h /sw/include/magick/ImageMagick.h \
+  /sw/include/magick/semaphore.h /sw/include/magick/animate.h \
+  /sw/include/magick/annotate.h /sw/include/magick/draw.h \
+  /sw/include/magick/type.h /sw/include/magick/attribute.h \
+  /sw/include/magick/blob.h /sw/include/magick/image.h \
+  /sw/include/magick/color.h /sw/include/magick/exception.h \
+  /sw/include/magick/stream.h /sw/include/magick/cache.h \
+  /sw/include/magick/cache_view.h /sw/include/magick/coder.h \
+  /sw/include/magick/client.h /sw/include/magick/colorspace.h \
+  /sw/include/magick/compare.h /sw/include/magick/composite.h \
+  /sw/include/magick/compress.h /sw/include/magick/configure.h \
+  /sw/include/magick/hashmap.h /sw/include/magick/constitute.h \
+  /sw/include/magick/convert.h /sw/include/magick/decorate.h \
+  /sw/include/magick/delegate.h /sw/include/magick/deprecate.h \
+  /sw/include/magick/pixel.h /sw/include/magick/display.h \
+  /sw/include/magick/effect.h /sw/include/magick/enhance.h \
+  /sw/include/magick/fx.h /sw/include/magick/gem.h \
+  /sw/include/magick/geometry.h /sw/include/magick/identify.h \
+  /sw/include/magick/import.h /sw/include/magick/list.h \
+  /sw/include/magick/locale_.h /sw/include/magick/log.h \
+  /sw/include/magick/magic.h /sw/include/magick/magick.h \
+  /sw/include/magick/memory_.h /sw/include/magick/module.h \
+  /sw/include/magick/mogrify.h /sw/include/magick/monitor.h \
+  /sw/include/magick/montage.h /sw/include/magick/option.h \
+  /sw/include/magick/paint.h /sw/include/magick/profile.h \
+  /sw/include/magick/string_.h /sw/include/magick/quantize.h \
+  /sw/include/magick/registry.h /sw/include/magick/random.h \
+  /sw/include/magick/resize.h /sw/include/magick/resource_.h \
+  /sw/include/magick/segment.h /sw/include/magick/shear.h \
+  /sw/include/magick/signature.h /sw/include/magick/timer.h \
+  /sw/include/magick/token.h /sw/include/magick/transform.h \
+  /sw/include/magick/utility.h /sw/include/magick/version.h \
+  /sw/include/wand/magick_wand.h /sw/include/wand/drawing_wand.h \
+  /sw/include/wand/pixel_wand.h /sw/include/wand/pixel_iterator.h \
+  /sw/include/Magick++/Blob.h /sw/include/Magick++/Color.h \
+  /sw/include/Magick++/Drawable.h /sw/include/Magick++/Geometry.h \
+  /sw/include/Magick++/Exception.h /sw/include/Magick++/TypeMetric.h \
+  /sw/include/Magick++/Pixels.h /sw/include/Magick++/STL.h \
+  /sw/include/Magick++/CoderInfo.h /sw/include/Magick++/Montage.h
+objects/powerpc/extractcolorhistogram.o: extractcolorhistogram.cpp getpot.hpp \
+  gzstream.hpp diag.hpp imagefeature.hpp vectorfeature.hpp \
+  basefeature.hpp /sw/include/Magick++.h /sw/include/Magick++/Image.h \
+  /sw/include/Magick++/Include.h /sw/include/magick/magick_config.h \
+  /sw/include/magick/api.h /sw/include/magick/ImageMagick.h \
+  /sw/include/magick/semaphore.h /sw/include/magick/animate.h \
+  /sw/include/magick/annotate.h /sw/include/magick/draw.h \
+  /sw/include/magick/type.h /sw/include/magick/attribute.h \
+  /sw/include/magick/blob.h /sw/include/magick/image.h \
+  /sw/include/magick/color.h /sw/include/magick/exception.h \
+  /sw/include/magick/stream.h /sw/include/magick/cache.h \
+  /sw/include/magick/cache_view.h /sw/include/magick/coder.h \
+  /sw/include/magick/client.h /sw/include/magick/colorspace.h \
+  /sw/include/magick/compare.h /sw/include/magick/composite.h \
+  /sw/include/magick/compress.h /sw/include/magick/configure.h \
+  /sw/include/magick/hashmap.h /sw/include/magick/constitute.h \
+  /sw/include/magick/convert.h /sw/include/magick/decorate.h \
+  /sw/include/magick/delegate.h /sw/include/magick/deprecate.h \
+  /sw/include/magick/pixel.h /sw/include/magick/display.h \
+  /sw/include/magick/effect.h /sw/include/magick/enhance.h \
+  /sw/include/magick/fx.h /sw/include/magick/gem.h \
+  /sw/include/magick/geometry.h /sw/include/magick/identify.h \
+  /sw/include/magick/import.h /sw/include/magick/list.h \
+  /sw/include/magick/locale_.h /sw/include/magick/log.h \
+  /sw/include/magick/magic.h /sw/include/magick/magick.h \
+  /sw/include/magick/memory_.h /sw/include/magick/module.h \
+  /sw/include/magick/mogrify.h /sw/include/magick/monitor.h \
+  /sw/include/magick/montage.h /sw/include/magick/option.h \
+  /sw/include/magick/paint.h /sw/include/magick/profile.h \
+  /sw/include/magick/string_.h /sw/include/magick/quantize.h \
+  /sw/include/magick/registry.h /sw/include/magick/random.h \
+  /sw/include/magick/resize.h /sw/include/magick/resource_.h \
+  /sw/include/magick/segment.h /sw/include/magick/shear.h \
+  /sw/include/magick/signature.h /sw/include/magick/timer.h \
+  /sw/include/magick/token.h /sw/include/magick/transform.h \
+  /sw/include/magick/utility.h /sw/include/magick/version.h \
+  /sw/include/wand/magick_wand.h /sw/include/wand/drawing_wand.h \
+  /sw/include/wand/pixel_wand.h /sw/include/wand/pixel_iterator.h \
+  /sw/include/Magick++/Blob.h /sw/include/Magick++/Color.h \
+  /sw/include/Magick++/Drawable.h /sw/include/Magick++/Geometry.h \
+  /sw/include/Magick++/Exception.h /sw/include/Magick++/TypeMetric.h \
+  /sw/include/Magick++/Pixels.h /sw/include/Magick++/STL.h \
+  /sw/include/Magick++/CoderInfo.h /sw/include/Magick++/Montage.h \
+  histogramfeature.hpp
+objects/powerpc/extractgaborfeaturevector.o: extractgaborfeaturevector.cpp getpot.hpp \
+  gzstream.hpp diag.hpp gabor.hpp imagefeature.hpp vectorfeature.hpp \
+  basefeature.hpp /sw/include/Magick++.h /sw/include/Magick++/Image.h \
+  /sw/include/Magick++/Include.h /sw/include/magick/magick_config.h \
+  /sw/include/magick/api.h /sw/include/magick/ImageMagick.h \
+  /sw/include/magick/semaphore.h /sw/include/magick/animate.h \
+  /sw/include/magick/annotate.h /sw/include/magick/draw.h \
+  /sw/include/magick/type.h /sw/include/magick/attribute.h \
+  /sw/include/magick/blob.h /sw/include/magick/image.h \
+  /sw/include/magick/color.h /sw/include/magick/exception.h \
+  /sw/include/magick/stream.h /sw/include/magick/cache.h \
+  /sw/include/magick/cache_view.h /sw/include/magick/coder.h \
+  /sw/include/magick/client.h /sw/include/magick/colorspace.h \
+  /sw/include/magick/compare.h /sw/include/magick/composite.h \
+  /sw/include/magick/compress.h /sw/include/magick/configure.h \
+  /sw/include/magick/hashmap.h /sw/include/magick/constitute.h \
+  /sw/include/magick/convert.h /sw/include/magick/decorate.h \
+  /sw/include/magick/delegate.h /sw/include/magick/deprecate.h \
+  /sw/include/magick/pixel.h /sw/include/magick/display.h \
+  /sw/include/magick/effect.h /sw/include/magick/enhance.h \
+  /sw/include/magick/fx.h /sw/include/magick/gem.h \
+  /sw/include/magick/geometry.h /sw/include/magick/identify.h \
+  /sw/include/magick/import.h /sw/include/magick/list.h \
+  /sw/include/magick/locale_.h /sw/include/magick/log.h \
+  /sw/include/magick/magic.h /sw/include/magick/magick.h \
+  /sw/include/magick/memory_.h /sw/include/magick/module.h \
+  /sw/include/magick/mogrify.h /sw/include/magick/monitor.h \
+  /sw/include/magick/montage.h /sw/include/magick/option.h \
+  /sw/include/magick/paint.h /sw/include/magick/profile.h \
+  /sw/include/magick/string_.h /sw/include/magick/quantize.h \
+  /sw/include/magick/registry.h /sw/include/magick/random.h \
+  /sw/include/magick/resize.h /sw/include/magick/resource_.h \
+  /sw/include/magick/segment.h /sw/include/magick/shear.h \
+  /sw/include/magick/signature.h /sw/include/magick/timer.h \
+  /sw/include/magick/token.h /sw/include/magick/transform.h \
+  /sw/include/magick/utility.h /sw/include/magick/version.h \
+  /sw/include/wand/magick_wand.h /sw/include/wand/drawing_wand.h \
+  /sw/include/wand/pixel_wand.h /sw/include/wand/pixel_iterator.h \
+  /sw/include/Magick++/Blob.h /sw/include/Magick++/Color.h \
+  /sw/include/Magick++/Drawable.h /sw/include/Magick++/Geometry.h \
+  /sw/include/Magick++/Exception.h /sw/include/Magick++/TypeMetric.h \
+  /sw/include/Magick++/Pixels.h /sw/include/Magick++/STL.h \
+  /sw/include/Magick++/CoderInfo.h /sw/include/Magick++/Montage.h \
+  imagelib.hpp affinetransformation.hpp
+objects/powerpc/extractglobaltexturefeature.o: extractglobaltexturefeature.cpp getpot.hpp \
+  gzstream.hpp diag.hpp globalfeatureextraction.hpp vectorfeature.hpp \
+  basefeature.hpp imagefeature.hpp /sw/include/Magick++.h \
+  /sw/include/Magick++/Image.h /sw/include/Magick++/Include.h \
+  /sw/include/magick/magick_config.h /sw/include/magick/api.h \
+  /sw/include/magick/ImageMagick.h /sw/include/magick/semaphore.h \
+  /sw/include/magick/animate.h /sw/include/magick/annotate.h \
+  /sw/include/magick/draw.h /sw/include/magick/type.h \
+  /sw/include/magick/attribute.h /sw/include/magick/blob.h \
+  /sw/include/magick/image.h /sw/include/magick/color.h \
+  /sw/include/magick/exception.h /sw/include/magick/stream.h \
+  /sw/include/magick/cache.h /sw/include/magick/cache_view.h \
+  /sw/include/magick/coder.h /sw/include/magick/client.h \
+  /sw/include/magick/colorspace.h /sw/include/magick/compare.h \
+  /sw/include/magick/composite.h /sw/include/magick/compress.h \
+  /sw/include/magick/configure.h /sw/include/magick/hashmap.h \
+  /sw/include/magick/constitute.h /sw/include/magick/convert.h \
+  /sw/include/magick/decorate.h /sw/include/magick/delegate.h \
+  /sw/include/magick/deprecate.h /sw/include/magick/pixel.h \
+  /sw/include/magick/display.h /sw/include/magick/effect.h \
+  /sw/include/magick/enhance.h /sw/include/magick/fx.h \
+  /sw/include/magick/gem.h /sw/include/magick/geometry.h \
+  /sw/include/magick/identify.h /sw/include/magick/import.h \
+  /sw/include/magick/list.h /sw/include/magick/locale_.h \
+  /sw/include/magick/log.h /sw/include/magick/magic.h \
+  /sw/include/magick/magick.h /sw/include/magick/memory_.h \
+  /sw/include/magick/module.h /sw/include/magick/mogrify.h \
+  /sw/include/magick/monitor.h /sw/include/magick/montage.h \
+  /sw/include/magick/option.h /sw/include/magick/paint.h \
+  /sw/include/magick/profile.h /sw/include/magick/string_.h \
+  /sw/include/magick/quantize.h /sw/include/magick/registry.h \
+  /sw/include/magick/random.h /sw/include/magick/resize.h \
+  /sw/include/magick/resource_.h /sw/include/magick/segment.h \
+  /sw/include/magick/shear.h /sw/include/magick/signature.h \
+  /sw/include/magick/timer.h /sw/include/magick/token.h \
+  /sw/include/magick/transform.h /sw/include/magick/utility.h \
+  /sw/include/magick/version.h /sw/include/wand/magick_wand.h \
+  /sw/include/wand/drawing_wand.h /sw/include/wand/pixel_wand.h \
+  /sw/include/wand/pixel_iterator.h /sw/include/Magick++/Blob.h \
+  /sw/include/Magick++/Color.h /sw/include/Magick++/Drawable.h \
+  /sw/include/Magick++/Geometry.h /sw/include/Magick++/Exception.h \
+  /sw/include/Magick++/TypeMetric.h /sw/include/Magick++/Pixels.h \
+  /sw/include/Magick++/STL.h /sw/include/Magick++/CoderInfo.h \
+  /sw/include/Magick++/Montage.h
+objects/powerpc/extractinvariantfeaturehistogram.o: extractinvariantfeaturehistogram.cpp \
+  getpot.hpp gzstream.hpp diag.hpp imagefeature.hpp vectorfeature.hpp \
+  basefeature.hpp /sw/include/Magick++.h /sw/include/Magick++/Image.h \
+  /sw/include/Magick++/Include.h /sw/include/magick/magick_config.h \
+  /sw/include/magick/api.h /sw/include/magick/ImageMagick.h \
+  /sw/include/magick/semaphore.h /sw/include/magick/animate.h \
+  /sw/include/magick/annotate.h /sw/include/magick/draw.h \
+  /sw/include/magick/type.h /sw/include/magick/attribute.h \
+  /sw/include/magick/blob.h /sw/include/magick/image.h \
+  /sw/include/magick/color.h /sw/include/magick/exception.h \
+  /sw/include/magick/stream.h /sw/include/magick/cache.h \
+  /sw/include/magick/cache_view.h /sw/include/magick/coder.h \
+  /sw/include/magick/client.h /sw/include/magick/colorspace.h \
+  /sw/include/magick/compare.h /sw/include/magick/composite.h \
+  /sw/include/magick/compress.h /sw/include/magick/configure.h \
+  /sw/include/magick/hashmap.h /sw/include/magick/constitute.h \
+  /sw/include/magick/convert.h /sw/include/magick/decorate.h \
+  /sw/include/magick/delegate.h /sw/include/magick/deprecate.h \
+  /sw/include/magick/pixel.h /sw/include/magick/display.h \
+  /sw/include/magick/effect.h /sw/include/magick/enhance.h \
+  /sw/include/magick/fx.h /sw/include/magick/gem.h \
+  /sw/include/magick/geometry.h /sw/include/magick/identify.h \
+  /sw/include/magick/import.h /sw/include/magick/list.h \
+  /sw/include/magick/locale_.h /sw/include/magick/log.h \
+  /sw/include/magick/magic.h /sw/include/magick/magick.h \
+  /sw/include/magick/memory_.h /sw/include/magick/module.h \
+  /sw/include/magick/mogrify.h /sw/include/magick/monitor.h \
+  /sw/include/magick/montage.h /sw/include/magick/option.h \
+  /sw/include/magick/paint.h /sw/include/magick/profile.h \
+  /sw/include/magick/string_.h /sw/include/magick/quantize.h \
+  /sw/include/magick/registry.h /sw/include/magick/random.h \
+  /sw/include/magick/resize.h /sw/include/magick/resource_.h \
+  /sw/include/magick/segment.h /sw/include/magick/shear.h \
+  /sw/include/magick/signature.h /sw/include/magick/timer.h \
+  /sw/include/magick/token.h /sw/include/magick/transform.h \
+  /sw/include/magick/utility.h /sw/include/magick/version.h \
+  /sw/include/wand/magick_wand.h /sw/include/wand/drawing_wand.h \
+  /sw/include/wand/pixel_wand.h /sw/include/wand/pixel_iterator.h \
+  /sw/include/Magick++/Blob.h /sw/include/Magick++/Color.h \
+  /sw/include/Magick++/Drawable.h /sw/include/Magick++/Geometry.h \
+  /sw/include/Magick++/Exception.h /sw/include/Magick++/TypeMetric.h \
+  /sw/include/Magick++/Pixels.h /sw/include/Magick++/STL.h \
+  /sw/include/Magick++/CoderInfo.h /sw/include/Magick++/Montage.h \
+  histogramfeature.hpp invariantfeaturehistogram.hpp \
+  kernelfunctionmaker.hpp kernelfunction.hpp interpolatingimage.hpp \
+  monomial1kernelfunction.hpp monomial2kernelfunction.hpp \
+  monomial3kernelfunction.hpp relationalkernelfunction.hpp imagelib.hpp \
+  affinetransformation.hpp
+objects/powerpc/extractlocalfeatures.o: extractlocalfeatures.cpp localfeatures.hpp \
+  vectorvectorfeature.hpp basefeature.hpp diag.hpp imagefeature.hpp \
+  vectorfeature.hpp /sw/include/Magick++.h /sw/include/Magick++/Image.h \
+  /sw/include/Magick++/Include.h /sw/include/magick/magick_config.h \
+  /sw/include/magick/api.h /sw/include/magick/ImageMagick.h \
+  /sw/include/magick/semaphore.h /sw/include/magick/animate.h \
+  /sw/include/magick/annotate.h /sw/include/magick/draw.h \
+  /sw/include/magick/type.h /sw/include/magick/attribute.h \
+  /sw/include/magick/blob.h /sw/include/magick/image.h \
+  /sw/include/magick/color.h /sw/include/magick/exception.h \
+  /sw/include/magick/stream.h /sw/include/magick/cache.h \
+  /sw/include/magick/cache_view.h /sw/include/magick/coder.h \
+  /sw/include/magick/client.h /sw/include/magick/colorspace.h \
+  /sw/include/magick/compare.h /sw/include/magick/composite.h \
+  /sw/include/magick/compress.h /sw/include/magick/configure.h \
+  /sw/include/magick/hashmap.h /sw/include/magick/constitute.h \
+  /sw/include/magick/convert.h /sw/include/magick/decorate.h \
+  /sw/include/magick/delegate.h /sw/include/magick/deprecate.h \
+  /sw/include/magick/pixel.h /sw/include/magick/display.h \
+  /sw/include/magick/effect.h /sw/include/magick/enhance.h \
+  /sw/include/magick/fx.h /sw/include/magick/gem.h \
+  /sw/include/magick/geometry.h /sw/include/magick/identify.h \
+  /sw/include/magick/import.h /sw/include/magick/list.h \
+  /sw/include/magick/locale_.h /sw/include/magick/log.h \
+  /sw/include/magick/magic.h /sw/include/magick/magick.h \
+  /sw/include/magick/memory_.h /sw/include/magick/module.h \
+  /sw/include/magick/mogrify.h /sw/include/magick/monitor.h \
+  /sw/include/magick/montage.h /sw/include/magick/option.h \
+  /sw/include/magick/paint.h /sw/include/magick/profile.h \
+  /sw/include/magick/string_.h /sw/include/magick/quantize.h \
+  /sw/include/magick/registry.h /sw/include/magick/random.h \
+  /sw/include/magick/resize.h /sw/include/magick/resource_.h \
+  /sw/include/magick/segment.h /sw/include/magick/shear.h \
+  /sw/include/magick/signature.h /sw/include/magick/timer.h \
+  /sw/include/magick/token.h /sw/include/magick/transform.h \
+  /sw/include/magick/utility.h /sw/include/magick/version.h \
+  /sw/include/wand/magick_wand.h /sw/include/wand/drawing_wand.h \
+  /sw/include/wand/pixel_wand.h /sw/include/wand/pixel_iterator.h \
+  /sw/include/Magick++/Blob.h /sw/include/Magick++/Color.h \
+  /sw/include/Magick++/Drawable.h /sw/include/Magick++/Geometry.h \
+  /sw/include/Magick++/Exception.h /sw/include/Magick++/TypeMetric.h \
+  /sw/include/Magick++/Pixels.h /sw/include/Magick++/STL.h \
+  /sw/include/Magick++/CoderInfo.h /sw/include/Magick++/Montage.h \
+  getpot.hpp imagelib.hpp affinetransformation.hpp gzstream.hpp pca.hpp \
+  sift.hpp colorhsv.hpp salientpoints.hpp point.hpp
+objects/powerpc/extractrelationalfeaturehistogram.o:  \
+ extractrelationalfeaturehistogram.cpp getpot.hpp gzstream.hpp diag.hpp \
+  imagefeature.hpp vectorfeature.hpp basefeature.hpp \
+  /sw/include/Magick++.h /sw/include/Magick++/Image.h \
+  /sw/include/Magick++/Include.h /sw/include/magick/magick_config.h \
+  /sw/include/magick/api.h /sw/include/magick/ImageMagick.h \
+  /sw/include/magick/semaphore.h /sw/include/magick/animate.h \
+  /sw/include/magick/annotate.h /sw/include/magick/draw.h \
+  /sw/include/magick/type.h /sw/include/magick/attribute.h \
+  /sw/include/magick/blob.h /sw/include/magick/image.h \
+  /sw/include/magick/color.h /sw/include/magick/exception.h \
+  /sw/include/magick/stream.h /sw/include/magick/cache.h \
+  /sw/include/magick/cache_view.h /sw/include/magick/coder.h \
+  /sw/include/magick/client.h /sw/include/magick/colorspace.h \
+  /sw/include/magick/compare.h /sw/include/magick/composite.h \
+  /sw/include/magick/compress.h /sw/include/magick/configure.h \
+  /sw/include/magick/hashmap.h /sw/include/magick/constitute.h \
+  /sw/include/magick/convert.h /sw/include/magick/decorate.h \
+  /sw/include/magick/delegate.h /sw/include/magick/deprecate.h \
+  /sw/include/magick/pixel.h /sw/include/magick/display.h \
+  /sw/include/magick/effect.h /sw/include/magick/enhance.h \
+  /sw/include/magick/fx.h /sw/include/magick/gem.h \
+  /sw/include/magick/geometry.h /sw/include/magick/identify.h \
+  /sw/include/magick/import.h /sw/include/magick/list.h \
+  /sw/include/magick/locale_.h /sw/include/magick/log.h \
+  /sw/include/magick/magic.h /sw/include/magick/magick.h \
+  /sw/include/magick/memory_.h /sw/include/magick/module.h \
+  /sw/include/magick/mogrify.h /sw/include/magick/monitor.h \
+  /sw/include/magick/montage.h /sw/include/magick/option.h \
+  /sw/include/magick/paint.h /sw/include/magick/profile.h \
+  /sw/include/magick/string_.h /sw/include/magick/quantize.h \
+  /sw/include/magick/registry.h /sw/include/magick/random.h \
+  /sw/include/magick/resize.h /sw/include/magick/resource_.h \
+  /sw/include/magick/segment.h /sw/include/magick/shear.h \
+  /sw/include/magick/signature.h /sw/include/magick/timer.h \
+  /sw/include/magick/token.h /sw/include/magick/transform.h \
+  /sw/include/magick/utility.h /sw/include/magick/version.h \
+  /sw/include/wand/magick_wand.h /sw/include/wand/drawing_wand.h \
+  /sw/include/wand/pixel_wand.h /sw/include/wand/pixel_iterator.h \
+  /sw/include/Magick++/Blob.h /sw/include/Magick++/Color.h \
+  /sw/include/Magick++/Drawable.h /sw/include/Magick++/Geometry.h \
+  /sw/include/Magick++/Exception.h /sw/include/Magick++/TypeMetric.h \
+  /sw/include/Magick++/Pixels.h /sw/include/Magick++/STL.h \
+  /sw/include/Magick++/CoderInfo.h /sw/include/Magick++/Montage.h \
+  histogramfeature.hpp relationalfeaturehistogram.hpp kernelfunction.hpp \
+  interpolatingimage.hpp imagelib.hpp affinetransformation.hpp
+objects/powerpc/extractsparsegaborhistogram.o: extractsparsegaborhistogram.cpp \
+  createsparsehisto.hpp imagefeature.hpp vectorfeature.hpp \
+  basefeature.hpp diag.hpp /sw/include/Magick++.h \
+  /sw/include/Magick++/Image.h /sw/include/Magick++/Include.h \
+  /sw/include/magick/magick_config.h /sw/include/magick/api.h \
+  /sw/include/magick/ImageMagick.h /sw/include/magick/semaphore.h \
+  /sw/include/magick/animate.h /sw/include/magick/annotate.h \
+  /sw/include/magick/draw.h /sw/include/magick/type.h \
+  /sw/include/magick/attribute.h /sw/include/magick/blob.h \
+  /sw/include/magick/image.h /sw/include/magick/color.h \
+  /sw/include/magick/exception.h /sw/include/magick/stream.h \
+  /sw/include/magick/cache.h /sw/include/magick/cache_view.h \
+  /sw/include/magick/coder.h /sw/include/magick/client.h \
+  /sw/include/magick/colorspace.h /sw/include/magick/compare.h \
+  /sw/include/magick/composite.h /sw/include/magick/compress.h \
+  /sw/include/magick/configure.h /sw/include/magick/hashmap.h \
+  /sw/include/magick/constitute.h /sw/include/magick/convert.h \
+  /sw/include/magick/decorate.h /sw/include/magick/delegate.h \
+  /sw/include/magick/deprecate.h /sw/include/magick/pixel.h \
+  /sw/include/magick/display.h /sw/include/magick/effect.h \
+  /sw/include/magick/enhance.h /sw/include/magick/fx.h \
+  /sw/include/magick/gem.h /sw/include/magick/geometry.h \
+  /sw/include/magick/identify.h /sw/include/magick/import.h \
+  /sw/include/magick/list.h /sw/include/magick/locale_.h \
+  /sw/include/magick/log.h /sw/include/magick/magic.h \
+  /sw/include/magick/magick.h /sw/include/magick/memory_.h \
+  /sw/include/magick/module.h /sw/include/magick/mogrify.h \
+  /sw/include/magick/monitor.h /sw/include/magick/montage.h \
+  /sw/include/magick/option.h /sw/include/magick/paint.h \
+  /sw/include/magick/profile.h /sw/include/magick/string_.h \
+  /sw/include/magick/quantize.h /sw/include/magick/registry.h \
+  /sw/include/magick/random.h /sw/include/magick/resize.h \
+  /sw/include/magick/resource_.h /sw/include/magick/segment.h \
+  /sw/include/magick/shear.h /sw/include/magick/signature.h \
+  /sw/include/magick/timer.h /sw/include/magick/token.h \
+  /sw/include/magick/transform.h /sw/include/magick/utility.h \
+  /sw/include/magick/version.h /sw/include/wand/magick_wand.h \
+  /sw/include/wand/drawing_wand.h /sw/include/wand/pixel_wand.h \
+  /sw/include/wand/pixel_iterator.h /sw/include/Magick++/Blob.h \
+  /sw/include/Magick++/Color.h /sw/include/Magick++/Drawable.h \
+  /sw/include/Magick++/Geometry.h /sw/include/Magick++/Exception.h \
+  /sw/include/Magick++/TypeMetric.h /sw/include/Magick++/Pixels.h \
+  /sw/include/Magick++/STL.h /sw/include/Magick++/CoderInfo.h \
+  /sw/include/Magick++/Montage.h getpot.hpp gabor.hpp gzstream.hpp \
+  imagelib.hpp affinetransformation.hpp jflib.hpp
+objects/powerpc/extracttamuratexturefeature.o: extracttamuratexturefeature.cpp getpot.hpp \
+  gzstream.hpp diag.hpp imagefeature.hpp vectorfeature.hpp \
+  basefeature.hpp /sw/include/Magick++.h /sw/include/Magick++/Image.h \
+  /sw/include/Magick++/Include.h /sw/include/magick/magick_config.h \
+  /sw/include/magick/api.h /sw/include/magick/ImageMagick.h \
+  /sw/include/magick/semaphore.h /sw/include/magick/animate.h \
+  /sw/include/magick/annotate.h /sw/include/magick/draw.h \
+  /sw/include/magick/type.h /sw/include/magick/attribute.h \
+  /sw/include/magick/blob.h /sw/include/magick/image.h \
+  /sw/include/magick/color.h /sw/include/magick/exception.h \
+  /sw/include/magick/stream.h /sw/include/magick/cache.h \
+  /sw/include/magick/cache_view.h /sw/include/magick/coder.h \
+  /sw/include/magick/client.h /sw/include/magick/colorspace.h \
+  /sw/include/magick/compare.h /sw/include/magick/composite.h \
+  /sw/include/magick/compress.h /sw/include/magick/configure.h \
+  /sw/include/magick/hashmap.h /sw/include/magick/constitute.h \
+  /sw/include/magick/convert.h /sw/include/magick/decorate.h \
+  /sw/include/magick/delegate.h /sw/include/magick/deprecate.h \
+  /sw/include/magick/pixel.h /sw/include/magick/display.h \
+  /sw/include/magick/effect.h /sw/include/magick/enhance.h \
+  /sw/include/magick/fx.h /sw/include/magick/gem.h \
+  /sw/include/magick/geometry.h /sw/include/magick/identify.h \
+  /sw/include/magick/import.h /sw/include/magick/list.h \
+  /sw/include/magick/locale_.h /sw/include/magick/log.h \
+  /sw/include/magick/magic.h /sw/include/magick/magick.h \
+  /sw/include/magick/memory_.h /sw/include/magick/module.h \
+  /sw/include/magick/mogrify.h /sw/include/magick/monitor.h \
+  /sw/include/magick/montage.h /sw/include/magick/option.h \
+  /sw/include/magick/paint.h /sw/include/magick/profile.h \
+  /sw/include/magick/string_.h /sw/include/magick/quantize.h \
+  /sw/include/magick/registry.h /sw/include/magick/random.h \
+  /sw/include/magick/resize.h /sw/include/magick/resource_.h \
+  /sw/include/magick/segment.h /sw/include/magick/shear.h \
+  /sw/include/magick/signature.h /sw/include/magick/timer.h \
+  /sw/include/magick/token.h /sw/include/magick/transform.h \
+  /sw/include/magick/utility.h /sw/include/magick/version.h \
+  /sw/include/wand/magick_wand.h /sw/include/wand/drawing_wand.h \
+  /sw/include/wand/pixel_wand.h /sw/include/wand/pixel_iterator.h \
+  /sw/include/Magick++/Blob.h /sw/include/Magick++/Color.h \
+  /sw/include/Magick++/Drawable.h /sw/include/Magick++/Geometry.h \
+  /sw/include/Magick++/Exception.h /sw/include/Magick++/TypeMetric.h \
+  /sw/include/Magick++/Pixels.h /sw/include/Magick++/STL.h \
+  /sw/include/Magick++/CoderInfo.h /sw/include/Magick++/Montage.h \
+  histogramfeature.hpp tamurafeature.hpp imagelib.hpp \
+  affinetransformation.hpp
+objects/powerpc/extracttemplate.o: extracttemplate.cpp getpot.hpp gzstream.hpp diag.hpp
+objects/powerpc/featureloader.o: featureloader.cpp featureloader.hpp diag.hpp \
+  basefeature.hpp vectorfeature.hpp imagefeature.hpp \
+  /sw/include/Magick++.h /sw/include/Magick++/Image.h \
+  /sw/include/Magick++/Include.h /sw/include/magick/magick_config.h \
+  /sw/include/magick/api.h /sw/include/magick/ImageMagick.h \
+  /sw/include/magick/semaphore.h /sw/include/magick/animate.h \
+  /sw/include/magick/annotate.h /sw/include/magick/draw.h \
+  /sw/include/magick/type.h /sw/include/magick/attribute.h \
+  /sw/include/magick/blob.h /sw/include/magick/image.h \
+  /sw/include/magick/color.h /sw/include/magick/exception.h \
+  /sw/include/magick/stream.h /sw/include/magick/cache.h \
+  /sw/include/magick/cache_view.h /sw/include/magick/coder.h \
+  /sw/include/magick/client.h /sw/include/magick/colorspace.h \
+  /sw/include/magick/compare.h /sw/include/magick/composite.h \
+  /sw/include/magick/compress.h /sw/include/magick/configure.h \
+  /sw/include/magick/hashmap.h /sw/include/magick/constitute.h \
+  /sw/include/magick/convert.h /sw/include/magick/decorate.h \
+  /sw/include/magick/delegate.h /sw/include/magick/deprecate.h \
+  /sw/include/magick/pixel.h /sw/include/magick/display.h \
+  /sw/include/magick/effect.h /sw/include/magick/enhance.h \
+  /sw/include/magick/fx.h /sw/include/magick/gem.h \
+  /sw/include/magick/geometry.h /sw/include/magick/identify.h \
+  /sw/include/magick/import.h /sw/include/magick/list.h \
+  /sw/include/magick/locale_.h /sw/include/magick/log.h \
+  /sw/include/magick/magic.h /sw/include/magick/magick.h \
+  /sw/include/magick/memory_.h /sw/include/magick/module.h \
+  /sw/include/magick/mogrify.h /sw/include/magick/monitor.h \
+  /sw/include/magick/montage.h /sw/include/magick/option.h \
+  /sw/include/magick/paint.h /sw/include/magick/profile.h \
+  /sw/include/magick/string_.h /sw/include/magick/quantize.h \
+  /sw/include/magick/registry.h /sw/include/magick/random.h \
+  /sw/include/magick/resize.h /sw/include/magick/resource_.h \
+  /sw/include/magick/segment.h /sw/include/magick/shear.h \
+  /sw/include/magick/signature.h /sw/include/magick/timer.h \
+  /sw/include/magick/token.h /sw/include/magick/transform.h \
+  /sw/include/magick/utility.h /sw/include/magick/version.h \
+  /sw/include/wand/magick_wand.h /sw/include/wand/drawing_wand.h \
+  /sw/include/wand/pixel_wand.h /sw/include/wand/pixel_iterator.h \
+  /sw/include/Magick++/Blob.h /sw/include/Magick++/Color.h \
+  /sw/include/Magick++/Drawable.h /sw/include/Magick++/Geometry.h \
+  /sw/include/Magick++/Exception.h /sw/include/Magick++/TypeMetric.h \
+  /sw/include/Magick++/Pixels.h /sw/include/Magick++/STL.h \
+  /sw/include/Magick++/CoderInfo.h /sw/include/Magick++/Montage.h \
+  histogramfeature.hpp sparsehistogramfeature.hpp binaryfeature.hpp \
+  localfeatures.hpp vectorvectorfeature.hpp metafeature.hpp \
+  textfeature.hpp histogrampairfeature.hpp mpeg7feature.hpp \
+  distancefilefeature.hpp facefeature.hpp
+objects/powerpc/fire.o: fire.cpp diag.hpp getpot.hpp server.hpp distancemaker.hpp \
+  basedistance.hpp basefeature.hpp dist_euclidean.hpp vectorfeature.hpp \
+  dist_crosscorrelation.hpp imagefeature.hpp /sw/include/Magick++.h \
+  /sw/include/Magick++/Image.h /sw/include/Magick++/Include.h \
+  /sw/include/magick/magick_config.h /sw/include/magick/api.h \
+  /sw/include/magick/ImageMagick.h /sw/include/magick/semaphore.h \
+  /sw/include/magick/animate.h /sw/include/magick/annotate.h \
+  /sw/include/magick/draw.h /sw/include/magick/type.h \
+  /sw/include/magick/attribute.h /sw/include/magick/blob.h \
+  /sw/include/magick/image.h /sw/include/magick/color.h \
+  /sw/include/magick/exception.h /sw/include/magick/stream.h \
+  /sw/include/magick/cache.h /sw/include/magick/cache_view.h \
+  /sw/include/magick/coder.h /sw/include/magick/client.h \
+  /sw/include/magick/colorspace.h /sw/include/magick/compare.h \
+  /sw/include/magick/composite.h /sw/include/magick/compress.h \
+  /sw/include/magick/configure.h /sw/include/magick/hashmap.h \
+  /sw/include/magick/constitute.h /sw/include/magick/convert.h \
+  /sw/include/magick/decorate.h /sw/include/magick/delegate.h \
+  /sw/include/magick/deprecate.h /sw/include/magick/pixel.h \
+  /sw/include/magick/display.h /sw/include/magick/effect.h \
+  /sw/include/magick/enhance.h /sw/include/magick/fx.h \
+  /sw/include/magick/gem.h /sw/include/magick/geometry.h \
+  /sw/include/magick/identify.h /sw/include/magick/import.h \
+  /sw/include/magick/list.h /sw/include/magick/locale_.h \
+  /sw/include/magick/log.h /sw/include/magick/magic.h \
+  /sw/include/magick/magick.h /sw/include/magick/memory_.h \
+  /sw/include/magick/module.h /sw/include/magick/mogrify.h \
+  /sw/include/magick/monitor.h /sw/include/magick/montage.h \
+  /sw/include/magick/option.h /sw/include/magick/paint.h \
+  /sw/include/magick/profile.h /sw/include/magick/string_.h \
+  /sw/include/magick/quantize.h /sw/include/magick/registry.h \
+  /sw/include/magick/random.h /sw/include/magick/resize.h \
+  /sw/include/magick/resource_.h /sw/include/magick/segment.h \
+  /sw/include/magick/shear.h /sw/include/magick/signature.h \
+  /sw/include/magick/timer.h /sw/include/magick/token.h \
+  /sw/include/magick/transform.h /sw/include/magick/utility.h \
+  /sw/include/magick/version.h /sw/include/wand/magick_wand.h \
+  /sw/include/wand/drawing_wand.h /sw/include/wand/pixel_wand.h \
+  /sw/include/wand/pixel_iterator.h /sw/include/Magick++/Blob.h \
+  /sw/include/Magick++/Color.h /sw/include/Magick++/Drawable.h \
+  /sw/include/Magick++/Geometry.h /sw/include/Magick++/Exception.h \
+  /sw/include/Magick++/TypeMetric.h /sw/include/Magick++/Pixels.h \
+  /sw/include/Magick++/STL.h /sw/include/Magick++/CoderInfo.h \
+  /sw/include/Magick++/Montage.h dist_l1.hpp dist_jsd.hpp \
+  sparsehistogramfeature.hpp dist_kld.hpp dist_chisquare.hpp \
+  dist_histogramintersection.hpp dist_reldev.hpp dist_relbindev.hpp \
+  dist_oneminusfidelity.hpp dist_sqrtoneminusfidelity.hpp \
+  dist_logtwominusfidelity.hpp dist_arccosfidelity.hpp \
+  dist_oneminusfidelitysquare.hpp dist_idm.hpp dist_binaryfeature.hpp \
+  binaryfeature.hpp dist_globallocalfeaturedistance.hpp \
+  vectorvectorfeature.hpp dist_metafeature.hpp metafeature.hpp \
+  dist_textfeature.hpp dist_mpeg7.hpp dist_histogrampair.hpp \
+  histogrampairfeature.hpp histogramfeature.hpp dist_distfile.hpp \
+  basescoring.hpp imagecomparator.hpp imagecontainer.hpp \
+  distancefilefeature.hpp getscoring.hpp dist_lfhungarian.hpp \
+  localfeatures.hpp hungarian.h dist_facefeature.hpp facefeature.hpp \
+  retriever.hpp database.hpp featureloader.hpp linearscoring.hpp \
+  gzstream.hpp maxentscoring.hpp distanceinteractor.hpp logfile.hpp
+objects/powerpc/gabor.o: gabor.cpp gabor.hpp imagefeature.hpp vectorfeature.hpp \
+  basefeature.hpp diag.hpp /sw/include/Magick++.h \
+  /sw/include/Magick++/Image.h /sw/include/Magick++/Include.h \
+  /sw/include/magick/magick_config.h /sw/include/magick/api.h \
+  /sw/include/magick/ImageMagick.h /sw/include/magick/semaphore.h \
+  /sw/include/magick/animate.h /sw/include/magick/annotate.h \
+  /sw/include/magick/draw.h /sw/include/magick/type.h \
+  /sw/include/magick/attribute.h /sw/include/magick/blob.h \
+  /sw/include/magick/image.h /sw/include/magick/color.h \
+  /sw/include/magick/exception.h /sw/include/magick/stream.h \
+  /sw/include/magick/cache.h /sw/include/magick/cache_view.h \
+  /sw/include/magick/coder.h /sw/include/magick/client.h \
+  /sw/include/magick/colorspace.h /sw/include/magick/compare.h \
+  /sw/include/magick/composite.h /sw/include/magick/compress.h \
+  /sw/include/magick/configure.h /sw/include/magick/hashmap.h \
+  /sw/include/magick/constitute.h /sw/include/magick/convert.h \
+  /sw/include/magick/decorate.h /sw/include/magick/delegate.h \
+  /sw/include/magick/deprecate.h /sw/include/magick/pixel.h \
+  /sw/include/magick/display.h /sw/include/magick/effect.h \
+  /sw/include/magick/enhance.h /sw/include/magick/fx.h \
+  /sw/include/magick/gem.h /sw/include/magick/geometry.h \
+  /sw/include/magick/identify.h /sw/include/magick/import.h \
+  /sw/include/magick/list.h /sw/include/magick/locale_.h \
+  /sw/include/magick/log.h /sw/include/magick/magic.h \
+  /sw/include/magick/magick.h /sw/include/magick/memory_.h \
+  /sw/include/magick/module.h /sw/include/magick/mogrify.h \
+  /sw/include/magick/monitor.h /sw/include/magick/montage.h \
+  /sw/include/magick/option.h /sw/include/magick/paint.h \
+  /sw/include/magick/profile.h /sw/include/magick/string_.h \
+  /sw/include/magick/quantize.h /sw/include/magick/registry.h \
+  /sw/include/magick/random.h /sw/include/magick/resize.h \
+  /sw/include/magick/resource_.h /sw/include/magick/segment.h \
+  /sw/include/magick/shear.h /sw/include/magick/signature.h \
+  /sw/include/magick/timer.h /sw/include/magick/token.h \
+  /sw/include/magick/transform.h /sw/include/magick/utility.h \
+  /sw/include/magick/version.h /sw/include/wand/magick_wand.h \
+  /sw/include/wand/drawing_wand.h /sw/include/wand/pixel_wand.h \
+  /sw/include/wand/pixel_iterator.h /sw/include/Magick++/Blob.h \
+  /sw/include/Magick++/Color.h /sw/include/Magick++/Drawable.h \
+  /sw/include/Magick++/Geometry.h /sw/include/Magick++/Exception.h \
+  /sw/include/Magick++/TypeMetric.h /sw/include/Magick++/Pixels.h \
+  /sw/include/Magick++/STL.h /sw/include/Magick++/CoderInfo.h \
+  /sw/include/Magick++/Montage.h colorhsv.hpp imagelib.hpp \
+  affinetransformation.hpp
+objects/powerpc/getscoring.o: getscoring.cpp basescoring.hpp diag.hpp imagecomparator.hpp \
+  basedistance.hpp basefeature.hpp imagecontainer.hpp maxentscoring.hpp \
+  linearscoring.hpp gzstream.hpp getscoring.hpp \
+  maxentscoringsecondorder.hpp maxentscoringfirstandsecondorder.hpp
+objects/powerpc/globalfeatureextraction.o: globalfeatureextraction.cpp vectorfeature.hpp \
+  basefeature.hpp diag.hpp imagelib.hpp imagefeature.hpp \
+  /sw/include/Magick++.h /sw/include/Magick++/Image.h \
+  /sw/include/Magick++/Include.h /sw/include/magick/magick_config.h \
+  /sw/include/magick/api.h /sw/include/magick/ImageMagick.h \
+  /sw/include/magick/semaphore.h /sw/include/magick/animate.h \
+  /sw/include/magick/annotate.h /sw/include/magick/draw.h \
+  /sw/include/magick/type.h /sw/include/magick/attribute.h \
+  /sw/include/magick/blob.h /sw/include/magick/image.h \
+  /sw/include/magick/color.h /sw/include/magick/exception.h \
+  /sw/include/magick/stream.h /sw/include/magick/cache.h \
+  /sw/include/magick/cache_view.h /sw/include/magick/coder.h \
+  /sw/include/magick/client.h /sw/include/magick/colorspace.h \
+  /sw/include/magick/compare.h /sw/include/magick/composite.h \
+  /sw/include/magick/compress.h /sw/include/magick/configure.h \
+  /sw/include/magick/hashmap.h /sw/include/magick/constitute.h \
+  /sw/include/magick/convert.h /sw/include/magick/decorate.h \
+  /sw/include/magick/delegate.h /sw/include/magick/deprecate.h \
+  /sw/include/magick/pixel.h /sw/include/magick/display.h \
+  /sw/include/magick/effect.h /sw/include/magick/enhance.h \
+  /sw/include/magick/fx.h /sw/include/magick/gem.h \
+  /sw/include/magick/geometry.h /sw/include/magick/identify.h \
+  /sw/include/magick/import.h /sw/include/magick/list.h \
+  /sw/include/magick/locale_.h /sw/include/magick/log.h \
+  /sw/include/magick/magic.h /sw/include/magick/magick.h \
+  /sw/include/magick/memory_.h /sw/include/magick/module.h \
+  /sw/include/magick/mogrify.h /sw/include/magick/monitor.h \
+  /sw/include/magick/montage.h /sw/include/magick/option.h \
+  /sw/include/magick/paint.h /sw/include/magick/profile.h \
+  /sw/include/magick/string_.h /sw/include/magick/quantize.h \
+  /sw/include/magick/registry.h /sw/include/magick/random.h \
+  /sw/include/magick/resize.h /sw/include/magick/resource_.h \
+  /sw/include/magick/segment.h /sw/include/magick/shear.h \
+  /sw/include/magick/signature.h /sw/include/magick/timer.h \
+  /sw/include/magick/token.h /sw/include/magick/transform.h \
+  /sw/include/magick/utility.h /sw/include/magick/version.h \
+  /sw/include/wand/magick_wand.h /sw/include/wand/drawing_wand.h \
+  /sw/include/wand/pixel_wand.h /sw/include/wand/pixel_iterator.h \
+  /sw/include/Magick++/Blob.h /sw/include/Magick++/Color.h \
+  /sw/include/Magick++/Drawable.h /sw/include/Magick++/Geometry.h \
+  /sw/include/Magick++/Exception.h /sw/include/Magick++/TypeMetric.h \
+  /sw/include/Magick++/Pixels.h /sw/include/Magick++/STL.h \
+  /sw/include/Magick++/CoderInfo.h /sw/include/Magick++/Montage.h \
+  affinetransformation.hpp globalfeatureextraction.hpp
+objects/powerpc/gzstream.o: gzstream.cpp gzstream.hpp
+objects/powerpc/histogramfeature.o: histogramfeature.cpp gzstream.hpp diag.hpp \
+  histogramfeature.hpp vectorfeature.hpp basefeature.hpp
+objects/powerpc/histogramnormalization.o: histogramnormalization.cpp getpot.hpp \
+  gzstream.hpp diag.hpp imagefeature.hpp vectorfeature.hpp \
+  basefeature.hpp /sw/include/Magick++.h /sw/include/Magick++/Image.h \
+  /sw/include/Magick++/Include.h /sw/include/magick/magick_config.h \
+  /sw/include/magick/api.h /sw/include/magick/ImageMagick.h \
+  /sw/include/magick/semaphore.h /sw/include/magick/animate.h \
+  /sw/include/magick/annotate.h /sw/include/magick/draw.h \
+  /sw/include/magick/type.h /sw/include/magick/attribute.h \
+  /sw/include/magick/blob.h /sw/include/magick/image.h \
+  /sw/include/magick/color.h /sw/include/magick/exception.h \
+  /sw/include/magick/stream.h /sw/include/magick/cache.h \
+  /sw/include/magick/cache_view.h /sw/include/magick/coder.h \
+  /sw/include/magick/client.h /sw/include/magick/colorspace.h \
+  /sw/include/magick/compare.h /sw/include/magick/composite.h \
+  /sw/include/magick/compress.h /sw/include/magick/configure.h \
+  /sw/include/magick/hashmap.h /sw/include/magick/constitute.h \
+  /sw/include/magick/convert.h /sw/include/magick/decorate.h \
+  /sw/include/magick/delegate.h /sw/include/magick/deprecate.h \
+  /sw/include/magick/pixel.h /sw/include/magick/display.h \
+  /sw/include/magick/effect.h /sw/include/magick/enhance.h \
+  /sw/include/magick/fx.h /sw/include/magick/gem.h \
+  /sw/include/magick/geometry.h /sw/include/magick/identify.h \
+  /sw/include/magick/import.h /sw/include/magick/list.h \
+  /sw/include/magick/locale_.h /sw/include/magick/log.h \
+  /sw/include/magick/magic.h /sw/include/magick/magick.h \
+  /sw/include/magick/memory_.h /sw/include/magick/module.h \
+  /sw/include/magick/mogrify.h /sw/include/magick/monitor.h \
+  /sw/include/magick/montage.h /sw/include/magick/option.h \
+  /sw/include/magick/paint.h /sw/include/magick/profile.h \
+  /sw/include/magick/string_.h /sw/include/magick/quantize.h \
+  /sw/include/magick/registry.h /sw/include/magick/random.h \
+  /sw/include/magick/resize.h /sw/include/magick/resource_.h \
+  /sw/include/magick/segment.h /sw/include/magick/shear.h \
+  /sw/include/magick/signature.h /sw/include/magick/timer.h \
+  /sw/include/magick/token.h /sw/include/magick/transform.h \
+  /sw/include/magick/utility.h /sw/include/magick/version.h \
+  /sw/include/wand/magick_wand.h /sw/include/wand/drawing_wand.h \
+  /sw/include/wand/pixel_wand.h /sw/include/wand/pixel_iterator.h \
+  /sw/include/Magick++/Blob.h /sw/include/Magick++/Color.h \
+  /sw/include/Magick++/Drawable.h /sw/include/Magick++/Geometry.h \
+  /sw/include/Magick++/Exception.h /sw/include/Magick++/TypeMetric.h \
+  /sw/include/Magick++/Pixels.h /sw/include/Magick++/STL.h \
+  /sw/include/Magick++/CoderInfo.h /sw/include/Magick++/Montage.h \
+  imagelib.hpp affinetransformation.hpp
+objects/powerpc/imagecomparator.o: imagecomparator.cpp imagecomparator.hpp \
+  basedistance.hpp basefeature.hpp diag.hpp imagecontainer.hpp
+objects/powerpc/imagecontainer.o: imagecontainer.cpp imagecontainer.hpp diag.hpp \
+  basefeature.hpp
+objects/powerpc/imagefeature.o: imagefeature.cpp imagefeature.hpp vectorfeature.hpp \
+  basefeature.hpp diag.hpp /sw/include/Magick++.h \
+  /sw/include/Magick++/Image.h /sw/include/Magick++/Include.h \
+  /sw/include/magick/magick_config.h /sw/include/magick/api.h \
+  /sw/include/magick/ImageMagick.h /sw/include/magick/semaphore.h \
+  /sw/include/magick/animate.h /sw/include/magick/annotate.h \
+  /sw/include/magick/draw.h /sw/include/magick/type.h \
+  /sw/include/magick/attribute.h /sw/include/magick/blob.h \
+  /sw/include/magick/image.h /sw/include/magick/color.h \
+  /sw/include/magick/exception.h /sw/include/magick/stream.h \
+  /sw/include/magick/cache.h /sw/include/magick/cache_view.h \
+  /sw/include/magick/coder.h /sw/include/magick/client.h \
+  /sw/include/magick/colorspace.h /sw/include/magick/compare.h \
+  /sw/include/magick/composite.h /sw/include/magick/compress.h \
+  /sw/include/magick/configure.h /sw/include/magick/hashmap.h \
+  /sw/include/magick/constitute.h /sw/include/magick/convert.h \
+  /sw/include/magick/decorate.h /sw/include/magick/delegate.h \
+  /sw/include/magick/deprecate.h /sw/include/magick/pixel.h \
+  /sw/include/magick/display.h /sw/include/magick/effect.h \
+  /sw/include/magick/enhance.h /sw/include/magick/fx.h \
+  /sw/include/magick/gem.h /sw/include/magick/geometry.h \
+  /sw/include/magick/identify.h /sw/include/magick/import.h \
+  /sw/include/magick/list.h /sw/include/magick/locale_.h \
+  /sw/include/magick/log.h /sw/include/magick/magic.h \
+  /sw/include/magick/magick.h /sw/include/magick/memory_.h \
+  /sw/include/magick/module.h /sw/include/magick/mogrify.h \
+  /sw/include/magick/monitor.h /sw/include/magick/montage.h \
+  /sw/include/magick/option.h /sw/include/magick/paint.h \
+  /sw/include/magick/profile.h /sw/include/magick/string_.h \
+  /sw/include/magick/quantize.h /sw/include/magick/registry.h \
+  /sw/include/magick/random.h /sw/include/magick/resize.h \
+  /sw/include/magick/resource_.h /sw/include/magick/segment.h \
+  /sw/include/magick/shear.h /sw/include/magick/signature.h \
+  /sw/include/magick/timer.h /sw/include/magick/token.h \
+  /sw/include/magick/transform.h /sw/include/magick/utility.h \
+  /sw/include/magick/version.h /sw/include/wand/magick_wand.h \
+  /sw/include/wand/drawing_wand.h /sw/include/wand/pixel_wand.h \
+  /sw/include/wand/pixel_iterator.h /sw/include/Magick++/Blob.h \
+  /sw/include/Magick++/Color.h /sw/include/Magick++/Drawable.h \
+  /sw/include/Magick++/Geometry.h /sw/include/Magick++/Exception.h \
+  /sw/include/Magick++/TypeMetric.h /sw/include/Magick++/Pixels.h \
+  /sw/include/Magick++/STL.h /sw/include/Magick++/CoderInfo.h \
+  /sw/include/Magick++/Montage.h
+objects/powerpc/imagelib.o: imagelib.cpp imagelib.hpp imagefeature.hpp vectorfeature.hpp \
+  basefeature.hpp diag.hpp /sw/include/Magick++.h \
+  /sw/include/Magick++/Image.h /sw/include/Magick++/Include.h \
+  /sw/include/magick/magick_config.h /sw/include/magick/api.h \
+  /sw/include/magick/ImageMagick.h /sw/include/magick/semaphore.h \
+  /sw/include/magick/animate.h /sw/include/magick/annotate.h \
+  /sw/include/magick/draw.h /sw/include/magick/type.h \
+  /sw/include/magick/attribute.h /sw/include/magick/blob.h \
+  /sw/include/magick/image.h /sw/include/magick/color.h \
+  /sw/include/magick/exception.h /sw/include/magick/stream.h \
+  /sw/include/magick/cache.h /sw/include/magick/cache_view.h \
+  /sw/include/magick/coder.h /sw/include/magick/client.h \
+  /sw/include/magick/colorspace.h /sw/include/magick/compare.h \
+  /sw/include/magick/composite.h /sw/include/magick/compress.h \
+  /sw/include/magick/configure.h /sw/include/magick/hashmap.h \
+  /sw/include/magick/constitute.h /sw/include/magick/convert.h \
+  /sw/include/magick/decorate.h /sw/include/magick/delegate.h \
+  /sw/include/magick/deprecate.h /sw/include/magick/pixel.h \
+  /sw/include/magick/display.h /sw/include/magick/effect.h \
+  /sw/include/magick/enhance.h /sw/include/magick/fx.h \
+  /sw/include/magick/gem.h /sw/include/magick/geometry.h \
+  /sw/include/magick/identify.h /sw/include/magick/import.h \
+  /sw/include/magick/list.h /sw/include/magick/locale_.h \
+  /sw/include/magick/log.h /sw/include/magick/magic.h \
+  /sw/include/magick/magick.h /sw/include/magick/memory_.h \
+  /sw/include/magick/module.h /sw/include/magick/mogrify.h \
+  /sw/include/magick/monitor.h /sw/include/magick/montage.h \
+  /sw/include/magick/option.h /sw/include/magick/paint.h \
+  /sw/include/magick/profile.h /sw/include/magick/string_.h \
+  /sw/include/magick/quantize.h /sw/include/magick/registry.h \
+  /sw/include/magick/random.h /sw/include/magick/resize.h \
+  /sw/include/magick/resource_.h /sw/include/magick/segment.h \
+  /sw/include/magick/shear.h /sw/include/magick/signature.h \
+  /sw/include/magick/timer.h /sw/include/magick/token.h \
+  /sw/include/magick/transform.h /sw/include/magick/utility.h \
+  /sw/include/magick/version.h /sw/include/wand/magick_wand.h \
+  /sw/include/wand/drawing_wand.h /sw/include/wand/pixel_wand.h \
+  /sw/include/wand/pixel_iterator.h /sw/include/Magick++/Blob.h \
+  /sw/include/Magick++/Color.h /sw/include/Magick++/Drawable.h \
+  /sw/include/Magick++/Geometry.h /sw/include/Magick++/Exception.h \
+  /sw/include/Magick++/TypeMetric.h /sw/include/Magick++/Pixels.h \
+  /sw/include/Magick++/STL.h /sw/include/Magick++/CoderInfo.h \
+  /sw/include/Magick++/Montage.h affinetransformation.hpp \
+  interpolatingimage.hpp
+objects/powerpc/interpolatingimage.o: interpolatingimage.cpp interpolatingimage.hpp \
+  imagefeature.hpp vectorfeature.hpp basefeature.hpp diag.hpp \
+  /sw/include/Magick++.h /sw/include/Magick++/Image.h \
+  /sw/include/Magick++/Include.h /sw/include/magick/magick_config.h \
+  /sw/include/magick/api.h /sw/include/magick/ImageMagick.h \
+  /sw/include/magick/semaphore.h /sw/include/magick/animate.h \
+  /sw/include/magick/annotate.h /sw/include/magick/draw.h \
+  /sw/include/magick/type.h /sw/include/magick/attribute.h \
+  /sw/include/magick/blob.h /sw/include/magick/image.h \
+  /sw/include/magick/color.h /sw/include/magick/exception.h \
+  /sw/include/magick/stream.h /sw/include/magick/cache.h \
+  /sw/include/magick/cache_view.h /sw/include/magick/coder.h \
+  /sw/include/magick/client.h /sw/include/magick/colorspace.h \
+  /sw/include/magick/compare.h /sw/include/magick/composite.h \
+  /sw/include/magick/compress.h /sw/include/magick/configure.h \
+  /sw/include/magick/hashmap.h /sw/include/magick/constitute.h \
+  /sw/include/magick/convert.h /sw/include/magick/decorate.h \
+  /sw/include/magick/delegate.h /sw/include/magick/deprecate.h \
+  /sw/include/magick/pixel.h /sw/include/magick/display.h \
+  /sw/include/magick/effect.h /sw/include/magick/enhance.h \
+  /sw/include/magick/fx.h /sw/include/magick/gem.h \
+  /sw/include/magick/geometry.h /sw/include/magick/identify.h \
+  /sw/include/magick/import.h /sw/include/magick/list.h \
+  /sw/include/magick/locale_.h /sw/include/magick/log.h \
+  /sw/include/magick/magic.h /sw/include/magick/magick.h \
+  /sw/include/magick/memory_.h /sw/include/magick/module.h \
+  /sw/include/magick/mogrify.h /sw/include/magick/monitor.h \
+  /sw/include/magick/montage.h /sw/include/magick/option.h \
+  /sw/include/magick/paint.h /sw/include/magick/profile.h \
+  /sw/include/magick/string_.h /sw/include/magick/quantize.h \
+  /sw/include/magick/registry.h /sw/include/magick/random.h \
+  /sw/include/magick/resize.h /sw/include/magick/resource_.h \
+  /sw/include/magick/segment.h /sw/include/magick/shear.h \
+  /sw/include/magick/signature.h /sw/include/magick/timer.h \
+  /sw/include/magick/token.h /sw/include/magick/transform.h \
+  /sw/include/magick/utility.h /sw/include/magick/version.h \
+  /sw/include/wand/magick_wand.h /sw/include/wand/drawing_wand.h \
+  /sw/include/wand/pixel_wand.h /sw/include/wand/pixel_iterator.h \
+  /sw/include/Magick++/Blob.h /sw/include/Magick++/Color.h \
+  /sw/include/Magick++/Drawable.h /sw/include/Magick++/Geometry.h \
+  /sw/include/Magick++/Exception.h /sw/include/Magick++/TypeMetric.h \
+  /sw/include/Magick++/Pixels.h /sw/include/Magick++/STL.h \
+  /sw/include/Magick++/CoderInfo.h /sw/include/Magick++/Montage.h \
+  lib/powerpc/interpol/coeff.h lib/powerpc/interpol/interpol.h
+objects/powerpc/invariantfeaturehistogram.o: invariantfeaturehistogram.cpp \
+  invariantfeaturehistogram.hpp histogramfeature.hpp vectorfeature.hpp \
+  basefeature.hpp diag.hpp imagefeature.hpp /sw/include/Magick++.h \
+  /sw/include/Magick++/Image.h /sw/include/Magick++/Include.h \
+  /sw/include/magick/magick_config.h /sw/include/magick/api.h \
+  /sw/include/magick/ImageMagick.h /sw/include/magick/semaphore.h \
+  /sw/include/magick/animate.h /sw/include/magick/annotate.h \
+  /sw/include/magick/draw.h /sw/include/magick/type.h \
+  /sw/include/magick/attribute.h /sw/include/magick/blob.h \
+  /sw/include/magick/image.h /sw/include/magick/color.h \
+  /sw/include/magick/exception.h /sw/include/magick/stream.h \
+  /sw/include/magick/cache.h /sw/include/magick/cache_view.h \
+  /sw/include/magick/coder.h /sw/include/magick/client.h \
+  /sw/include/magick/colorspace.h /sw/include/magick/compare.h \
+  /sw/include/magick/composite.h /sw/include/magick/compress.h \
+  /sw/include/magick/configure.h /sw/include/magick/hashmap.h \
+  /sw/include/magick/constitute.h /sw/include/magick/convert.h \
+  /sw/include/magick/decorate.h /sw/include/magick/delegate.h \
+  /sw/include/magick/deprecate.h /sw/include/magick/pixel.h \
+  /sw/include/magick/display.h /sw/include/magick/effect.h \
+  /sw/include/magick/enhance.h /sw/include/magick/fx.h \
+  /sw/include/magick/gem.h /sw/include/magick/geometry.h \
+  /sw/include/magick/identify.h /sw/include/magick/import.h \
+  /sw/include/magick/list.h /sw/include/magick/locale_.h \
+  /sw/include/magick/log.h /sw/include/magick/magic.h \
+  /sw/include/magick/magick.h /sw/include/magick/memory_.h \
+  /sw/include/magick/module.h /sw/include/magick/mogrify.h \
+  /sw/include/magick/monitor.h /sw/include/magick/montage.h \
+  /sw/include/magick/option.h /sw/include/magick/paint.h \
+  /sw/include/magick/profile.h /sw/include/magick/string_.h \
+  /sw/include/magick/quantize.h /sw/include/magick/registry.h \
+  /sw/include/magick/random.h /sw/include/magick/resize.h \
+  /sw/include/magick/resource_.h /sw/include/magick/segment.h \
+  /sw/include/magick/shear.h /sw/include/magick/signature.h \
+  /sw/include/magick/timer.h /sw/include/magick/token.h \
+  /sw/include/magick/transform.h /sw/include/magick/utility.h \
+  /sw/include/magick/version.h /sw/include/wand/magick_wand.h \
+  /sw/include/wand/drawing_wand.h /sw/include/wand/pixel_wand.h \
+  /sw/include/wand/pixel_iterator.h /sw/include/Magick++/Blob.h \
+  /sw/include/Magick++/Color.h /sw/include/Magick++/Drawable.h \
+  /sw/include/Magick++/Geometry.h /sw/include/Magick++/Exception.h \
+  /sw/include/Magick++/TypeMetric.h /sw/include/Magick++/Pixels.h \
+  /sw/include/Magick++/STL.h /sw/include/Magick++/CoderInfo.h \
+  /sw/include/Magick++/Montage.h kernelfunctionmaker.hpp \
+  kernelfunction.hpp interpolatingimage.hpp monomial1kernelfunction.hpp \
+  monomial2kernelfunction.hpp monomial3kernelfunction.hpp \
+  relationalkernelfunction.hpp point.hpp
+objects/powerpc/jflib.o: jflib.cpp jflib.hpp diag.hpp gzstream.hpp
+objects/powerpc/kernelfunctionmaker.o: kernelfunctionmaker.cpp kernelfunction.hpp \
+  interpolatingimage.hpp imagefeature.hpp vectorfeature.hpp \
+  basefeature.hpp diag.hpp /sw/include/Magick++.h \
+  /sw/include/Magick++/Image.h /sw/include/Magick++/Include.h \
+  /sw/include/magick/magick_config.h /sw/include/magick/api.h \
+  /sw/include/magick/ImageMagick.h /sw/include/magick/semaphore.h \
+  /sw/include/magick/animate.h /sw/include/magick/annotate.h \
+  /sw/include/magick/draw.h /sw/include/magick/type.h \
+  /sw/include/magick/attribute.h /sw/include/magick/blob.h \
+  /sw/include/magick/image.h /sw/include/magick/color.h \
+  /sw/include/magick/exception.h /sw/include/magick/stream.h \
+  /sw/include/magick/cache.h /sw/include/magick/cache_view.h \
+  /sw/include/magick/coder.h /sw/include/magick/client.h \
+  /sw/include/magick/colorspace.h /sw/include/magick/compare.h \
+  /sw/include/magick/composite.h /sw/include/magick/compress.h \
+  /sw/include/magick/configure.h /sw/include/magick/hashmap.h \
+  /sw/include/magick/constitute.h /sw/include/magick/convert.h \
+  /sw/include/magick/decorate.h /sw/include/magick/delegate.h \
+  /sw/include/magick/deprecate.h /sw/include/magick/pixel.h \
+  /sw/include/magick/display.h /sw/include/magick/effect.h \
+  /sw/include/magick/enhance.h /sw/include/magick/fx.h \
+  /sw/include/magick/gem.h /sw/include/magick/geometry.h \
+  /sw/include/magick/identify.h /sw/include/magick/import.h \
+  /sw/include/magick/list.h /sw/include/magick/locale_.h \
+  /sw/include/magick/log.h /sw/include/magick/magic.h \
+  /sw/include/magick/magick.h /sw/include/magick/memory_.h \
+  /sw/include/magick/module.h /sw/include/magick/mogrify.h \
+  /sw/include/magick/monitor.h /sw/include/magick/montage.h \
+  /sw/include/magick/option.h /sw/include/magick/paint.h \
+  /sw/include/magick/profile.h /sw/include/magick/string_.h \
+  /sw/include/magick/quantize.h /sw/include/magick/registry.h \
+  /sw/include/magick/random.h /sw/include/magick/resize.h \
+  /sw/include/magick/resource_.h /sw/include/magick/segment.h \
+  /sw/include/magick/shear.h /sw/include/magick/signature.h \
+  /sw/include/magick/timer.h /sw/include/magick/token.h \
+  /sw/include/magick/transform.h /sw/include/magick/utility.h \
+  /sw/include/magick/version.h /sw/include/wand/magick_wand.h \
+  /sw/include/wand/drawing_wand.h /sw/include/wand/pixel_wand.h \
+  /sw/include/wand/pixel_iterator.h /sw/include/Magick++/Blob.h \
+  /sw/include/Magick++/Color.h /sw/include/Magick++/Drawable.h \
+  /sw/include/Magick++/Geometry.h /sw/include/Magick++/Exception.h \
+  /sw/include/Magick++/TypeMetric.h /sw/include/Magick++/Pixels.h \
+  /sw/include/Magick++/STL.h /sw/include/Magick++/CoderInfo.h \
+  /sw/include/Magick++/Montage.h monomial1kernelfunction.hpp \
+  monomial2kernelfunction.hpp monomial3kernelfunction.hpp \
+  relationalkernelfunction.hpp
+objects/powerpc/largefeaturefile.o: largefeaturefile.cpp largefeaturefile.hpp diag.hpp \
+  imagecontainer.hpp basefeature.hpp vectorfeature.hpp gzstream.hpp \
+  histogramfeature.hpp localfeatures.hpp vectorvectorfeature.hpp \
+  imagefeature.hpp /sw/include/Magick++.h /sw/include/Magick++/Image.h \
+  /sw/include/Magick++/Include.h /sw/include/magick/magick_config.h \
+  /sw/include/magick/api.h /sw/include/magick/ImageMagick.h \
+  /sw/include/magick/semaphore.h /sw/include/magick/animate.h \
+  /sw/include/magick/annotate.h /sw/include/magick/draw.h \
+  /sw/include/magick/type.h /sw/include/magick/attribute.h \
+  /sw/include/magick/blob.h /sw/include/magick/image.h \
+  /sw/include/magick/color.h /sw/include/magick/exception.h \
+  /sw/include/magick/stream.h /sw/include/magick/cache.h \
+  /sw/include/magick/cache_view.h /sw/include/magick/coder.h \
+  /sw/include/magick/client.h /sw/include/magick/colorspace.h \
+  /sw/include/magick/compare.h /sw/include/magick/composite.h \
+  /sw/include/magick/compress.h /sw/include/magick/configure.h \
+  /sw/include/magick/hashmap.h /sw/include/magick/constitute.h \
+  /sw/include/magick/convert.h /sw/include/magick/decorate.h \
+  /sw/include/magick/delegate.h /sw/include/magick/deprecate.h \
+  /sw/include/magick/pixel.h /sw/include/magick/display.h \
+  /sw/include/magick/effect.h /sw/include/magick/enhance.h \
+  /sw/include/magick/fx.h /sw/include/magick/gem.h \
+  /sw/include/magick/geometry.h /sw/include/magick/identify.h \
+  /sw/include/magick/import.h /sw/include/magick/list.h \
+  /sw/include/magick/locale_.h /sw/include/magick/log.h \
+  /sw/include/magick/magic.h /sw/include/magick/magick.h \
+  /sw/include/magick/memory_.h /sw/include/magick/module.h \
+  /sw/include/magick/mogrify.h /sw/include/magick/monitor.h \
+  /sw/include/magick/montage.h /sw/include/magick/option.h \
+  /sw/include/magick/paint.h /sw/include/magick/profile.h \
+  /sw/include/magick/string_.h /sw/include/magick/quantize.h \
+  /sw/include/magick/registry.h /sw/include/magick/random.h \
+  /sw/include/magick/resize.h /sw/include/magick/resource_.h \
+  /sw/include/magick/segment.h /sw/include/magick/shear.h \
+  /sw/include/magick/signature.h /sw/include/magick/timer.h \
+  /sw/include/magick/token.h /sw/include/magick/transform.h \
+  /sw/include/magick/utility.h /sw/include/magick/version.h \
+  /sw/include/wand/magick_wand.h /sw/include/wand/drawing_wand.h \
+  /sw/include/wand/pixel_wand.h /sw/include/wand/pixel_iterator.h \
+  /sw/include/Magick++/Blob.h /sw/include/Magick++/Color.h \
+  /sw/include/Magick++/Drawable.h /sw/include/Magick++/Geometry.h \
+  /sw/include/Magick++/Exception.h /sw/include/Magick++/TypeMetric.h \
+  /sw/include/Magick++/Pixels.h /sw/include/Magick++/STL.h \
+  /sw/include/Magick++/CoderInfo.h /sw/include/Magick++/Montage.h \
+  featureloader.hpp
+objects/powerpc/lfquerykdtree.o: lfquerykdtree.cpp localfeatures.hpp \
+  vectorvectorfeature.hpp basefeature.hpp diag.hpp getpot.hpp
+objects/powerpc/lftiedmixturedensities.o: lftiedmixturedensities.cpp gzstream.hpp \
+  gaussiandensity.hpp diag.hpp localfeatures.hpp vectorvectorfeature.hpp \
+  basefeature.hpp histogramfeature.hpp vectorfeature.hpp getpot.hpp
+objects/powerpc/localfeatures.o: localfeatures.cpp localfeatures.hpp \
+  vectorvectorfeature.hpp basefeature.hpp diag.hpp
+objects/powerpc/maxentscoring.o: maxentscoring.cpp maxentscoring.hpp diag.hpp \
+  basescoring.hpp imagecomparator.hpp basedistance.hpp basefeature.hpp \
+  imagecontainer.hpp gzstream.hpp
+objects/powerpc/maxentscoringfirstandsecondorder.o: maxentscoringfirstandsecondorder.cpp \
+  maxentscoringfirstandsecondorder.hpp diag.hpp basescoring.hpp \
+  imagecomparator.hpp basedistance.hpp basefeature.hpp imagecontainer.hpp \
+  gzstream.hpp
+objects/powerpc/maxentscoringsecondorder.o: maxentscoringsecondorder.cpp \
+  maxentscoringsecondorder.hpp diag.hpp basescoring.hpp \
+  imagecomparator.hpp basedistance.hpp basefeature.hpp imagecontainer.hpp \
+  gzstream.hpp
+objects/powerpc/mpeg7feature.o: mpeg7feature.cpp mpeg7feature.hpp basefeature.hpp \
+  diag.hpp
+objects/powerpc/net.o: net.cpp net.hpp diag.hpp
+objects/powerpc/pca.o: pca.cpp diag.hpp pca.hpp gzstream.hpp svd.hpp Lapack.hh
+objects/powerpc/programtemplate.o: programtemplate.cpp diag.hpp getpot.hpp
+objects/powerpc/relationalfeaturehistogram.o: relationalfeaturehistogram.cpp \
+  relationalfeaturehistogram.hpp histogramfeature.hpp vectorfeature.hpp \
+  basefeature.hpp diag.hpp imagefeature.hpp /sw/include/Magick++.h \
+  /sw/include/Magick++/Image.h /sw/include/Magick++/Include.h \
+  /sw/include/magick/magick_config.h /sw/include/magick/api.h \
+  /sw/include/magick/ImageMagick.h /sw/include/magick/semaphore.h \
+  /sw/include/magick/animate.h /sw/include/magick/annotate.h \
+  /sw/include/magick/draw.h /sw/include/magick/type.h \
+  /sw/include/magick/attribute.h /sw/include/magick/blob.h \
+  /sw/include/magick/image.h /sw/include/magick/color.h \
+  /sw/include/magick/exception.h /sw/include/magick/stream.h \
+  /sw/include/magick/cache.h /sw/include/magick/cache_view.h \
+  /sw/include/magick/coder.h /sw/include/magick/client.h \
+  /sw/include/magick/colorspace.h /sw/include/magick/compare.h \
+  /sw/include/magick/composite.h /sw/include/magick/compress.h \
+  /sw/include/magick/configure.h /sw/include/magick/hashmap.h \
+  /sw/include/magick/constitute.h /sw/include/magick/convert.h \
+  /sw/include/magick/decorate.h /sw/include/magick/delegate.h \
+  /sw/include/magick/deprecate.h /sw/include/magick/pixel.h \
+  /sw/include/magick/display.h /sw/include/magick/effect.h \
+  /sw/include/magick/enhance.h /sw/include/magick/fx.h \
+  /sw/include/magick/gem.h /sw/include/magick/geometry.h \
+  /sw/include/magick/identify.h /sw/include/magick/import.h \
+  /sw/include/magick/list.h /sw/include/magick/locale_.h \
+  /sw/include/magick/log.h /sw/include/magick/magic.h \
+  /sw/include/magick/magick.h /sw/include/magick/memory_.h \
+  /sw/include/magick/module.h /sw/include/magick/mogrify.h \
+  /sw/include/magick/monitor.h /sw/include/magick/montage.h \
+  /sw/include/magick/option.h /sw/include/magick/paint.h \
+  /sw/include/magick/profile.h /sw/include/magick/string_.h \
+  /sw/include/magick/quantize.h /sw/include/magick/registry.h \
+  /sw/include/magick/random.h /sw/include/magick/resize.h \
+  /sw/include/magick/resource_.h /sw/include/magick/segment.h \
+  /sw/include/magick/shear.h /sw/include/magick/signature.h \
+  /sw/include/magick/timer.h /sw/include/magick/token.h \
+  /sw/include/magick/transform.h /sw/include/magick/utility.h \
+  /sw/include/magick/version.h /sw/include/wand/magick_wand.h \
+  /sw/include/wand/drawing_wand.h /sw/include/wand/pixel_wand.h \
+  /sw/include/wand/pixel_iterator.h /sw/include/Magick++/Blob.h \
+  /sw/include/Magick++/Color.h /sw/include/Magick++/Drawable.h \
+  /sw/include/Magick++/Geometry.h /sw/include/Magick++/Exception.h \
+  /sw/include/Magick++/TypeMetric.h /sw/include/Magick++/Pixels.h \
+  /sw/include/Magick++/STL.h /sw/include/Magick++/CoderInfo.h \
+  /sw/include/Magick++/Montage.h kernelfunction.hpp \
+  interpolatingimage.hpp imagelib.hpp affinetransformation.hpp \
+  kernelfunctionmaker.hpp monomial1kernelfunction.hpp \
+  monomial2kernelfunction.hpp monomial3kernelfunction.hpp \
+  relationalkernelfunction.hpp fuzzy3binhisto.hpp
+objects/powerpc/retriever.o: retriever.cpp retriever.hpp diag.hpp imagecontainer.hpp \
+  basefeature.hpp database.hpp featureloader.hpp imagecomparator.hpp \
+  basedistance.hpp basescoring.hpp linearscoring.hpp gzstream.hpp \
+  maxentscoring.hpp getscoring.hpp distanceinteractor.hpp \
+  dist_metafeature.hpp metafeature.hpp dist_textfeature.hpp \
+  textfeature.hpp net.hpp
+objects/powerpc/runprogram.o: runprogram.cpp diag.hpp runprogram.hpp
+objects/powerpc/salientpoints.o: salientpoints.cpp salientpoints.hpp imagefeature.hpp \
+  vectorfeature.hpp basefeature.hpp diag.hpp /sw/include/Magick++.h \
+  /sw/include/Magick++/Image.h /sw/include/Magick++/Include.h \
+  /sw/include/magick/magick_config.h /sw/include/magick/api.h \
+  /sw/include/magick/ImageMagick.h /sw/include/magick/semaphore.h \
+  /sw/include/magick/animate.h /sw/include/magick/annotate.h \
+  /sw/include/magick/draw.h /sw/include/magick/type.h \
+  /sw/include/magick/attribute.h /sw/include/magick/blob.h \
+  /sw/include/magick/image.h /sw/include/magick/color.h \
+  /sw/include/magick/exception.h /sw/include/magick/stream.h \
+  /sw/include/magick/cache.h /sw/include/magick/cache_view.h \
+  /sw/include/magick/coder.h /sw/include/magick/client.h \
+  /sw/include/magick/colorspace.h /sw/include/magick/compare.h \
+  /sw/include/magick/composite.h /sw/include/magick/compress.h \
+  /sw/include/magick/configure.h /sw/include/magick/hashmap.h \
+  /sw/include/magick/constitute.h /sw/include/magick/convert.h \
+  /sw/include/magick/decorate.h /sw/include/magick/delegate.h \
+  /sw/include/magick/deprecate.h /sw/include/magick/pixel.h \
+  /sw/include/magick/display.h /sw/include/magick/effect.h \
+  /sw/include/magick/enhance.h /sw/include/magick/fx.h \
+  /sw/include/magick/gem.h /sw/include/magick/geometry.h \
+  /sw/include/magick/identify.h /sw/include/magick/import.h \
+  /sw/include/magick/list.h /sw/include/magick/locale_.h \
+  /sw/include/magick/log.h /sw/include/magick/magic.h \
+  /sw/include/magick/magick.h /sw/include/magick/memory_.h \
+  /sw/include/magick/module.h /sw/include/magick/mogrify.h \
+  /sw/include/magick/monitor.h /sw/include/magick/montage.h \
+  /sw/include/magick/option.h /sw/include/magick/paint.h \
+  /sw/include/magick/profile.h /sw/include/magick/string_.h \
+  /sw/include/magick/quantize.h /sw/include/magick/registry.h \
+  /sw/include/magick/random.h /sw/include/magick/resize.h \
+  /sw/include/magick/resource_.h /sw/include/magick/segment.h \
+  /sw/include/magick/shear.h /sw/include/magick/signature.h \
+  /sw/include/magick/timer.h /sw/include/magick/token.h \
+  /sw/include/magick/transform.h /sw/include/magick/utility.h \
+  /sw/include/magick/version.h /sw/include/wand/magick_wand.h \
+  /sw/include/wand/drawing_wand.h /sw/include/wand/pixel_wand.h \
+  /sw/include/wand/pixel_iterator.h /sw/include/Magick++/Blob.h \
+  /sw/include/Magick++/Color.h /sw/include/Magick++/Drawable.h \
+  /sw/include/Magick++/Geometry.h /sw/include/Magick++/Exception.h \
+  /sw/include/Magick++/TypeMetric.h /sw/include/Magick++/Pixels.h \
+  /sw/include/Magick++/STL.h /sw/include/Magick++/CoderInfo.h \
+  /sw/include/Magick++/Montage.h point.hpp imagelib.hpp \
+  affinetransformation.hpp wavelet.hpp
+objects/powerpc/server.o: server.cpp server.hpp distancemaker.hpp diag.hpp \
+  basedistance.hpp basefeature.hpp dist_euclidean.hpp vectorfeature.hpp \
+  dist_crosscorrelation.hpp imagefeature.hpp /sw/include/Magick++.h \
+  /sw/include/Magick++/Image.h /sw/include/Magick++/Include.h \
+  /sw/include/magick/magick_config.h /sw/include/magick/api.h \
+  /sw/include/magick/ImageMagick.h /sw/include/magick/semaphore.h \
+  /sw/include/magick/animate.h /sw/include/magick/annotate.h \
+  /sw/include/magick/draw.h /sw/include/magick/type.h \
+  /sw/include/magick/attribute.h /sw/include/magick/blob.h \
+  /sw/include/magick/image.h /sw/include/magick/color.h \
+  /sw/include/magick/exception.h /sw/include/magick/stream.h \
+  /sw/include/magick/cache.h /sw/include/magick/cache_view.h \
+  /sw/include/magick/coder.h /sw/include/magick/client.h \
+  /sw/include/magick/colorspace.h /sw/include/magick/compare.h \
+  /sw/include/magick/composite.h /sw/include/magick/compress.h \
+  /sw/include/magick/configure.h /sw/include/magick/hashmap.h \
+  /sw/include/magick/constitute.h /sw/include/magick/convert.h \
+  /sw/include/magick/decorate.h /sw/include/magick/delegate.h \
+  /sw/include/magick/deprecate.h /sw/include/magick/pixel.h \
+  /sw/include/magick/display.h /sw/include/magick/effect.h \
+  /sw/include/magick/enhance.h /sw/include/magick/fx.h \
+  /sw/include/magick/gem.h /sw/include/magick/geometry.h \
+  /sw/include/magick/identify.h /sw/include/magick/import.h \
+  /sw/include/magick/list.h /sw/include/magick/locale_.h \
+  /sw/include/magick/log.h /sw/include/magick/magic.h \
+  /sw/include/magick/magick.h /sw/include/magick/memory_.h \
+  /sw/include/magick/module.h /sw/include/magick/mogrify.h \
+  /sw/include/magick/monitor.h /sw/include/magick/montage.h \
+  /sw/include/magick/option.h /sw/include/magick/paint.h \
+  /sw/include/magick/profile.h /sw/include/magick/string_.h \
+  /sw/include/magick/quantize.h /sw/include/magick/registry.h \
+  /sw/include/magick/random.h /sw/include/magick/resize.h \
+  /sw/include/magick/resource_.h /sw/include/magick/segment.h \
+  /sw/include/magick/shear.h /sw/include/magick/signature.h \
+  /sw/include/magick/timer.h /sw/include/magick/token.h \
+  /sw/include/magick/transform.h /sw/include/magick/utility.h \
+  /sw/include/magick/version.h /sw/include/wand/magick_wand.h \
+  /sw/include/wand/drawing_wand.h /sw/include/wand/pixel_wand.h \
+  /sw/include/wand/pixel_iterator.h /sw/include/Magick++/Blob.h \
+  /sw/include/Magick++/Color.h /sw/include/Magick++/Drawable.h \
+  /sw/include/Magick++/Geometry.h /sw/include/Magick++/Exception.h \
+  /sw/include/Magick++/TypeMetric.h /sw/include/Magick++/Pixels.h \
+  /sw/include/Magick++/STL.h /sw/include/Magick++/CoderInfo.h \
+  /sw/include/Magick++/Montage.h dist_l1.hpp dist_jsd.hpp \
+  sparsehistogramfeature.hpp dist_kld.hpp dist_chisquare.hpp \
+  dist_histogramintersection.hpp dist_reldev.hpp dist_relbindev.hpp \
+  dist_oneminusfidelity.hpp dist_sqrtoneminusfidelity.hpp \
+  dist_logtwominusfidelity.hpp dist_arccosfidelity.hpp \
+  dist_oneminusfidelitysquare.hpp dist_idm.hpp dist_binaryfeature.hpp \
+  binaryfeature.hpp dist_globallocalfeaturedistance.hpp \
+  vectorvectorfeature.hpp dist_metafeature.hpp metafeature.hpp \
+  dist_textfeature.hpp dist_mpeg7.hpp dist_histogrampair.hpp \
+  histogrampairfeature.hpp histogramfeature.hpp dist_distfile.hpp \
+  basescoring.hpp imagecomparator.hpp imagecontainer.hpp \
+  distancefilefeature.hpp getscoring.hpp dist_lfhungarian.hpp \
+  localfeatures.hpp hungarian.h dist_facefeature.hpp facefeature.hpp \
+  getpot.hpp retriever.hpp database.hpp featureloader.hpp \
+  linearscoring.hpp gzstream.hpp maxentscoring.hpp distanceinteractor.hpp \
+  logfile.hpp net.hpp runprogram.hpp
+objects/powerpc/sift.o: sift.cpp sift.hpp imagefeature.hpp vectorfeature.hpp \
+  basefeature.hpp diag.hpp /sw/include/Magick++.h \
+  /sw/include/Magick++/Image.h /sw/include/Magick++/Include.h \
+  /sw/include/magick/magick_config.h /sw/include/magick/api.h \
+  /sw/include/magick/ImageMagick.h /sw/include/magick/semaphore.h \
+  /sw/include/magick/animate.h /sw/include/magick/annotate.h \
+  /sw/include/magick/draw.h /sw/include/magick/type.h \
+  /sw/include/magick/attribute.h /sw/include/magick/blob.h \
+  /sw/include/magick/image.h /sw/include/magick/color.h \
+  /sw/include/magick/exception.h /sw/include/magick/stream.h \
+  /sw/include/magick/cache.h /sw/include/magick/cache_view.h \
+  /sw/include/magick/coder.h /sw/include/magick/client.h \
+  /sw/include/magick/colorspace.h /sw/include/magick/compare.h \
+  /sw/include/magick/composite.h /sw/include/magick/compress.h \
+  /sw/include/magick/configure.h /sw/include/magick/hashmap.h \
+  /sw/include/magick/constitute.h /sw/include/magick/convert.h \
+  /sw/include/magick/decorate.h /sw/include/magick/delegate.h \
+  /sw/include/magick/deprecate.h /sw/include/magick/pixel.h \
+  /sw/include/magick/display.h /sw/include/magick/effect.h \
+  /sw/include/magick/enhance.h /sw/include/magick/fx.h \
+  /sw/include/magick/gem.h /sw/include/magick/geometry.h \
+  /sw/include/magick/identify.h /sw/include/magick/import.h \
+  /sw/include/magick/list.h /sw/include/magick/locale_.h \
+  /sw/include/magick/log.h /sw/include/magick/magic.h \
+  /sw/include/magick/magick.h /sw/include/magick/memory_.h \
+  /sw/include/magick/module.h /sw/include/magick/mogrify.h \
+  /sw/include/magick/monitor.h /sw/include/magick/montage.h \
+  /sw/include/magick/option.h /sw/include/magick/paint.h \
+  /sw/include/magick/profile.h /sw/include/magick/string_.h \
+  /sw/include/magick/quantize.h /sw/include/magick/registry.h \
+  /sw/include/magick/random.h /sw/include/magick/resize.h \
+  /sw/include/magick/resource_.h /sw/include/magick/segment.h \
+  /sw/include/magick/shear.h /sw/include/magick/signature.h \
+  /sw/include/magick/timer.h /sw/include/magick/token.h \
+  /sw/include/magick/transform.h /sw/include/magick/utility.h \
+  /sw/include/magick/version.h /sw/include/wand/magick_wand.h \
+  /sw/include/wand/drawing_wand.h /sw/include/wand/pixel_wand.h \
+  /sw/include/wand/pixel_iterator.h /sw/include/Magick++/Blob.h \
+  /sw/include/Magick++/Color.h /sw/include/Magick++/Drawable.h \
+  /sw/include/Magick++/Geometry.h /sw/include/Magick++/Exception.h \
+  /sw/include/Magick++/TypeMetric.h /sw/include/Magick++/Pixels.h \
+  /sw/include/Magick++/STL.h /sw/include/Magick++/CoderInfo.h \
+  /sw/include/Magick++/Montage.h imagelib.hpp affinetransformation.hpp \
+  getpot.hpp colorhsv.hpp
+objects/powerpc/sparsehistogramfeature.o: sparsehistogramfeature.cpp \
+  sparsehistogramfeature.hpp basefeature.hpp diag.hpp
+objects/powerpc/svd.o: svd.cpp Lapack.hh svd.hpp
+objects/powerpc/tamurafeature.o: tamurafeature.cpp tamurafeature.hpp diag.hpp \
+  imagefeature.hpp vectorfeature.hpp basefeature.hpp \
+  /sw/include/Magick++.h /sw/include/Magick++/Image.h \
+  /sw/include/Magick++/Include.h /sw/include/magick/magick_config.h \
+  /sw/include/magick/api.h /sw/include/magick/ImageMagick.h \
+  /sw/include/magick/semaphore.h /sw/include/magick/animate.h \
+  /sw/include/magick/annotate.h /sw/include/magick/draw.h \
+  /sw/include/magick/type.h /sw/include/magick/attribute.h \
+  /sw/include/magick/blob.h /sw/include/magick/image.h \
+  /sw/include/magick/color.h /sw/include/magick/exception.h \
+  /sw/include/magick/stream.h /sw/include/magick/cache.h \
+  /sw/include/magick/cache_view.h /sw/include/magick/coder.h \
+  /sw/include/magick/client.h /sw/include/magick/colorspace.h \
+  /sw/include/magick/compare.h /sw/include/magick/composite.h \
+  /sw/include/magick/compress.h /sw/include/magick/configure.h \
+  /sw/include/magick/hashmap.h /sw/include/magick/constitute.h \
+  /sw/include/magick/convert.h /sw/include/magick/decorate.h \
+  /sw/include/magick/delegate.h /sw/include/magick/deprecate.h \
+  /sw/include/magick/pixel.h /sw/include/magick/display.h \
+  /sw/include/magick/effect.h /sw/include/magick/enhance.h \
+  /sw/include/magick/fx.h /sw/include/magick/gem.h \
+  /sw/include/magick/geometry.h /sw/include/magick/identify.h \
+  /sw/include/magick/import.h /sw/include/magick/list.h \
+  /sw/include/magick/locale_.h /sw/include/magick/log.h \
+  /sw/include/magick/magic.h /sw/include/magick/magick.h \
+  /sw/include/magick/memory_.h /sw/include/magick/module.h \
+  /sw/include/magick/mogrify.h /sw/include/magick/monitor.h \
+  /sw/include/magick/montage.h /sw/include/magick/option.h \
+  /sw/include/magick/paint.h /sw/include/magick/profile.h \
+  /sw/include/magick/string_.h /sw/include/magick/quantize.h \
+  /sw/include/magick/registry.h /sw/include/magick/random.h \
+  /sw/include/magick/resize.h /sw/include/magick/resource_.h \
+  /sw/include/magick/segment.h /sw/include/magick/shear.h \
+  /sw/include/magick/signature.h /sw/include/magick/timer.h \
+  /sw/include/magick/token.h /sw/include/magick/transform.h \
+  /sw/include/magick/utility.h /sw/include/magick/version.h \
+  /sw/include/wand/magick_wand.h /sw/include/wand/drawing_wand.h \
+  /sw/include/wand/pixel_wand.h /sw/include/wand/pixel_iterator.h \
+  /sw/include/Magick++/Blob.h /sw/include/Magick++/Color.h \
+  /sw/include/Magick++/Drawable.h /sw/include/Magick++/Geometry.h \
+  /sw/include/Magick++/Exception.h /sw/include/Magick++/TypeMetric.h \
+  /sw/include/Magick++/Pixels.h /sw/include/Magick++/STL.h \
+  /sw/include/Magick++/CoderInfo.h /sw/include/Magick++/Montage.h \
+  histogramfeature.hpp imagelib.hpp affinetransformation.hpp
+objects/powerpc/vectorfeature.o: vectorfeature.cpp vectorfeature.hpp basefeature.hpp \
+  diag.hpp
+objects/powerpc/visualizelocalfeatures.o: visualizelocalfeatures.cpp diag.hpp getpot.hpp \
+  localfeatures.hpp vectorvectorfeature.hpp basefeature.hpp \
+  imagefeature.hpp vectorfeature.hpp /sw/include/Magick++.h \
+  /sw/include/Magick++/Image.h /sw/include/Magick++/Include.h \
+  /sw/include/magick/magick_config.h /sw/include/magick/api.h \
+  /sw/include/magick/ImageMagick.h /sw/include/magick/semaphore.h \
+  /sw/include/magick/animate.h /sw/include/magick/annotate.h \
+  /sw/include/magick/draw.h /sw/include/magick/type.h \
+  /sw/include/magick/attribute.h /sw/include/magick/blob.h \
+  /sw/include/magick/image.h /sw/include/magick/color.h \
+  /sw/include/magick/exception.h /sw/include/magick/stream.h \
+  /sw/include/magick/cache.h /sw/include/magick/cache_view.h \
+  /sw/include/magick/coder.h /sw/include/magick/client.h \
+  /sw/include/magick/colorspace.h /sw/include/magick/compare.h \
+  /sw/include/magick/composite.h /sw/include/magick/compress.h \
+  /sw/include/magick/configure.h /sw/include/magick/hashmap.h \
+  /sw/include/magick/constitute.h /sw/include/magick/convert.h \
+  /sw/include/magick/decorate.h /sw/include/magick/delegate.h \
+  /sw/include/magick/deprecate.h /sw/include/magick/pixel.h \
+  /sw/include/magick/display.h /sw/include/magick/effect.h \
+  /sw/include/magick/enhance.h /sw/include/magick/fx.h \
+  /sw/include/magick/gem.h /sw/include/magick/geometry.h \
+  /sw/include/magick/identify.h /sw/include/magick/import.h \
+  /sw/include/magick/list.h /sw/include/magick/locale_.h \
+  /sw/include/magick/log.h /sw/include/magick/magic.h \
+  /sw/include/magick/magick.h /sw/include/magick/memory_.h \
+  /sw/include/magick/module.h /sw/include/magick/mogrify.h \
+  /sw/include/magick/monitor.h /sw/include/magick/montage.h \
+  /sw/include/magick/option.h /sw/include/magick/paint.h \
+  /sw/include/magick/profile.h /sw/include/magick/string_.h \
+  /sw/include/magick/quantize.h /sw/include/magick/registry.h \
+  /sw/include/magick/random.h /sw/include/magick/resize.h \
+  /sw/include/magick/resource_.h /sw/include/magick/segment.h \
+  /sw/include/magick/shear.h /sw/include/magick/signature.h \
+  /sw/include/magick/timer.h /sw/include/magick/token.h \
+  /sw/include/magick/transform.h /sw/include/magick/utility.h \
+  /sw/include/magick/version.h /sw/include/wand/magick_wand.h \
+  /sw/include/wand/drawing_wand.h /sw/include/wand/pixel_wand.h \
+  /sw/include/wand/pixel_iterator.h /sw/include/Magick++/Blob.h \
+  /sw/include/Magick++/Color.h /sw/include/Magick++/Drawable.h \
+  /sw/include/Magick++/Geometry.h /sw/include/Magick++/Exception.h \
+  /sw/include/Magick++/TypeMetric.h /sw/include/Magick++/Pixels.h \
+  /sw/include/Magick++/STL.h /sw/include/Magick++/CoderInfo.h \
+  /sw/include/Magick++/Montage.h imagelib.hpp affinetransformation.hpp
+objects/powerpc/wavelet.o: wavelet.cpp wavelet.hpp salientpoints.hpp imagefeature.hpp \
+  vectorfeature.hpp basefeature.hpp diag.hpp /sw/include/Magick++.h \
+  /sw/include/Magick++/Image.h /sw/include/Magick++/Include.h \
+  /sw/include/magick/magick_config.h /sw/include/magick/api.h \
+  /sw/include/magick/ImageMagick.h /sw/include/magick/semaphore.h \
+  /sw/include/magick/animate.h /sw/include/magick/annotate.h \
+  /sw/include/magick/draw.h /sw/include/magick/type.h \
+  /sw/include/magick/attribute.h /sw/include/magick/blob.h \
+  /sw/include/magick/image.h /sw/include/magick/color.h \
+  /sw/include/magick/exception.h /sw/include/magick/stream.h \
+  /sw/include/magick/cache.h /sw/include/magick/cache_view.h \
+  /sw/include/magick/coder.h /sw/include/magick/client.h \
+  /sw/include/magick/colorspace.h /sw/include/magick/compare.h \
+  /sw/include/magick/composite.h /sw/include/magick/compress.h \
+  /sw/include/magick/configure.h /sw/include/magick/hashmap.h \
+  /sw/include/magick/constitute.h /sw/include/magick/convert.h \
+  /sw/include/magick/decorate.h /sw/include/magick/delegate.h \
+  /sw/include/magick/deprecate.h /sw/include/magick/pixel.h \
+  /sw/include/magick/display.h /sw/include/magick/effect.h \
+  /sw/include/magick/enhance.h /sw/include/magick/fx.h \
+  /sw/include/magick/gem.h /sw/include/magick/geometry.h \
+  /sw/include/magick/identify.h /sw/include/magick/import.h \
+  /sw/include/magick/list.h /sw/include/magick/locale_.h \
+  /sw/include/magick/log.h /sw/include/magick/magic.h \
+  /sw/include/magick/magick.h /sw/include/magick/memory_.h \
+  /sw/include/magick/module.h /sw/include/magick/mogrify.h \
+  /sw/include/magick/monitor.h /sw/include/magick/montage.h \
+  /sw/include/magick/option.h /sw/include/magick/paint.h \
+  /sw/include/magick/profile.h /sw/include/magick/string_.h \
+  /sw/include/magick/quantize.h /sw/include/magick/registry.h \
+  /sw/include/magick/random.h /sw/include/magick/resize.h \
+  /sw/include/magick/resource_.h /sw/include/magick/segment.h \
+  /sw/include/magick/shear.h /sw/include/magick/signature.h \
+  /sw/include/magick/timer.h /sw/include/magick/token.h \
+  /sw/include/magick/transform.h /sw/include/magick/utility.h \
+  /sw/include/magick/version.h /sw/include/wand/magick_wand.h \
+  /sw/include/wand/drawing_wand.h /sw/include/wand/pixel_wand.h \
+  /sw/include/wand/pixel_iterator.h /sw/include/Magick++/Blob.h \
+  /sw/include/Magick++/Color.h /sw/include/Magick++/Drawable.h \
+  /sw/include/Magick++/Geometry.h /sw/include/Magick++/Exception.h \
+  /sw/include/Magick++/TypeMetric.h /sw/include/Magick++/Pixels.h \
+  /sw/include/Magick++/STL.h /sw/include/Magick++/CoderInfo.h \
+  /sw/include/Magick++/Montage.h point.hpp

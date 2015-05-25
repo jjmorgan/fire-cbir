@@ -16,6 +16,8 @@ along with FIRE; if not, write to the Free Software
 Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 */
 #include "imagefeature.hpp"
+#include "diag.hpp"
+#include <vector>
 #include <sstream>
 #include <math.h>
 
@@ -114,51 +116,66 @@ bool ImageFeature::load(const ::std::string& filename, bool forceGray){
   if(filename.find("gray") < filename.size() or filename.find(".pgm") < filename.size()) {
     forceGray=true;
   }
-  
+
   //temporary image data
-  Image loaded;
+  vector<Image> frames_in;
+  vector<Image> frames;
   try {
-    loaded.read(filename);
+    readImages(&frames_in, filename);
+	coalesceImages(&frames, frames_in.begin(), frames_in.end());
   } catch( ... ) {
     ERR << "Exception loading image: " << filename << endl;
     return false;
   }
   
-  xsize_=loaded.columns();
-  ysize_=loaded.rows();
-  if(loaded.colorSpace()==RGBColorspace && !forceGray) {
+  xsize_=frames[0].columns();
+  ysize_=frames[0].rows();
+  //if(loaded.colorSpace()==RGBColorspace && !forceGray) {
     zsize_=3;
     DBG(30) << "found image in RGB" << endl;
-  } else if ( loaded.colorSpace()==GRAYColorspace || forceGray) {
-    DBG(30) << "found image in gray" << endl;
-    zsize_=1;
-  } else {
-    ERR << "Unknown color space" << loaded.colorSpace() << endl; return false;
-  }
+  //} else if ( loaded.colorSpace()==GRAYColorspace || forceGray) {
+  //  DBG(30) << "found image in gray" << endl;
+  //  zsize_=1;
+  //} else {
+  //  ERR << "Unknown color space" << loaded.colorSpace() << endl; return false;
+  //}
+  framecount_ = frames.size();
+  frameindex_ = 0;
   
-  data_.resize(zsize_);
-  for(uint c=0;c<zsize_;++c) data_[c].resize(xsize_*ysize_);
+  frames_data_.resize(framecount_);
+  for(uint f=0;f<framecount_;++f)
+	frames_data_[f].resize(zsize_);
+  for(uint f=0;f<framecount_;++f)
+	for(uint c=0;c<zsize_;++c)
+	  frames_data_[f][c].resize(xsize_*ysize_);
   
   switch(zsize_) {
   case 1: //gray image
     DBG(30) << "Loading gray image" << endl;
-    for(uint y=0;y<ysize_;++y) {
-      for(uint x=0;x<xsize_;++x) {
-        rgbPixel=loaded.pixelColor(x,y);
-        data_[0][y*xsize_+x]=(rgbPixel.red()+rgbPixel.green()+rgbPixel.blue())/3;
+	for(uint f=0;f<framecount_;++f) {
+      for(uint y=0;y<ysize_;++y) {
+        for(uint x=0;x<xsize_;++x) {
+          rgbPixel=frames[f].pixelColor(x,y);
+          frames_data_[f][0][y*xsize_+x]=(rgbPixel.red()+rgbPixel.green()+rgbPixel.blue())/3;
+        }
       }
-    }
+	}
+	data_ = frames_data_[0];
     break;
   case 3: //rgb image
     DBG(30) << "Loading rgb image" << endl;
-    for(uint y=0;y<ysize_;++y) {
-      for(uint x=0;x<xsize_;++x) {
-        rgbPixel=loaded.pixelColor(x,y);
-        data_[0][y*xsize_+x]=rgbPixel.red();
-        data_[1][y*xsize_+x]=rgbPixel.green();
-        data_[2][y*xsize_+x]=rgbPixel.blue();
+	for(uint f=0;f<framecount_;++f) {
+      PixelPacket *pixels = frames[f].getPixels(0, 0, xsize_, ysize_);
+      for(uint y=0;y<ysize_;++y) {
+        for(uint x=0;x<xsize_;++x) {
+          rgbPixel=pixels[y*xsize_+x];
+          frames_data_[f][0][y*xsize_+x]=rgbPixel.red();
+          frames_data_[f][1][y*xsize_+x]=rgbPixel.green();
+          frames_data_[f][2][y*xsize_+x]=rgbPixel.blue();
+        }
       }
-    }
+	}
+	data_ = frames_data_[0];
     return true;
     break;
   default:
@@ -231,7 +248,7 @@ void ImageFeature::save(const ::std::string & filename, const uint& idx1, const 
 const vector<double> ImageFeature::operator()(uint x, uint y) const{
   vector<double> result;
   for(uint c=0;c<zsize_;++c) {
-    result.push_back(data_[c][y*xsize_+x]);
+    result.push_back(frames_data_[frameindex_][c][y*xsize_+x]);
   }
   return result;
 }
