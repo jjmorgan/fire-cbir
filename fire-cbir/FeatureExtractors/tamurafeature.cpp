@@ -15,7 +15,7 @@ ImageFeature calculate(const ImageFeature &img) {
   for(uint z=0;z<img.zsize();++z) {
     tmp=directionality(img,z);
     add(result,tmp,0);
-    
+
     tmp=coarseness(img,z);
     add(result,tmp,1);
 
