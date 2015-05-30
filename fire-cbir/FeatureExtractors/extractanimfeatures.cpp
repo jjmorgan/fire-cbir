@@ -47,6 +47,7 @@ void USAGE() {
        << "    -s, --suffix    suffix of output files" << endl
        << "    --steps         how many steps per dimension, default: 8/color 256/gray." << endl
 	     << "    -d, --distance  minimum distance (color histogram) between key frames" << endl
+       << "    --color         extract color histograms only" << endl
        << endl;
 }
 
@@ -65,15 +66,6 @@ void process_file(string filename, string suffix) {
     ERR << "Exception loading image: " << filename << endl;
     return;
   }
-  
-  // Just save images. How long does this take?
-  for (uint i = 0; i < frames.size(); i++) {
-    ostringstream outfilename;
-    outfilename << filename << "." << i << ".gif";
-    frames[i].write(outfilename.str());
-  }
-  
-  return;
   
   for (uint i = 0; i < frames.size(); i++) {
     ImageFeature im;
@@ -98,7 +90,10 @@ void process_file(string filename, string suffix) {
     }
     
     ostringstream outfilename;
-    outfilename << filename << "." << i << "." << suffix;
+    if (i == 0)
+      outfilename << filename << "." << suffix;
+    else
+      outfilename << filename << "." << i << "." << suffix;
     result.save(outfilename.str());
   }
 

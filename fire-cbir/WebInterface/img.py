@@ -1,52 +1,35 @@
 #!/usr/bin/python
 
 import sys
+import os
+import traceback
 import cgi
 import re
 import Image
+import images2gif
 
-sys.stderr=sys.stdout
+sys.stderr = sys.stdout
 try:
-    form=cgi.FieldStorage()
-    imagefilename=form["image"].value
-    outWidth=-1
-    outHeight=-1
-    maxDim=-1
 
-    if(form.has_key("max")):
-        maxDim=int(form["max"].value)
-    if(form.has_key("width")):
-        outWidth=int(form["width"].value)
-    if(form.has_key("height")):
-        outHeight=int(form["height"].value)
-    inImg=Image.open(imagefilename)
-    inWidth=inImg.size[0]
-    inHeight=inImg.size[1]
+    form = cgi.FieldStorage()
+    imgpath = form["image"].value
 
-    if maxDim!=-1:
-        if inWidth>inHeight:
-            outWidth=maxDim
-        else:
-            outHeight=maxDim
+    if (form.has_key("type")):
+      imgpath = os.path.join(os.path.dirname(imgpath), os.path.splitext(os.path.basename(imgpath))[0]) + '-' + form["type"].value + '.gif'
+
+    image=open(imgpath,'rb').read()
     
-    if (outWidth==-1 and outHeight==-1):
-        outImg=inImg
-    elif (outWidth==-1):
-        scaleFactor=float(outHeight)/float(inHeight)
-        outWidth=int(scaleFactor*inWidth)
-        outImg=inImg.resize((outWidth,outHeight),Image.BILINEAR)
-    elif (outHeight==-1):
-        scaleFactor=float(outWidth)/float(inWidth)
-        outHeight=int(scaleFactor*inHeight)
-        outImg=inImg.resize((outWidth,outHeight),Image.BILINEAR)
-    else:
-        outImg=inImg.resize((outWidth,outHeight),Image.BILINEAR)
-    contenttype="image/jpg"
+    contenttype="image/gif"
     print "Content-Type: "+contenttype+"\n"
-    outImg=outImg.convert("RGB")
-    outImg.save(sys.stdout,"jpeg")
-except:
+
+    sys.stdout.write(image)
+
+except Exception as e:
     contenttype="text/html"
     print "Content-Type: "+contenttype+"\n"
-    print "Access not permitted"
+
+    print type(e).__name__ + '<br>\n'
+    print e, '<br>\n'
+    print traceback.print_exc(file=sys.stdout)
+
 

@@ -164,14 +164,14 @@ void HistogramFeature::feedbin(const ::std::vector<uint>& pos) {
 vector<uint> HistogramFeature::pointToPos(const vector<double>& point) const {
   vector<uint> pos(dim_,0);
   
-  BLINK(55) << "position: " ;  
+  //BLINK(55) << "position: " ;  
   for(uint i=0;i<dim_;++i) {
     pos[i]=int(point[i]/stepSize_[i]);
     if(pos[i]>=steps_[i]) pos[i]=steps_[i]-1;
     //BLINK(55) << point[i] << " -> " << pos[i] << "\t ";
     //cout << point[i] << " -> " << pos[i] << endl;
   }
-  BLINK(55) << endl;
+  //BLINK(55) << endl;
   
   return pos;
 }

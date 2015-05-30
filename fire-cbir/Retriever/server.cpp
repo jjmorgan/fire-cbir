@@ -826,7 +826,7 @@ ServerStatus Server::processCommand(const ::std::string& commandline, ::std::str
       count++;
     }
 
-    DBG(50) << "newfile 5" << endl;
+    DBG(50) << "newfile 5 (" << imagepath+imagename << ") -> (" << newfile << ")" << endl;
 
     // copies the image into the imagepath
     if(FileCopy(newfile.c_str(), (imagepath+imagename).c_str()) != 0) {
@@ -841,7 +841,7 @@ ServerStatus Server::processCommand(const ::std::string& commandline, ::std::str
     tokenize(retriever_.getFeatures(),features);
     vector<string> used_features(0);    // stores all actually used features for deletion
 
-    DBG(50) << "newfile 7" << endl;
+    DBG(50) << "newfile 7 (" << t2bpath << ")" << endl;
 
     // opens file type2bin, gets the path to the feature-extractors and executes them on the image
     bool process_successful=true;
@@ -857,14 +857,15 @@ ServerStatus Server::processCommand(const ::std::string& commandline, ::std::str
       while(!is.eof()) {
         getline(is,line);
         if(line=="") break;
-        bin_command=line.substr(line.find(' ')+1, line.length());   // extractor-executable
+        bin_command=line.substr(line.find(' ')+1, line.length() - 1);   // extractor-executable
         line.erase(line.find(' '), line.length()+1);    // feature-suffix
         
         for(uint i=0;i<features.size();++i) {
           if(features[i]==line) {
+            DBG(20) << "Command: " << bin_command << " --suffix " << line << " --images \"" << imagepath+imagename << "\"" << endl;
             if(system((bin_command+" --suffix "+line+" --images \""+imagepath+imagename+"\"").c_str())!=0) {
               os << "Server configuration error." << endl;
-              ERR << "Unable to process image file with" << bin_command << endl;
+              ERR << "Unable to process image file with " << bin_command << endl;
               process_successful=false;
               break;
             }
@@ -1083,17 +1084,19 @@ int Server::FileCopy ( const char *src, const char *dst ) {
 
   buf = new char[BUFSZ];
 
+  DBG(20) << "Input file: " << src << endl;
+  DBG(20) << "Output file: " << dst << endl;
   fi = fopen( src, "rb" );
 
   result = COPY_OK;
   if(fi == NULL) {
     result = COPY_ERROR;
-    cerr << "Problem opening input file" << std::endl;
+    cerr << "Problem opening input file: errno " << errno << " (" << strerror(errno) << ")" << std::endl;
   } else {
     fo = fopen( dst, "wb" );
     if(fo == NULL) {
       result = COPY_ERROR;
-      cerr << "Problem opening output file" << std::endl;
+      cerr << "Problem opening output file: errno " << errno << " (" << strerror(errno) << ")" << std::endl;
     }
   }
   

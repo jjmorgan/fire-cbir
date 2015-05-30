@@ -364,10 +364,11 @@ def newFile(form):
     fileitem = form["absolute_path"]
     #    f=os.popen("ls -l "+ temporaryFiles+"/"+fileitem.filename)
     #    print f.readlines()
-    if(checkImage(temporaryFiles+"/"+fileitem.filename)==0):
-        result=result+"Delivered file was not a valid image!"
-        return result
-    s.sendcmd("newfile 2 "+temporaryFiles+"/"+fileitem.filename+".png")
+    #if(checkImage(temporaryFiles+"/"+fileitem.filename)==0):
+    #    result=result+"Delivered file was not a valid image!"
+    #    return result
+    #s.sendcmd("newfile 2 "+temporaryFiles+"/"+fileitem.filename+".png")
+    s.sendcmd("newfile 0 "+temporaryFiles+"/"+fileitem.filename)
     msg=s.getline()
     tokens=re.split(" ",msg)
     result=result+displayResults(tokens,"querystring","./"+fileitem.filename,0)
@@ -436,10 +437,10 @@ def feedbackretrieve(form):
 # the button for saving relevances is deaktivated as it is not used
 # ----------------------------------------------------------------------
 def displayResults(tokens,querytype,querystring,resultsStep):
-    if(re.search("[0-9]+(\.[0-9]+)?", tokens[0]) == None):
-        result="Could not read retrieval result.\n"
-        s.flush()
-        return result
+    #if(re.search("[0-9]+(\.[0-9]+)?", tokens[0]) == None):
+    #    result="Could not read retrieval result for token: " + tokens[0] + "\n"
+        #s.flush()
+    #    return result
     
     print "<!-- "+str(tokens)+"-->"
     i=0
@@ -469,7 +470,7 @@ def displayResults(tokens,querytype,querystring,resultsStep):
 #        result=result+"<a href=\"img.py?image="+settings.path+"/"+img+"\" target=\"_blank\">"
 #------------
 
-        result=result+"<img src=\""+config.imgpyurl+"?max=150&image="+settings.path+"/"+img+"\" title=\""+str(score)+"-"+img+"\" name=\""+str(score)+"-"+img+"\">\n<br>\n"
+        result=result+"<div id=\"preview\"><img src=\""+config.imgpyurl+"?max=150&image="+settings.path+"/"+img+"\" title=\""+str(score)+"-"+img+"\" name=\""+str(score)+"-"+img+"\"></div>\n<br>\n"
         result=result+"</a>"
         result=result+"<input type=\"hidden\" name=\"resultImage"+resNo+"\" value=\""+img+"\">\n"
 
@@ -527,7 +528,7 @@ def randomImages():
     for img in re.split(" ",res):
         if img != "" and img != "\n":
             result=result+"<button title=\""+img+"\" name=\"searchButton\" type=\"submit\" onClick=\"document.queryForm.queryImage.value='"+img+"';document.queryForm.submit()\" value=\""+img+"\">\n"
-            result=result+"<img  src=\""+config.imgpyurl+"?max=100&image="+settings.path+"/"+img+"\" title=\""+img+"\">\n"
+            result=result+"<div id=\"preview\"><img  src=\""+config.imgpyurl+"?max=100&image="+settings.path+"/"+img+"\" title=\""+img+"\"></div>\n"
             result=result+"</button>\n"
 
     if form.has_key("demomode"):
@@ -548,8 +549,11 @@ def randomImages():
 # ----------------------------------------------------------------------
 def newFileForm():
     result="<hr><h3> Upload - Use query image from your file system </h3>"
+    #result+="""<input type="hidden" name="newFile" value="0">"""
+    #result+="""<input name="absolute_path" type="file" size="30" onClick="document.queryForm.newFile.value=1;document.queryForm.submit()">"""
     result+="""<input type="hidden" name="newFile" value="0">"""
-    result+="""<input name="absolute_path" type="file" size="30" onClick="document.queryForm.newFile.value=1;document.queryForm.submit()">"""
+    result+="""<input name="absolute_path" type="file">"""
+    result+="""<input type="submit" onClick="document.queryForm.newFile.value=1;document.queryForm.submit()">"""
     result+="\n"
     return result
 
