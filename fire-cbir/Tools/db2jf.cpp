@@ -71,7 +71,7 @@ int main(int argc, char **argv) {
     for (uint i=0; i<db.size(); ++i) {
       tmpFeat=new DoubleVector();
       for (uint j=0; j<db.numberOfSuffices(); ++j) {
-        const VectorFeature* dbfeat=dynamic_cast<const VectorFeature *>(db[i]->operator[](j));
+        const VectorFeature* dbfeat=dynamic_cast<const VectorFeature *>(db[i]->operator[](j)->operator[](0));
         if (dbfeat) {
           for (uint k=0; k<dbfeat->size(); ++k) {
             tmp= dbfeat->operator[](k);
@@ -82,7 +82,7 @@ int main(int argc, char **argv) {
             tmpFeat->push_back(tmp);
           }
         } else {
-          const SparseHistogramFeature* dbfeat=dynamic_cast<const SparseHistogramFeature*>(db[i]->operator[](j));
+          const SparseHistogramFeature* dbfeat=dynamic_cast<const SparseHistogramFeature*>(db[i]->operator[](j)->operator[](0));
           if (dbfeat) {
             DoubleVector t;
             if (smootheFactor != 0.0) {
@@ -109,7 +109,7 @@ int main(int argc, char **argv) {
     for (uint i=0; i<db.size(); ++i) {
       tmpFeat=new DoubleVector();
       for (uint j=0; j<db.numberOfSuffices(); ++j) {
-        const LocalFeatures* dbfeat=dynamic_cast<const LocalFeatures*>(db[i]->operator[](j));
+        const LocalFeatures* dbfeat=dynamic_cast<const LocalFeatures*>(db[i]->operator[](j)->operator[](0));
         if (dbfeat) {
           for (uint f=0; f<dbfeat->size(); ++f) {
             DoubleVector * feat=new DoubleVector(dbfeat->getData()[f]);

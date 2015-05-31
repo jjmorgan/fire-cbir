@@ -1,0 +1,19 @@
+#-----------------------------------------------------------------------
+# Makefile variations depending on different configurations
+#
+#----------------------------------------------------------------------
+# The following configuration-dependent variables are passed to each
+# the Makefile in subdirectories:
+#
+# XXX_LIB	The name of the library file (usually libXXX.a)
+# C++		The C compiler (usually gcc or g++)
+# MAKELIB	The command and flags to make a library file (usually
+#		    "ar ...")
+# RANLIB	For "ranlib" = use ranlib, "true" = don't use ranlib
+#----------------------------------------------------------------------
+
+linux:
+	$(MAKE) targets \
+	"DR_LIB = libknn.a" \
+	"MAKELIB = ar ruv" \
+	"RANLIB = true"

@@ -82,13 +82,13 @@ int main(int argc, char **argv) {
   
   for(uint j=0;j<db.numberOfSuffices();++j) {
     
-    db[0]->operator[](j) = fl.load(db[0]->basename(),db.suffix(j),db.relevantSuffix(j),db.path());
+    db[0]->operator[](j)->add_feature(fl.load(db[0]->basename(),db.suffix(j),db.relevantSuffix(j),db.path()));
     
-    const VectorFeature* dbfeat=dynamic_cast<const VectorFeature *>(db[0]->operator[](j));
+    const VectorFeature* dbfeat=dynamic_cast<const VectorFeature *>(db[0]->operator[](j)->operator[](0));
     if(dbfeat) {
       dim=dbfeat->size();
     } else {
-      const LocalFeatures* dbfeat=dynamic_cast<const LocalFeatures*>(db[0]->operator[](j));
+      const LocalFeatures* dbfeat=dynamic_cast<const LocalFeatures*>(db[0]->operator[](j)->operator[](0));
       if(dbfeat) {
         dim=dbfeat->getData()[0].size();
       }
@@ -112,11 +112,11 @@ int main(int argc, char **argv) {
         
         // Calc PCA
         DBG(10) << "Accumulating for suffix " << j+1 <<"/" << db.numberOfSuffices()  << " image " <<i+1 <<"/" << db.size() << endl;
-        const VectorFeature* dbfeat=dynamic_cast<const VectorFeature *>(img[j]);
+        const VectorFeature* dbfeat=dynamic_cast<const VectorFeature *>(img[j]->operator[](0));
         if(dbfeat) {
           pca.putData(dbfeat->data());
         } else {
-          const LocalFeatures* dbfeat=dynamic_cast<const LocalFeatures*>(img[j]);
+          const LocalFeatures* dbfeat=dynamic_cast<const LocalFeatures*>(img[j]->operator[](0));
           if(dbfeat) {
             for(uint f=0;f<dbfeat->size();++f) {
               pca.putData(dbfeat->getData()[f]);
@@ -151,13 +151,13 @@ int main(int argc, char **argv) {
       
       // PCA Transform
       DBG(10) << "Transforming for suffix " << j+1 <<"/" << db.numberOfSuffices()  << " image " <<i+1 <<"/" << db.size() << endl;
-      const VectorFeature* dbfeat=dynamic_cast<const VectorFeature *>(img[j]);
+      const VectorFeature* dbfeat=dynamic_cast<const VectorFeature *>(img[j]->operator[](0));
       if(dbfeat) {
         DoubleVector tr=pca.transform(dbfeat->data(),PCAdim);
         VectorFeature toSave(tr);
         toSave.save(db.path()+"/"+db.filename(i)+"."+db.suffix(j)+".pca.vec.gz");
       } else {
-        const LocalFeatures* dbfeat=dynamic_cast<const LocalFeatures*>(img[j]);
+        const LocalFeatures* dbfeat=dynamic_cast<const LocalFeatures*>(img[j]->operator[](0));
         if(dbfeat) {
           LocalFeatures toSave=*dbfeat;
           toSave.getData().clear();

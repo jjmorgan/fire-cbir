@@ -24,28 +24,27 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
 using namespace std;
 
-ImageContainer::ImageContainer() : features_() {
+ImageContainer::ImageContainer() : feature_sets_() {
 }
 
-ImageContainer::ImageContainer(const string& filename, const uint nof) : basename_(filename), features_(nof) {
+ImageContainer::ImageContainer(const string& filename, const uint nof) : basename_(filename), feature_sets_(nof) {
 }
  
 
 ImageContainer::~ImageContainer() {
-  for(uint i=0;i<features_.size();++i) {
-    delete features_[i];
+  for(uint i=0;i<feature_sets_.size();++i) {
+    delete feature_sets_[i];
   }
 }
 
 
-BaseFeature*& ImageContainer::operator[](uint idx) {
-  return features_[idx];
+FeatureSet*& ImageContainer::operator[](uint idx) {
+  return feature_sets_[idx];
 }
 
-const BaseFeature* ImageContainer::operator[](uint idx) const {
-  return features_[idx];
+const FeatureSet* ImageContainer::operator[](uint idx) const {
+  return feature_sets_[idx];
 }
-
 
 const ::std::string& ImageContainer::basename() const {
   return basename_;
@@ -71,7 +70,14 @@ DescriptionSet& ImageContainer::description() {
 
 ::std::vector<double> ImageContainer::asVector() {
   ::std::vector<double> vec;
-  for (uint i = 0; i < features_.size(); i++) {
+  
+  //TODO: Vectorization is used in a couple of places which are outside the scope
+  // of this extension -- needs fixing
+  
+  ERR<<"Feature set cant be vectorized!"<<endl;
+  exit(20);
+  
+  /*for (uint i = 0; i < features_.size(); i++) {
     ImageFeature *imf=dynamic_cast<ImageFeature *>(features_[i]);
     if(imf) {
       DBG(25) << "Image feature!" << endl;
@@ -90,13 +96,21 @@ DescriptionSet& ImageContainer::description() {
         exit(20);
       }
     }
-  }
+  }*/
   return vec;
 }
 
 ImageContainer ImageContainer::operator-(const ImageContainer & img) const {
   
+  //TODO: Vectorization is used in a couple of places which are outside the scope
+  // of this extension -- needs fixing
+  
   ImageContainer result=ImageContainer(*this);
+  
+  ERR<<"Feature set cant be vectorized!"<<endl;
+  exit(20);
+  
+  /*
   for (uint i = 0; i < features_.size(); i++) {
     VectorFeature *vf=dynamic_cast<VectorFeature *>(features_[i]);
 
@@ -104,10 +118,10 @@ ImageContainer ImageContainer::operator-(const ImageContainer & img) const {
       (*(result.features_[i])).operator-=(*vf);
     }
     else{
-      ERR<<"Feature cant be vectorized!"<<endl;
+      ERR<<"Feature set cant be vectorized!"<<endl;
       exit(20);
     }
-  }
+  }*/
   return result;
 }
   
@@ -118,13 +132,13 @@ struct CopyFromPointer {
 };                                                                                                        
 
 
-ImageContainer::ImageContainer(const ImageContainer& src) :
+/*ImageContainer::ImageContainer(const ImageContainer& src) :
   basename_(src.basename_), features_(src.features_.size()), class_(src.class_), description_(src.description_) {
   std::transform(src.features_.begin(), src.features_.end(), features_.begin(), CopyFromPointer());
-}
+}*/
 
 /// clears the imagecontainer
 void ImageContainer::clear(void) {
-  for (uint j=0; j<features_.size(); ++j)
-    delete features_[j];
+  for (uint j=0; j<feature_sets_.size(); ++j)
+    delete feature_sets_[j];
 }

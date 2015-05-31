@@ -32,6 +32,8 @@
 #include "lfsignaturefeature.hpp"                   
 #include "lfposclusteridfeature.hpp"
 
+#include <sstream>
+
 using namespace std;
 
 FeatureLoader::FeatureLoader() {
@@ -138,4 +140,53 @@ BaseFeature* FeatureLoader::load(const ::std::string& basename, const ::std::str
   }
   return result;
 
+}
+
+FeatureSet* FeatureLoader::load_set(const ::std::string& basename, const ::std::string& suffix, const ::std::string& lastSuffix, const ::std::string& path) {
+  FeatureSet *fs = new FeatureSet();
+  
+  FeatureType type=suffix2Type(lastSuffix);
+  DBG(50) << VAR(type) << endl;
+  
+  uint i = 1;
+  while (true) {
+    BaseFeature *feature = NULL;
+    string filename;
+    stringstream filename_ss;
+    
+    filename_ss << path << "/" << basename << ".";
+    if (i == 1)
+      filename_ss << suffix;
+    else
+      filename_ss << i << "." << suffix;
+    
+    filename = filename_ss.str();
+    
+    // check if next frame exists (still images will only have one file per suffix)
+    struct stat buffer;
+    if (stat(filename.c_str(), &buffer) != 0)
+      break;
+    
+    feature = makeNewFeature(lastSuffix);
+
+    // now: special cases. Default is at the end...
+    if(suffix=="oldhisto") {
+      DBG(35) << "Loading OldHistogram from '" << filename << "'." << endl;
+      dynamic_cast<HistogramFeature*>(feature)->loadOld(filename);
+      DBG(35) << "Loaded OldHistogram from '" << filename << "'." << endl;
+    } else if (suffix=="mp7") {
+      DBG(35) << "Set MPEG7 properties" << endl;
+      dynamic_cast<MPEG7Feature*>(feature)->setMPEG7Type(suffix);
+      dynamic_cast<MPEG7Feature*>(feature)->basename()=basename;
+    } else { // default
+      DBG(35) << "Loading from '" << filename << "'." << endl;
+      feature->load(filename);
+      DBG(35) << "Loaded from '" << filename << "'." << endl;
+    }
+    
+    fs->add_feature(feature);
+    i++;
+  }
+  
+  return fs;
 }

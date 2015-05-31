@@ -56,7 +56,7 @@ bool calcMaxFeatSize(const Database& db,unsigned long int & ftsize,uint suffIdx 
   bool differ = false;
   unsigned long int help = 0;
   for(uint imgIdx=1;imgIdx<db.size();imgIdx++){
-    help = ((*(db[imgIdx]))[suffIdx])->calcBinarySize();
+    help = ((*(db[imgIdx]))[suffIdx]->operator[](0))->calcBinarySize();
     if(ftsize!=help){
       differ = true;
       ftsize = max(ftsize,help);
@@ -120,7 +120,7 @@ int main(int argc, char** argv){
       bool differ = false;
       switch(ftype){
       case FT_HISTO: 
-        ftsize = ((*(db[0]))[i])->calcBinarySize();
+        ftsize = ((*(db[0]))[i]->operator[](0))->calcBinarySize();
         differ = calcMaxFeatSize(db,ftsize,i);
         DBG(10) <<  "type = FT_HISTO" << endl;
         if(differ){
@@ -128,7 +128,7 @@ int main(int argc, char** argv){
         }
         break;
       case FT_IMG: 
-        ftsize = ((*(db[0]))[i])->calcBinarySize();
+        ftsize = ((*(db[0]))[i]->operator[](0))->calcBinarySize();
         differ = calcMaxFeatSize(db,ftsize,i);
         DBG(10) << "type = FT_IMG" << endl;
         if(differ){
@@ -136,7 +136,7 @@ int main(int argc, char** argv){
         }
         break;
       case FT_VEC:
-        ftsize = ((*(db[0]))[i])->calcBinarySize();
+        ftsize = ((*(db[0]))[i]->operator[](0))->calcBinarySize();
         differ = calcMaxFeatSize(db,ftsize,i);
         DBG(10) << "type = FT_VEC" << endl;
         if(differ){
@@ -144,7 +144,7 @@ int main(int argc, char** argv){
         }
         break;
       case FT_SPARSEHISTO:
-        ftsize = ((*(db[0]))[i])->calcBinarySize();
+        ftsize = ((*(db[0]))[i]->operator[](0))->calcBinarySize();
         differ = calcMaxFeatSize(db,ftsize,i);
         DBG(10) << "type = FT_SPARSEHISTO" << endl;
         if(differ){
@@ -152,7 +152,7 @@ int main(int argc, char** argv){
         }
         break;
       case FT_BINARY:
-        ftsize = ((*(db[0]))[i])->calcBinarySize();
+        ftsize = ((*(db[0]))[i]->operator[](0))->calcBinarySize();
         DBG(10) << "type = FT_BINARY" << endl;
         break;
       default:

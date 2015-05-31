@@ -201,11 +201,14 @@ bool Database::loadQuery(const string& filename, ImageContainer *result) {
     if(featuredirectories()) {
       path+="/"+suffixList_[j];
     }
-    result->operator[](j)=fl.load(filename,suffixList_[j],relevantSuffix(j),path);
+    //TODO: The feature loader returns a single BaseFeature to store in features_
+    // Change this so the feature loader appends to the associated feature collection instead
+    //result->operator[](j)=fl.load(filename,suffixList_[j],relevantSuffix(j),path);
+    result->operator[](j)=fl.load_set(filename,suffixList_[j],relevantSuffix(j),path);
     // if partial loading is performed, the consistency can only be checked for features loaded at starteup
     uint partialLoadingSize =  binFilesNotToLoad_.size();
     if((partialLoadingSize==0) || (partialLoadingSize > 0 && j < partialLoadingSize &&  !binFilesNotToLoad_[j] ) ){
-      if(!checkConsistency(database_[0]->operator[](j),result->operator[](j))) {
+      if(!checkConsistency(database_[j]->operator[](0),result->operator[](j))) {
         featuresOK=false;
         DBG(10) << "loading feature " << j << ":"  << suffixList_[j] << ": features for " 
                 << "0:" << database_[0]->basename() << " and queryfeature " 
@@ -234,8 +237,12 @@ void Database::loadFeatures() {
           path+="/"+suffixList_[j];
         }
         BLINK(30) << suffixList_[j] << " ";
-        DBG(20) << "loading " << path << "/" << database_[i]->basename() << suffixList_[j] << "." << relevantSuffix(j) << endl;
-        database_[i]->operator[](j)=fl.load(database_[i]->basename(),suffixList_[j],relevantSuffix(j),path);
+        DBG(20) << "loading " << path << "/" << database_[i]->basename() << " " << suffixList_[j] << "." << relevantSuffix(j) << endl;
+        //TODO: The feature loader returns a single BaseFeature to store in features_
+        // Change this so the feature loader appends to the associated feature collection instead
+        //database_[i]->operator[](j)=fl.load(database_[i]->basename(),suffixList_[j],relevantSuffix(j),path);
+        database_[i]->operator[](j)=fl.load_set(database_[i]->basename(),suffixList_[j],relevantSuffix(j),path);
+        //TODO: Fix checkConsistency to work with feature sets
         if(!checkConsistency(database_[0]->operator[](j), database_[i]->operator[](j))) {
           DBG(10) << "loading feature " << j << ":"  << suffixList_[j] << ": features for " 
                   << "0:" << database_[0]->basename() << " and " 
@@ -307,8 +314,14 @@ void Database::loadFeatures() {
   DBG(10) <<  database_.size() <<" images in database." << endl;
 }
 
-bool Database::checkConsistency(const BaseFeature *ref, const BaseFeature *test) const {
+bool Database::checkConsistency(const FeatureSet *ref_set, const FeatureSet *test_set) const {
   bool result=false;
+  
+  //TODO: For simplicity, assume that two feature sets are consistent if their first elements are consistent
+  // Ideally you would check each element in ref with each element in test, but this can be costly
+  
+  const BaseFeature *ref = (*ref_set)[0];
+  const BaseFeature *test = (*test_set)[0];
 
   if(ref==NULL) {
     DBG(20) << "No reference feature given. Consistency not checked." << endl;
@@ -504,11 +517,14 @@ bool Database::haveClasses() const {
 ::std::pair< ::std::vector< ::std::string >,
                ::std::vector< ::std::string > >
 Database::getMetaFeatureInfo() const {
+  
+  //TODO: Meta features for animations unsupported
+
   // Find the index of the metafeature
   int metafeatureidx = -1;
   ImageContainer* ic = database_[0];
-  for(unsigned i=0; i<ic->numberOfFeatures(); ++i) {
-    if(ic->operator[](i)->type() == FT_META) {
+  for(unsigned i=0; i<ic->numberOfFeatureSets(); ++i) {
+    if(ic->operator[](i)->operator[](0)->type() == FT_META) {
       metafeatureidx = i;
     }
   }
@@ -520,7 +536,7 @@ Database::getMetaFeatureInfo() const {
   ::std::map< std::string,std::string >::const_iterator mi;
 
   for(unsigned i=0; i<database_.size(); ++i) {
-    mf = (MetaFeature*)(database_[i]->operator[](metafeatureidx));
+    mf = (MetaFeature*)(database_[i]->operator[](0)->operator[](metafeatureidx));
     for(mi=mf->values().begin(); mi!=mf->values().end(); ++mi) {
       if( find(res1.begin(), res1.end(), mi->first) == res1.end() ) {
         res1.push_back(mi->first);
@@ -548,8 +564,8 @@ void Database::printImageInformation(const ::std::string& imagename, ::std::ostr
     os << endl;
   }
   
-  os << "features " << cont->numberOfFeatures() << endl;
-  for(uint i=0;i<cont->numberOfFeatures(); ++i) {
+  os << "features " << cont->numberOfFeatureSets() << endl;
+  for(uint i=0;i<cont->numberOfFeatureSets(); ++i) {
     os << "suffix " << i << " " << this->suffix(i) << endl;
   }
   os << "end";
@@ -563,7 +579,7 @@ void Database::printFeatureInformation(const ::std::string& imagename,const ::st
   ImageContainer* cont=getByName(imagename);
   
   os << "suffix " << this->suffix(no) << endl;
-  (*cont)[no]->write(os);
+  (*cont)[no]->operator[](0)->write(os);
   os << "end";
     
 }
@@ -635,8 +651,9 @@ void Database::removeFeatureInformation(uint idx,vector<uint>& reallyLoaded){
     // remove the feature
     DBG(105) << "removed feature information of suffix " << suffixList_[idx] << " for image " << reallyLoaded[i] << endl;
     delete database_[reallyLoaded[i]]->operator[](idx);
-    BaseFeature* feat = NULL;
-    database_[reallyLoaded[i]]->operator[](idx)=feat;
+    //BaseFeature* feat = NULL;
+    //database_[reallyLoaded[i]]->operator[](idx)=feat;
+    database_[reallyLoaded[i]]->operator[](idx)=NULL;
   } // end for
   // now reset the read pointer of the largebinaryfeature file
   // i.e. move it right behind the end of the header information

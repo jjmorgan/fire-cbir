@@ -157,14 +157,16 @@ bool LargeBinaryFeatureFile::readNext(ImageContainer *img, uint j){
         return false;
       } 
           
+      //TODO: Works on first frame only
+          
       bool readBool = feat->readBinary(ifs_); 
       if(!readBool){
         return false;
       }
-      img->operator[](j)=feat;
+      img->operator[](j)->operator[](0)=feat;
       // if the features differ in size the padded zeros have to be skipped
       if(differ_){
-        long unsigned int local = img->operator[](j)->calcBinarySize();
+        long unsigned int local = img->operator[](j)->operator[](0)->calcBinarySize();
         long unsigned int currPos = ifs_.tellg();
         ifs_.seekg(currPos+(featuresize_-local-B_FILENAMESIZE));
       }
@@ -187,13 +189,13 @@ void LargeBinaryFeatureFile::writeNext(ImageContainer *img, uint j){
     ofs_.write(filen.c_str(),sizeof(char[filenamesize_]));
     // write the feature
     DBG(105) << "write Data for file: " << img->basename() << endl;
-    img->operator[](j)->writeBinary(ofs_);
+    img->operator[](j)->operator[](0)->writeBinary(ofs_);
     
     // padd the feature by zeros if the feauters of this type differ in size
     long unsigned int localSize = 0;
     bool fill = false;
     if(differ_){
-      localSize = img->operator[](j)->calcBinarySize();
+      localSize = img->operator[](j)->operator[](0)->calcBinarySize();
       for(long unsigned int i=0;i<(featuresize_-localSize-B_FILENAMESIZE);i++){
 	ofs_.write((char*)&fill,sizeof(bool));
       }

@@ -1,0 +1,1 @@
+build_kdtree_structure bucket_size 10 binary 0 train_B_J.50.vec train_B_J.50.kdt

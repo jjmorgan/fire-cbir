@@ -40,6 +40,7 @@ void GlobalLocalFeatureDistance::start(const BaseFeature *queryFeature) {
     hits.clear();
     hitcounter=0;
     float *point=new float[query->dim()];
+    DBG(25) << "Number of features: " << query->numberOfFeatures() << endl;
     for(uint i=0;i<query->numberOfFeatures();++i) {
       for(uint j=0;j<query->dim();++j) {
         point[j]=(*query)[i][j];

@@ -71,7 +71,7 @@ $(BINDIR)/extractanimfeatures: $(OBJDIR)/FeatureExtractors/extractanimfeatures.o
 $(BINDIR)/lftolfsignature: $(OBJDIR)/FeatureExtractors/lftolfsignature.o $(FIRELIBS)
 
 # Features -------------------------------------------------------
-LIBFEATURES_SOURCES = Features/basefeature.cpp Features/histogramfeature.cpp Features/imagefeature.cpp Features/lfsignaturefeature.cpp Features/localfeatures.cpp Features/mpeg7feature.cpp Features/sparsehistogramfeature.cpp Features/vectorfeature.cpp Features/lfposclusteridfeature.cpp Features/imagecontainer.cpp
+LIBFEATURES_SOURCES = Features/basefeature.cpp Features/histogramfeature.cpp Features/imagefeature.cpp Features/lfsignaturefeature.cpp Features/localfeatures.cpp Features/mpeg7feature.cpp Features/sparsehistogramfeature.cpp Features/vectorfeature.cpp Features/lfposclusteridfeature.cpp Features/imagecontainer.cpp Features/featureset.cpp
 LIBFEATURES_OBJECTS := $(patsubst %.o,$(OBJDIR)/%.o,$(LIBFEATURES_SOURCES:.cpp=.o))
 $(LIBDIR)/libFeatures.a: $(LIBFEATURES_OBJECTS)
 
@@ -125,7 +125,13 @@ $(BINDIR)/testsparsehistogramfeature: $(OBJDIR)/Misc/testsparsehistogramfeature.
 $(BINDIR)/vis-rast-matching: $(OBJDIR)/Misc/vis-rast-matching.o $(FIRELIBS)
 $(BINDIR)/visualizelocalfeatures: $(OBJDIR)/Misc/visualizelocalfeatures.o $(FIRELIBS)
 
-all: $(BINDIR) $(OBJDIR) $(LIBDIR) $(RETRIEVER_PROGRAMS) $(FEATEX_PROGRAMS) $(CLASSIFIERS_PROGRAMS) $(CLUSTERING_PROGRAMS) $(TEXTIR_PROGRAMS) $(MISC_PROGRAMS) $(TOOLS_PROGRAMS)
+# Classifiers ---------------------------------------------------------
+CLASSIFIERS_SOURCES = Classifiers/createlfkdtree.cpp
+CLASSIFIERS_OBJECTS := $(patsubst %.o,$(OBJDIR)/%.o,$(CLASSIFIERS_SOURCES:.cpp=.o))
+CLASSIFIERS_PROGRAMS := $(patsubst Classifiers/%.o,$(BINDIR)/%,$(CLASSIFIERS_SOURCES:.cpp=.o))
+$(BINDIR)/createlfkdtree: $(OBJDIR)/Classifiers/createlfkdtree.o $(FIRELIBS)
+
+all: $(BINDIR) $(OBJDIR) $(LIBDIR) $(RETRIEVER_PROGRAMS) $(FEATEX_PROGRAMS) $(CLUSTERING_PROGRAMS) $(TEXTIR_PROGRAMS) $(MISC_PROGRAMS) $(CLASSIFIERS_PROGRAMS) $(TOOLS_PROGRAMS)
 
 info:
 	@echo $(FEATEX_PROGRAMS)

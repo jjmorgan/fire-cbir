@@ -22,6 +22,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #include <vector>
 #include "diag.hpp"
 #include "basefeature.hpp"
+#include "featureset.hpp"
 
 typedef ::std::set< ::std::string > DescriptionSet;
 
@@ -45,8 +46,11 @@ private:
   /// the filename of the image to which we store information
   ::std::string basename_;
 
+  /// container that stores sets for unique features
+  ::std::vector<FeatureSet*> feature_sets_;
+  
   /// this is the container storing all the features to the image
-  ::std::vector<BaseFeature*> features_;
+  //::std::vector<BaseFeature*> features_;
   
   /// what class is this image
   uint class_;
@@ -65,7 +69,7 @@ public:
   ImageContainer(const ::std::string& filename, uint numberOfFeatures=0);
   
   /// a copy constructor doing a deep copy if the features
-  ImageContainer(const ImageContainer& src);
+  //ImageContainer(const ImageContainer& src);
 
 
   /// Time to die!
@@ -87,13 +91,13 @@ public:
   DescriptionSet& description();
 
   /// return, how many features can be stored for this image
-  const uint numberOfFeatures() {return features_.size();}
+  const uint numberOfFeatureSets() {return feature_sets_.size();}
   
-  /// return the idx-th feature
-  BaseFeature*& operator[](uint idx);
+  /// return the idx-th feature set
+  FeatureSet*& operator[](uint idx);
 
-  /// return the idx-th feature
-  const BaseFeature* operator[](uint idx) const;
+  /// return the idx-th feature set
+  const FeatureSet* operator[](uint idx) const;
   
   /// returns itself as a vector
   ::std::vector<double> asVector();

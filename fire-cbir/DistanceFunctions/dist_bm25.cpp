@@ -95,7 +95,7 @@ void BM25Distance::initialize(Database &db, uint distanceIndex) {
 
 		//get correct Featuremap
 		const SparseHistogramFeature * shf=
-				dynamic_cast<const SparseHistogramFeature*>((*ic)[distanceIndex]);
+				dynamic_cast<const SparseHistogramFeature*>((*ic)[distanceIndex]->operator[](0));
 		avgDL_+=shf->length();
 	}
 	avgDL_/=dataBaseSize_;

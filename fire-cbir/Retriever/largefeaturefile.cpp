@@ -68,7 +68,9 @@ void LargeFeatureFile::readNext(ImageContainer *img, uint j) {
         ERR << "Reading feature for file '" << img->basename() << "' failed." << endl;
         exit(20);
       }
-      img->operator[](j)=feat;
+      //TODO: Works on first frame only
+      
+      img->operator[](j)->operator[](0)=feat;
     }
   } else {
     ERR << "File not in reading mode" << endl;
@@ -104,7 +106,7 @@ LargeFeatureFile::LargeFeatureFile(::std::string filename, ::std::string suffix,
 void LargeFeatureFile::writeNext(ImageContainer *img, uint j) {
   if(writing_) {
     ofs_ << "filename " << img->basename() << endl;
-    img->operator[](j)->write(ofs_);
+    img->operator[](j)->operator[](0)->write(ofs_);
   } else {
     ERR << "File not in writing mode" << endl;
   }

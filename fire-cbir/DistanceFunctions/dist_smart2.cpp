@@ -90,7 +90,7 @@ void SMART2Distance::initialize(Database &db,uint distanceIndex){
     //get ImageContainer
     ImageContainer * ic=db[i];
     //get correct Featuremap
-    const SparseHistogramFeature * shf=dynamic_cast<const SparseHistogramFeature*>((*ic)[distanceIndex]);
+    const SparseHistogramFeature * shf=dynamic_cast<const SparseHistogramFeature*>((*ic)[distanceIndex]->operator[](0));
     MapTypeDouble documentMap=shf->getMap(); 
     //compute collectionfrequencies, mean TF, singletons and pivot
     tfsin container;

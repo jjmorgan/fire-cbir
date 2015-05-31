@@ -45,14 +45,15 @@ ImageComparator::~ImageComparator() {
 }
 
 void ImageComparator::start(const ImageContainer *query) {
+  //TODO: Start only on first frame... does this work for every distance function?
   for(uint i=0;i<distances_.size();++i) {
-    distances_[i]->start((*query)[i]);
+    distances_[i]->start((*query)[i]->operator[](0));
   }
 }
 
 void ImageComparator::start(const ImageContainer *query, uint distanceID) {
   if (distanceID < distances_.size()) {
-    distances_[distanceID]->start((*query)[distanceID]);
+    distances_[distanceID]->start((*query)[distanceID]->operator[](0));
   }
 }
 
@@ -71,13 +72,46 @@ double ImageComparator::compare(const ImageContainer *queryImage, const ImageCon
   
   DBG(35) << "Comparing " << queryImage->basename() << " with " << databaseImage->basename() << " with regard to distance "<< distances_[distanceID]->name() <<endl;
   
-  double d,result;
+  double cache_d,result;
 #ifdef HAVE_SQLITE3
-  if(cacheActive_ and getFromCache(databaseImage->basename(), queryImage->basename(), distances_[distanceID]->name(),d)) {
-    result=d;
+  if(cacheActive_ and getFromCache(databaseImage->basename(), queryImage->basename(), distances_[distanceID]->name(),cache_d)) {
+    result=cache_d;
   } else {
 #endif
-    result = distances_[distanceID]->distance((*queryImage)[distanceID],(*databaseImage)[distanceID]);
+    //result = distances_[distanceID]->distance((*queryImage)[distanceID],(*databaseImage)[distanceID]);
+    
+    const uint Q = (*queryImage)[distanceID]->feature_count();
+    const uint D = (*databaseImage)[distanceID]->feature_count();
+    double score_Q = 0., score_D = 0.;
+    double scores_per_query_frame[D][Q];
+    memset(scores_per_query_frame, 0, sizeof(scores_per_query_frame));
+    
+    // match all query image frames with database image frames
+    for (uint q = 0; q < Q; ++q) {
+      double score_min = 0.;
+      bool set = false;
+      for (uint d = 0; d < D; ++d) {
+        double score = distances_[distanceID]->distance((*queryImage)[distanceID]->operator[](q),(*databaseImage)[distanceID]->operator[](d));
+        scores_per_query_frame[d][q] = score;
+        if (score < score_min || d == 0)
+          score_min = score;
+      }
+      score_Q += score_min;
+    }
+
+    // match all database image frames with query image frames
+    for (uint d = 0; d < D; ++d) {
+      double score_min = 0.;
+      for (uint q = 0; q < Q; ++q) {
+        double score = scores_per_query_frame[d][q];
+        if (score < score_min || q == 0)
+          score_min = score;
+      }
+      score_D += score_min;
+    }
+    DBG(25) << "Q = " << queryImage->basename() << " ScoreQ " << score_Q / Q << " D = " << databaseImage->basename() << " ScoreD " << score_D / D << endl;
+    result = (score_Q / Q + score_D / D) / 2.;
+    
 #ifdef HAVE_SQLITE3
     if(cacheActive_) { setInCache(databaseImage->basename(), queryImage->basename(), distances_[distanceID]->name(),result); }
   }
@@ -233,11 +267,12 @@ bool ImageComparator::setInCache(const std::string& dbimg, const std::string &qi
 }
 
 void ImageComparator::tuneDistances(const vector<ImageContainer*>& posQueries, const vector<ImageContainer*>& negQueries) {
+  //TODO: Distance tuning only adjusts on the first frame. This may not be correct...
   DBG(10) << "Tuning distances" << endl;  
   for(uint i=0;i<distances_.size();++i) {
     vector<const BaseFeature*> posFeat(posQueries.size()), negFeat(negQueries.size());
-    for(uint n=0;n<posQueries.size();++n) {posFeat[n]=(*posQueries[n])[i];}
-    for(uint n=0;n<negQueries.size();++n) {negFeat[n]=(*negQueries[n])[i];}    
+    for(uint n=0;n<posQueries.size();++n) {posFeat[n]=(*posQueries[n]->operator[](0))[i];}
+    for(uint n=0;n<negQueries.size();++n) {negFeat[n]=(*negQueries[n]->operator[](0))[i];}    
     distances_[i]->tune(posFeat,negFeat);
   }
 }

@@ -1,0 +1,2 @@
+test_knn_kdtree binary 0 ../3_build_kdtree_structure/train_B_J.50.kdt ../3_build_kdtree_structure/train_B_J.50.vec > res_kk
+

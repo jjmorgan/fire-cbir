@@ -22,8 +22,11 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 #include "gzstream.hpp"
 #include "diag.hpp"
 #include "imagefeature.hpp"
+#include "tamurafeature.hpp"
 #include "histogramfeature.hpp"
 #include "imagelib.hpp"
+#include "basedistance.hpp"
+#include "dist_jsd.hpp"
 
 #ifdef HAVE_IMAGE_MAGICK
 #include "Magick++.h"
@@ -47,32 +50,28 @@ void USAGE() {
        << "    -s, --suffix    suffix of output files" << endl
        << "    --steps         how many steps per dimension, default: 8/color 256/gray." << endl
 	     << "    -d, --distance  minimum distance (color histogram) between key frames" << endl
-       << "    --color         extract color histograms only" << endl
+       << "    --all           extract all features" << endl
+       << "    --color         extract color histograms" << endl
+       << "    --tamura        extract tamura texture features" << endl
+       << "    --colordelta    minimum jsd for identifying key frames using color histogram" << endl
+       << "    --tamuradelta   minimum jsd for identifying key frames using tamura texture features" << endl
        << endl;
 }
 
-void process_file(string filename, string suffix) {
-#ifdef HAVE_IMAGE_MAGICK
-  /// convert the image to the data structure used by image
-  /// magick. This is needed for saving and displaying of images.
+int extract_color_histograms(string filename, vector<Image> frames, double delta) {
   
-  vector<Image> frames_in;
-  vector<Image> frames;
-  try {
-    readImages(&frames_in, filename);
-    frames = frames_in;
-	  coalesceImages(&frames, frames_in.begin(), frames_in.end());
-  } catch( ... ) {
-    ERR << "Exception loading image: " << filename << endl;
-    return;
-  }
+  string suffix = "color.histo.gz";
+  
+  // compare histograms using jsd distance
+  JSDDistance jsd = JSDDistance();
+  HistogramFeature lastKeyFrameHist;
+  
+  int extract_count = 0;
   
   for (uint i = 0; i < frames.size(); i++) {
     ImageFeature im;
     im.load(filename, frames[i]);
-    
-    // for now extract color histograms for every frame to separate files
-  
+
     HistogramFeature result(vector<uint>(3,8));
     result.min()=vector<double>(3,0.0);
     result.max()=vector<double>(3,1.0);
@@ -89,29 +88,102 @@ void process_file(string filename, string suffix) {
       }
     }
     
-    ostringstream outfilename;
-    if (i == 0)
-      outfilename << filename << "." << suffix;
-    else
-      outfilename << filename << "." << i << "." << suffix;
-    result.save(outfilename.str());
-  }
+    bool extract = false;
+    if (i == 0) {
+      // set first key frame
+      lastKeyFrameHist = result;
+      extract = true;
+    }
+    else {
+      double score = jsd.distance(&result, &lastKeyFrameHist);
+      if (score > delta) {
+        // set new key frame
+        lastKeyFrameHist = result;
+        extract = true;
+      }
+    }
+    
+    if (extract) {
+      ostringstream outfilename;
+      if (i == 0)
+        outfilename << filename << "." << suffix;
+      else
+        outfilename << filename << "." << extract_count + 1 << "." << suffix;
+      result.save(outfilename.str());
+      
+      ostringstream outtemp;
+      outtemp << filename << "." << i << ".jpg";
+      frames[i].write(outtemp.str());
+      
+      extract_count++;
+    }
 
-  DBG(20) << "Extracted features for " << frames.size() << " frames from '" << filename << "'." << endl;
+  }
   
-#else
-#warning "Cannot extract animation features without ImageMagick"
-#endif 
+  return extract_count;
+}
+
+int extract_tamura_features(string filename, vector<Image> frames, double delta) {
+  
+  string suffix = "tamura.histo.gz";
+  
+  // compare histograms using jsd distance
+  JSDDistance jsd = JSDDistance();
+  HistogramFeature lastKeyFrameHist;
+  
+  int extract_count = 0;
+  
+  for (uint i = 0; i < frames.size(); i++) {
+    ImageFeature im, tamuraImage;
+    im.load(filename, frames[i]);
+    tamuraImage = calculate(im);
+    normalize(tamuraImage);
+    
+    HistogramFeature result = histogramize(tamuraImage);
+    
+    bool extract = false;
+    if (i == 0) {
+      // set first key frame
+      lastKeyFrameHist = result;
+      extract = true;
+    }
+    else {
+      double score = jsd.distance(&result, &lastKeyFrameHist);
+      DBG(20) << "Score: " << score << endl;
+      if (score > delta) {
+        // set new key frame
+        lastKeyFrameHist = result;
+        extract = true;
+      }
+    }
+    
+    if (extract) {
+      ostringstream outfilename;
+      if (i == 0)
+        outfilename << filename << "." << suffix;
+      else
+        outfilename << filename << "." << extract_count + 1 << "." << suffix;
+      result.save(outfilename.str());
+      
+      ostringstream outtemp;
+      outtemp << filename << "." << i << ".jpg";
+      frames[i].write(outtemp.str());
+      
+      extract_count++;
+    }
+  }
+  
+  return extract_count;
 }
 
 int main(int argc, char** argv) {
+#ifdef HAVE_IMAGE_MAGICK
 	GetPot cl(argc,argv);
   //command line parsing
   if(cl.search(2,"--help","-h")) USAGE();
   if(cl.size()<2) USAGE();
 
-  string suffix;
-  suffix=cl.follow("color.histo.gz","--suffix");
+  //string suffix=cl.follow("color.histo.gz","--suffix");
   uint steps=cl.follow(8,"--steps");
 
   //get list of files to be processed
@@ -141,12 +213,42 @@ int main(int argc, char** argv) {
     USAGE();
     exit(20);
   }
+
+  bool all = cl.search(2,"--all","-a");
+  bool color = cl.search(2,"--color","-c");
+  bool tamura = cl.search(2,"--tamura","-t");
+  
+  double color_delta=cl.follow(0.2,"--colordelta");
+  double tamura_delta=cl.follow(0.7,"--tamuradelta");
   
   // process files
   for (uint i = 0; i < infiles.size(); i++) {
     DBG(10) << "Processing '" << infiles[i] << "' (" << i+1<< "/" << infiles.size() << ")." << endl;
-    process_file(infiles[i], suffix);
+    
+    vector<Image> frames_in;
+    vector<Image> frames;
+    try {
+      readImages(&frames_in, infiles[i]);
+      frames = frames_in;
+      coalesceImages(&frames, frames_in.begin(), frames_in.end());
+    } catch( ... ) {
+      ERR << "Exception loading image: " << infiles[i] << endl;
+    }
+    
+    if (all || color) {
+      int count = extract_color_histograms(infiles[i], frames, color_delta);
+      DBG(20) << "Extracted color histograms for " << count << " / " << frames.size() << " frames from '" << infiles[i] << "'." << endl;
+    }
+
+    if (all || tamura) {
+      int count = extract_tamura_features(infiles[i], frames, tamura_delta);
+      DBG(20) << "Extracted Tamura texture features for " << count << " / " << frames.size() << " frames from '" << infiles[i] << "'." << endl;
+    }
+
   }
   
   DBG(10) << "cmdline was: "; printCmdline(argc,argv);
+#else
+#warning "Cannot extract animation features without ImageMagick"
+#endif 
 }

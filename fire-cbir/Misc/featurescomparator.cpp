@@ -75,12 +75,14 @@ int main(int argc, char **argv) {
   DistanceMaker distanceMaker;
   distance = distanceMaker.makeDistance(distanceName);
   
+  //TODO: Example only works on still images
+  
   // iterating over all pictures and displaying the distances
   for(uint i=0;i<db.size();++i) {
     cout << "picture no " << i << endl;
     for(uint j=0;j<db.numberOfSuffices();++j) {
       for(uint k=j+1;k<db.numberOfSuffices();++k) {
-        dist=distance->distance(db[i]->operator[](j),db[i]->operator[](k));
+        dist=distance->distance(db[i]->operator[](j)->operator[](0),db[i]->operator[](k)->operator[](0));
         cout << "comparing feature " << j << " to feature " << k << " with result: " << dist << endl;        
       }
     }

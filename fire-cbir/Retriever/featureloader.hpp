@@ -20,8 +20,10 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
 
 #include <map>
 #include <string>
+#include <sys/stat.h>
 #include "diag.hpp"
 #include "basefeature.hpp"
+#include "featureset.hpp"
 #include "factory.hpp"
 
 class FeatureLoader {
@@ -37,7 +39,7 @@ public:
   
   FeatureType suffix2Type(const ::std::string& suffix) const;
 
-
+  FeatureSet* load_set(const ::std::string& basename, const ::std::string&suffix, const ::std::string &lastSuffix, const ::std::string &path);
 };
 
 

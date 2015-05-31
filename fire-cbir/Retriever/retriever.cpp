@@ -477,8 +477,8 @@ void Retriever::retrieve(const vector<ImageContainer*>& posQueries, const vector
       vector<double> activeScores(N, 0.0);
 
       DBG(10) << "Positive query: " << posQueries[q]->basename() << endl;
-      if (imageComparator_.size() != posQueries[q]->numberOfFeatures()) {
-        ERR << "ImageComparator has different number of distances (" << imageComparator_.size() << ") than positive query " << q << " (" << posQueries[q]->numberOfFeatures() << ")." << endl;
+      if (imageComparator_.size() != posQueries[q]->numberOfFeatureSets()) {
+        ERR << "ImageComparator has different number of distances (" << imageComparator_.size() << ") than positive query " << q << " (" << posQueries[q]->numberOfFeatureSets() << ")." << endl;
       }
       for (uint i=0; i<filter_.size(); ++i) {
         DBG(20) << "Filtering " << i+1 << "/" << filter_.size()<< ":  " <<filter_[i].first << ":" << filter_[i].second << endl;
@@ -524,8 +524,8 @@ void Retriever::retrieve(const vector<ImageContainer*>& posQueries, const vector
       vector<double> activeScores(N, 0.0);
 
       DBG(10) << "Negative query: " << negQueries[q]->basename() << endl;
-      if (imageComparator_.size() != negQueries[q]->numberOfFeatures()) {
-        ERR << "ImageComparator has different number of distances (" << imageComparator_.size() << ") than negative query " << q << " (" << negQueries[q]->numberOfFeatures() << ")." << endl;
+      if (imageComparator_.size() != negQueries[q]->numberOfFeatureSets()) {
+        ERR << "ImageComparator has different number of distances (" << imageComparator_.size() << ") than negative query " << q << " (" << negQueries[q]->numberOfFeatureSets() << ")." << endl;
       }
       for (uint i=0; i<filter_.size(); ++i) {
         // first check whether or not feature information has to be loaded into
@@ -701,15 +701,15 @@ vector<ResultPair> Retriever::metaretrieve(const string& query) {
   DBG(10) << dbgstr << endl;
 
   // This is a virtual image that only has a meta feature
-  imgcon[metafeatureidx] = new MetaFeature(val);
+  imgcon[metafeatureidx]->add_feature(new MetaFeature(val));
 
   vector<double> distsToImages(N);
   vector<double> imgDists;
 
   // get distance to each of the database images
   for (uint i=0; i<N; ++i) {
-    BaseFeature *dbmf= database_[i]->operator[](metafeatureidx);
-    distsToImages[i]=metadist.distance(imgcon[metafeatureidx], dbmf);
+    BaseFeature *dbmf= database_[i]->operator[](metafeatureidx)->operator[](0);
+    distsToImages[i]=metadist.distance(imgcon[metafeatureidx]->operator[](0), dbmf);
   }
 
   // normalize
@@ -848,7 +848,7 @@ vector<ResultPair> Retriever::textretrieve(const string& query) {
 
     // Make an empty image
     ImageContainer imgcon("temporary query object", M);
-    imgcon[textfeatureidx] = new TextFeature();
+    imgcon[textfeatureidx]->add_feature(new TextFeature());
 
     vector<double> distsToImages(N);
 
@@ -861,8 +861,8 @@ vector<ResultPair> Retriever::textretrieve(const string& query) {
     double maxdist_emp = 0.0;
 
     for (uint i=0; i<N; ++i) {
-      dbmf = database_[i]->operator[](textfeatureidx);
-      distsToImages[i]=textdist->distance(imgcon[textfeatureidx], dbmf);
+      dbmf = database_[i]->operator[](textfeatureidx)->operator[](0);
+      distsToImages[i]=textdist->distance(imgcon[textfeatureidx]->operator[](0), dbmf);
       if (maxdist_emp<distsToImages[i]) {
         maxdist_emp=distsToImages[i];
       }
@@ -927,7 +927,7 @@ vector<ResultPair> Retriever::textretrieve(const string& query) {
     DBG(10) << "Making empty image" << endl;
     ImageContainer imgcon("temporary query object", M);
     for (tdii=querytextdistindices.begin(); tdii!=querytextdistindices.end(); ++tdii) {
-      imgcon[tdii->second] = new TextFeature();
+      imgcon[tdii->second]->add_feature(new TextFeature());
     }
 
     // get distance to each of the database images
@@ -940,8 +940,8 @@ vector<ResultPair> Retriever::textretrieve(const string& query) {
 
       distsToImages[tdlang].resize(N, 0.0);
       for (uint i=0; i<N; ++i) {
-        dbmf = database_[i]->operator[](tdidx);
-        distsToImages[tdlang][i]=querytextdists[tdlang]->distance(imgcon[tdidx], dbmf);
+        dbmf = database_[i]->operator[](tdidx)->operator[](0);
+        distsToImages[tdlang][i]=querytextdists[tdlang]->distance(imgcon[tdidx]->operator[](0), dbmf);
       }
     }
 

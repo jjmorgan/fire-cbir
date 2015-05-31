@@ -72,10 +72,10 @@ private:
   /// the path to the type2bin file
   ::std::string t2bpath_;
 
-  ///  a method that compares whether the two given features are
+  ///  a method that compares whether the two given feature sets are
   ///  consistent. returns true if they are, false otherwise. But true
   ///  is only a "probably true"
-  bool checkConsistency(const BaseFeature *ref, const BaseFeature *test) const;
+  bool checkConsistency(const FeatureSet *ref, const FeatureSet *test) const;
   
 public:
 

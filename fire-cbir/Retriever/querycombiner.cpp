@@ -25,8 +25,8 @@ void ScoreSumQueryCombiner::query(const vector<ImageContainer*> posQueries, cons
   for (long q=0; q<long(posQueries.size()); ++q) {
     BLINK(10) << "+";
     DBG(15) << "Positive query: " << posQueries[q]->basename() << endl;
-    if (retriever_.imageComparator().size() != posQueries[q]->numberOfFeatures()) {
-      ERR << "ImageComparator has different number of distances (" << retriever_.imageComparator().size() << ") than positive query " << q << " (" << posQueries[q]->numberOfFeatures() << ")." << endl;
+    if (retriever_.imageComparator().size() != posQueries[q]->numberOfFeatureSets()) {
+      ERR << "ImageComparator has different number of distances (" << retriever_.imageComparator().size() << ") than positive query " << q << " (" << posQueries[q]->numberOfFeatureSets() << ")." << endl;
     }
 
     retriever_.imageComparator().start(posQueries[q]);
@@ -41,8 +41,8 @@ void ScoreSumQueryCombiner::query(const vector<ImageContainer*> posQueries, cons
     BLINK(10) << "-";
     DBG(15) << "Negative query: " << negQueries[q]->basename() << endl;
 
-    if (retriever_.imageComparator().size() != negQueries[q]->numberOfFeatures()) {
-      ERR << "ImageComparator has different number of distances (" << retriever_.imageComparator().size() << ") than negative query " << q << " (" << negQueries[q]->numberOfFeatures() << ")." << endl;
+    if (retriever_.imageComparator().size() != negQueries[q]->numberOfFeatureSets()) {
+      ERR << "ImageComparator has different number of distances (" << retriever_.imageComparator().size() << ") than negative query " << q << " (" << negQueries[q]->numberOfFeatureSets() << ")." << endl;
     }
 
     retriever_.imageComparator().start(negQueries[q]);
@@ -80,8 +80,8 @@ void NNQuotientQueryCombiner::query(const vector<ImageContainer*> posQueries, co
   // first get scores for all positive queries
   for (long q=0; q<long(posQueries.size()); ++q) {
     DBG(15) << "Positive query: " << posQueries[q]->basename() << endl;
-    if (retriever_.imageComparator().size() != posQueries[q]->numberOfFeatures()) {
-      ERR << "ImageComparator has different number of distances (" << retriever_.imageComparator().size() << ") than positive query " << q << " (" << posQueries[q]->numberOfFeatures() << ")." << endl;
+    if (retriever_.imageComparator().size() != posQueries[q]->numberOfFeatureSets()) {
+      ERR << "ImageComparator has different number of distances (" << retriever_.imageComparator().size() << ") than positive query " << q << " (" << posQueries[q]->numberOfFeatureSets() << ")." << endl;
     }
 
     retriever_.imageComparator().start(posQueries[q]);
@@ -101,8 +101,8 @@ void NNQuotientQueryCombiner::query(const vector<ImageContainer*> posQueries, co
   for (long q=0; q<long(negQueries.size()); ++q) {
     BLINK(10) << "-";
     DBG(15) << "Negative query: " << negQueries[q]->basename() << endl;
-    if (retriever_.imageComparator().size() != negQueries[q]->numberOfFeatures()) {
-      ERR << "ImageComparator has different number of distances (" << retriever_.imageComparator().size() << ") than negative query " << q << " (" << negQueries[q]->numberOfFeatures() << ")." << endl;
+    if (retriever_.imageComparator().size() != negQueries[q]->numberOfFeatureSets()) {
+      ERR << "ImageComparator has different number of distances (" << retriever_.imageComparator().size() << ") than negative query " << q << " (" << negQueries[q]->numberOfFeatureSets() << ")." << endl;
     }
 
     retriever_.imageComparator().start(negQueries[q]);
@@ -191,8 +191,8 @@ void SumQuotientQueryCombiner::query(const vector<ImageContainer*> posQueries, c
     DBG(15) << "Positive query: " << posQueries[q]->basename() << endl;
     BLINK(10) << "+";
 
-    if (retriever_.imageComparator().size() != posQueries[q]->numberOfFeatures()) {
-      ERR << "ImageComparator has different number of distances (" << retriever_.imageComparator().size() << ") than positive query " << q << " (" << posQueries[q]->numberOfFeatures() << ")." << endl;
+    if (retriever_.imageComparator().size() != posQueries[q]->numberOfFeatureSets()) {
+      ERR << "ImageComparator has different number of distances (" << retriever_.imageComparator().size() << ") than positive query " << q << " (" << posQueries[q]->numberOfFeatureSets() << ")." << endl;
     }
 
     retriever_.imageComparator().start(posQueries[q]);
@@ -209,8 +209,8 @@ void SumQuotientQueryCombiner::query(const vector<ImageContainer*> posQueries, c
   for (long q=0; q<long(negQueries.size()); ++q) {
     DBG(15) << "Negative query: " << negQueries[q]->basename() << endl;
     BLINK(10) << "-";
-    if (retriever_.imageComparator().size() != negQueries[q]->numberOfFeatures()) {
-      ERR << "ImageComparator has different number of distances (" << retriever_.imageComparator().size() << ") than negative query " << q << " (" << negQueries[q]->numberOfFeatures() << ")." << endl;
+    if (retriever_.imageComparator().size() != negQueries[q]->numberOfFeatureSets()) {
+      ERR << "ImageComparator has different number of distances (" << retriever_.imageComparator().size() << ") than negative query " << q << " (" << negQueries[q]->numberOfFeatureSets() << ")." << endl;
     }
 
     retriever_.imageComparator().start(negQueries[q]);
@@ -247,8 +247,8 @@ void RelevanceScoreQueryCombiner::query(const vector<ImageContainer*> posQueries
   for (long q=0; q<long(posQueries.size()); ++q) {
     BLINK(10) << "+";
     DBG(15) << "Positive query: " << posQueries[q]->basename() << endl;
-    if (retriever_.imageComparator().size() != posQueries[q]->numberOfFeatures()) {
-      ERR << "ImageComparator has different number of distances (" << retriever_.imageComparator().size() << ") than positive query " << q << " (" << posQueries[q]->numberOfFeatures() << ")." << endl;
+    if (retriever_.imageComparator().size() != posQueries[q]->numberOfFeatureSets()) {
+      ERR << "ImageComparator has different number of distances (" << retriever_.imageComparator().size() << ") than positive query " << q << " (" << posQueries[q]->numberOfFeatureSets() << ")." << endl;
     }
 
     retriever_.imageComparator().start(posQueries[q]);
@@ -268,8 +268,8 @@ void RelevanceScoreQueryCombiner::query(const vector<ImageContainer*> posQueries
   for (long q=0; q<long(negQueries.size()); ++q) {
     DBG(15) << "Negative query: " << negQueries[q]->basename() << endl;
     BLINK(10) << "-";
-    if (retriever_.imageComparator().size() != negQueries[q]->numberOfFeatures()) {
-      ERR << "ImageComparator has different number of distances (" << retriever_.imageComparator().size() << ") than negative query " << q << " (" << negQueries[q]->numberOfFeatures() << ")." << endl;
+    if (retriever_.imageComparator().size() != negQueries[q]->numberOfFeatureSets()) {
+      ERR << "ImageComparator has different number of distances (" << retriever_.imageComparator().size() << ") than negative query " << q << " (" << negQueries[q]->numberOfFeatureSets() << ")." << endl;
     }
 
     retriever_.imageComparator().start(negQueries[q]);
@@ -322,8 +322,8 @@ void DistSumQuotientQueryCombiner::query(const vector<ImageContainer*> posQuerie
   for (long q=0; q<long(posQueries.size()); ++q) {
     DBG(15) << "Positive query: " << posQueries[q]->basename() << endl;
     BLINK(10) << "+";
-    if (retriever_.imageComparator().size() != posQueries[q]->numberOfFeatures()) {
-      ERR << "ImageComparator has different number of distances (" << retriever_.imageComparator().size() << ") than positive query " << q << " (" << posQueries[q]->numberOfFeatures() << ")." << endl;
+    if (retriever_.imageComparator().size() != posQueries[q]->numberOfFeatureSets()) {
+      ERR << "ImageComparator has different number of distances (" << retriever_.imageComparator().size() << ") than positive query " << q << " (" << posQueries[q]->numberOfFeatureSets() << ")." << endl;
     }
 
     retriever_.imageComparator().start(posQueries[q]);
@@ -340,8 +340,8 @@ void DistSumQuotientQueryCombiner::query(const vector<ImageContainer*> posQuerie
   for (long q=0; q<long(negQueries.size()); ++q) {
     DBG(15) << "Negative query: " << negQueries[q]->basename() << endl;
     BLINK(10) << "-";
-    if (retriever_.imageComparator().size() != negQueries[q]->numberOfFeatures()) {
-      ERR << "ImageComparator has different number of distances (" << retriever_.imageComparator().size() << ") than negative query " << q << " (" << negQueries[q]->numberOfFeatures() << ")." << endl;
+    if (retriever_.imageComparator().size() != negQueries[q]->numberOfFeatureSets()) {
+      ERR << "ImageComparator has different number of distances (" << retriever_.imageComparator().size() << ") than negative query " << q << " (" << negQueries[q]->numberOfFeatureSets() << ")." << endl;
     }
 
     retriever_.imageComparator().start(negQueries[q]);
@@ -991,17 +991,18 @@ void RocchioRelevanceFeedbackQueryCombiner::query(const std::vector<ImageContain
     gamma=1.0/negQ.size();  
   }
 
+  //TODO: Supports only single frame images
   
-  uint M=Q.numberOfFeatures();
+  uint M=Q.numberOfFeatureSets();
   DBG(10) << "Combining queries into one according to Rocchio" << endl;
   for(uint m=0;m<M;++m) {
-    VectorFeature* q=dynamic_cast<VectorFeature*>( Q[m] );
+    VectorFeature* q=dynamic_cast<VectorFeature*>( Q[m]->operator[](0) );
     if(not q) {
       ERR << "Rocchio needs vector features for Q" << endl;
     } else {
       
       for(uint n=0;n<posQ.size();++n) {
-        const VectorFeature* v=dynamic_cast<const VectorFeature*>( (*posQ[n])[m] );
+        const VectorFeature* v=dynamic_cast<const VectorFeature*>( (*posQ[n])[m]->operator[](0) );
         if(not v) {
           ERR << "Rocchio needs vector features for X_p" << endl;
         } else {
@@ -1012,7 +1013,7 @@ void RocchioRelevanceFeedbackQueryCombiner::query(const std::vector<ImageContain
       }
 
       for(uint n=0;n<negQ.size();++n) {
-        const VectorFeature* v=dynamic_cast<const VectorFeature*>( (*negQ[n])[m] );
+        const VectorFeature* v=dynamic_cast<const VectorFeature*>( (*negQ[n])[m]->operator[](0) );
         if(not v) {
           ERR << "Rocchio needs vector features for X_n" << endl;
         } else {
@@ -1158,8 +1159,8 @@ void QueryWeightingQueryCombiner::query(const std::vector<ImageContainer*> posQu
   for (long q=0; q<long(posQueries.size()); ++q) {
     BLINK(10) << "+";
     DBG(15) << "Positive query: " << posQueries[q]->basename() << endl;
-    if (retriever_.imageComparator().size() != posQueries[q]->numberOfFeatures()) {
-      ERR << "ImageComparator has different number of distances (" << retriever_.imageComparator().size() << ") than positive query " << q << " (" << posQueries[q]->numberOfFeatures() << ")." << endl;
+    if (retriever_.imageComparator().size() != posQueries[q]->numberOfFeatureSets()) {
+      ERR << "ImageComparator has different number of distances (" << retriever_.imageComparator().size() << ") than positive query " << q << " (" << posQueries[q]->numberOfFeatureSets() << ")." << endl;
     }
 
     retriever_.imageComparator().start(posQueries[q]);
@@ -1180,8 +1181,8 @@ void QueryWeightingQueryCombiner::query(const std::vector<ImageContainer*> posQu
     BLINK(10) << "-";
     DBG(15) << "Negative query: " << negQueries[q]->basename() << endl;
 
-    if (retriever_.imageComparator().size() != negQueries[q]->numberOfFeatures()) {
-      ERR << "ImageComparator has different number of distances (" << retriever_.imageComparator().size() << ") than negative query " << q << " (" << negQueries[q]->numberOfFeatures() << ")." << endl;
+    if (retriever_.imageComparator().size() != negQueries[q]->numberOfFeatureSets()) {
+      ERR << "ImageComparator has different number of distances (" << retriever_.imageComparator().size() << ") than negative query " << q << " (" << negQueries[q]->numberOfFeatureSets() << ")." << endl;
     }
 
     retriever_.imageComparator().start(negQueries[q]);
